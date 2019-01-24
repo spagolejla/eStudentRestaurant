@@ -29,9 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EmployeesIndexForm));
-            this.LogoutReceptionButton = new System.Windows.Forms.Button();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
             this.SearchEmployeesButton = new System.Windows.Forms.Button();
             this.SearchEmpoyeesInput = new System.Windows.Forms.TextBox();
             this.SearchEmployeesLabel = new System.Windows.Forms.Label();
@@ -51,42 +48,6 @@
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.EmployeesDataGrid)).BeginInit();
             this.SuspendLayout();
-            // 
-            // LogoutReceptionButton
-            // 
-            this.LogoutReceptionButton.FlatAppearance.BorderSize = 0;
-            this.LogoutReceptionButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.LogoutReceptionButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LogoutReceptionButton.ForeColor = System.Drawing.Color.White;
-            this.LogoutReceptionButton.Image = ((System.Drawing.Image)(resources.GetObject("LogoutReceptionButton.Image")));
-            this.LogoutReceptionButton.Location = new System.Drawing.Point(726, 12);
-            this.LogoutReceptionButton.Name = "LogoutReceptionButton";
-            this.LogoutReceptionButton.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.LogoutReceptionButton.Size = new System.Drawing.Size(49, 43);
-            this.LogoutReceptionButton.TabIndex = 23;
-            this.LogoutReceptionButton.UseVisualStyleBackColor = true;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.ForeColor = System.Drawing.Color.White;
-            this.label19.Location = new System.Drawing.Point(609, 18);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(116, 25);
-            this.label19.TabIndex = 22;
-            this.label19.Text = "Lejla Špago";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.ForeColor = System.Drawing.Color.White;
-            this.label18.Location = new System.Drawing.Point(506, 18);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(115, 25);
-            this.label18.TabIndex = 21;
-            this.label18.Text = "Welcome,   ";
             // 
             // SearchEmployeesButton
             // 
@@ -258,12 +219,7 @@
             this.Controls.Add(this.SearchEmployeesButton);
             this.Controls.Add(this.SearchEmpoyeesInput);
             this.Controls.Add(this.SearchEmployeesLabel);
-            this.Controls.Add(this.LogoutReceptionButton);
-            this.Controls.Add(this.label19);
-            this.Controls.Add(this.label18);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "EmployeesIndexForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EmployeesIndexForm";
             this.Load += new System.EventHandler(this.EmployeesIndexForm_Load);
             this.panel1.ResumeLayout(false);
@@ -274,10 +230,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button LogoutReceptionButton;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Button SearchEmployeesButton;
         private System.Windows.Forms.TextBox SearchEmpoyeesInput;
         private System.Windows.Forms.Label SearchEmployeesLabel;

@@ -20,15 +20,13 @@
           <Property Name="ClientID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="JMBG" Type="nvarchar" MaxLength="13" Nullable="false" />
-          <Property Name="BirthDate" Type="datetime" Nullable="false" />
-          <Property Name="Address_" Type="nvarchar" MaxLength="100" />
           <Property Name="Phone" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="CityID" Type="int" />
           <Property Name="Active" Type="bit" Nullable="false" />
           <Property Name="Username" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="PaswordHash" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="PasswordSalt" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="OrganizationName" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Employee">
           <Key>
@@ -533,9 +531,6 @@
           <Property Name="ClientID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="JMBG" Type="String" MaxLength="13" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="BirthDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Address_" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="CityID" Type="Int32" />
           <Property Name="Active" Type="Boolean" Nullable="false" />
@@ -544,6 +539,7 @@
           <Property Name="PasswordSalt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="City" Relationship="Self.FK_City_Client" FromRole="Client" ToRole="City" />
           <NavigationProperty Name="Reservation" Relationship="Self.FK_Client_Reservation" FromRole="Client" ToRole="Reservation" />
+          <Property Name="OrganizationName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Employee">
           <Key>
@@ -1033,10 +1029,10 @@
           <Parameter Name="Username" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="esp_StudentSelectByName" ReturnType="Collection(eStudentRestaurantModel.Student_Result)">
-            <Parameter Name="FirstLastName" Mode="In" Type="String" />
+          <Parameter Name="FirstLastName" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="esp_StudentSelectByUsername" EntitySet="Student" ReturnType="Collection(eStudentRestaurantModel.Student)">
-            <Parameter Name="Username" Mode="In" Type="String" />
+          <Parameter Name="Username" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="esp_StudentUpdate">
             <Parameter Name="StudentID" Mode="In" Type="Int32" />
@@ -1091,12 +1087,10 @@
           <EntitySetMapping Name="Client">
             <EntityTypeMapping TypeName="eStudentRestaurantModel.Client">
               <MappingFragment StoreEntitySet="Client">
+                <ScalarProperty Name="OrganizationName" ColumnName="OrganizationName" />
                 <ScalarProperty Name="ClientID" ColumnName="ClientID" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
                 <ScalarProperty Name="LastName" ColumnName="LastName" />
-                <ScalarProperty Name="JMBG" ColumnName="JMBG" />
-                <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
-                <ScalarProperty Name="Address_" ColumnName="Address_" />
                 <ScalarProperty Name="Phone" ColumnName="Phone" />
                 <ScalarProperty Name="CityID" ColumnName="CityID" />
                 <ScalarProperty Name="Active" ColumnName="Active" />

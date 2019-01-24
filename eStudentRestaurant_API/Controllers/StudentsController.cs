@@ -61,6 +61,22 @@ namespace eStudentRestaurant_API.Controllers
             return Ok(student);
         }
 
+        // Username exist
+        [HttpGet]
+        [ResponseType(typeof(Student))]
+        [Route("api/Students/UsernameExist/{username?}")]
+        public IHttpActionResult UsernameExist(string username)
+        {
+            Student student = db.Student.Where(x => x.Username == username).FirstOrDefault();
+
+            if (student == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(student);
+        }
+
         // PUT: api/Students/5
         [ResponseType(typeof(void))]
         public IHttpActionResult PutStudent(int id, Student student)
@@ -71,7 +87,7 @@ namespace eStudentRestaurant_API.Controllers
             if (id != student.StudentID)
                 return BadRequest();
 
-            db.esp_StudentUpdate(id, student.FirstName, student.LastName, student.JMBG, student.BirthDate,
+            db.esp_StudentUpdate(student.StudentID, student.FirstName, student.LastName, student.JMBG, student.BirthDate,
               student.Address_, student.Phone, student.CityID, student.Active, student.Username, student.PaswordHash, student.PasswordSalt);
 
             return StatusCode(HttpStatusCode.NoContent);

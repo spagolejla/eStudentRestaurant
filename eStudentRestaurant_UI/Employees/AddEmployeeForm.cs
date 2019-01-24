@@ -69,7 +69,7 @@ namespace eStudentRestaurant_UI.Employees
                 newEmployee.Username = UsernameInput.Text;
                 newEmployee.PasswordSalt = UIHelper.GenerateSalt();
                 newEmployee.PaswordHash = UIHelper.GenerateHash(newEmployee.PasswordSalt, PasswordInput.Text);
-
+                newEmployee.Active = true;
 
                 HttpResponseMessage response = employeesServices.PostResponse(newEmployee);
 
@@ -187,7 +187,7 @@ namespace eStudentRestaurant_UI.Employees
 
         private void UsernameInput_Validating(object sender, CancelEventArgs e)
         {
-            HttpResponseMessage res = employeesServices.GetActionResponse("GetByUsername", UsernameInput.Text);
+            HttpResponseMessage res = employeesServices.GetActionResponse("UsernameExist", UsernameInput.Text);
 
             if (String.IsNullOrEmpty(UsernameInput.Text.Trim()))
             {

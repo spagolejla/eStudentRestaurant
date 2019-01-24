@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.MainMenuPanel = new System.Windows.Forms.Panel();
             this.LogoutButton = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.ToClientsButton = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.ToEmployeesButton = new System.Windows.Forms.Button();
@@ -49,7 +49,7 @@
             // 
             this.MainMenuPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(27)))), ((int)(((byte)(51)))));
             this.MainMenuPanel.Controls.Add(this.LogoutButton);
-            this.MainMenuPanel.Controls.Add(this.button3);
+            this.MainMenuPanel.Controls.Add(this.ToClientsButton);
             this.MainMenuPanel.Controls.Add(this.button2);
             this.MainMenuPanel.Controls.Add(this.button1);
             this.MainMenuPanel.Controls.Add(this.ToEmployeesButton);
@@ -79,21 +79,22 @@
             this.LogoutButton.Text = "Logut";
             this.LogoutButton.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // ToClientsButton
             // 
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(1, 422);
-            this.button3.Name = "button3";
-            this.button3.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.button3.Size = new System.Drawing.Size(236, 46);
-            this.button3.TabIndex = 15;
-            this.button3.Text = "             Place reserve";
-            this.button3.UseVisualStyleBackColor = true;
+            this.ToClientsButton.FlatAppearance.BorderSize = 0;
+            this.ToClientsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ToClientsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ToClientsButton.ForeColor = System.Drawing.Color.White;
+            this.ToClientsButton.Image = ((System.Drawing.Image)(resources.GetObject("ToClientsButton.Image")));
+            this.ToClientsButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ToClientsButton.Location = new System.Drawing.Point(1, 422);
+            this.ToClientsButton.Name = "ToClientsButton";
+            this.ToClientsButton.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.ToClientsButton.Size = new System.Drawing.Size(236, 46);
+            this.ToClientsButton.TabIndex = 15;
+            this.ToClientsButton.Text = "     Clients";
+            this.ToClientsButton.UseVisualStyleBackColor = true;
+            this.ToClientsButton.Click += new System.EventHandler(this.ToClientsButton_Click);
             // 
             // button2
             // 
@@ -257,7 +258,7 @@
         private System.Windows.Forms.Button ToStudentButton;
         private System.Windows.Forms.Button ToHomeButton;
         private System.Windows.Forms.Button ToPaymentButton;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button ToClientsButton;
         private System.Windows.Forms.Button LogoutButton;
     }
 }

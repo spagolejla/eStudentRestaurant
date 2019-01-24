@@ -1,4 +1,5 @@
 ﻿using eStudentRestaurant_API.Models;
+using eStudentRestaurant_UI.Main;
 using eStudentRestaurant_UI.Util;
 using System;
 using System.Collections.Generic;
@@ -14,7 +15,7 @@ using System.Windows.Forms;
 
 namespace eStudentRestaurant_UI.Employees
 {
-    public partial class EmployeesIndexForm : Form
+    public partial class EmployeesIndexForm : ChildForm
     {
         private WebAPIHelper employeesServices = new WebAPIHelper(ConfigurationManager.AppSettings["APIAddress"], Global.EmployeesRoutes);
 

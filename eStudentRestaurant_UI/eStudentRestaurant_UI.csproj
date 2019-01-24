@@ -53,6 +53,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clients\ClientsIndexForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clients\ClientsIndexForm.Designer.cs">
+      <DependentUpon>ClientsIndexForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Employees\AddEmployeeForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,6 +89,12 @@
     </Compile>
     <Compile Include="Home\HomeForm.Designer.cs">
       <DependentUpon>HomeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\ChildForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\ChildForm.Designer.cs">
+      <DependentUpon>ChildForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Main\MainForm.cs">
       <SubType>Form</SubType>
@@ -118,6 +130,9 @@
     <Compile Include="Util\ComboItem.cs" />
     <Compile Include="Util\UIHelper.cs" />
     <Compile Include="Util\WebAPIHelper.cs" />
+    <EmbeddedResource Include="Clients\ClientsIndexForm.resx">
+      <DependentUpon>ClientsIndexForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Employees\AddEmployeeForm.resx">
       <DependentUpon>AddEmployeeForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -129,6 +144,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Home\HomeForm.resx">
       <DependentUpon>HomeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\ChildForm.resx">
+      <DependentUpon>ChildForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

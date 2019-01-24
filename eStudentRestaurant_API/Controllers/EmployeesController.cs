@@ -62,6 +62,22 @@ namespace eStudentRestaurant_API.Controllers
             return Ok(employee);
         }
 
+        // Username exist
+        [HttpGet]
+        [ResponseType(typeof(Employee))]
+        [Route("api/Employees/UsernameExist/{username?}")]
+        public IHttpActionResult UsernameExist(string username)
+        {
+            Employee employee = db.Employee.Where(x => x.Username == username).FirstOrDefault();
+
+            if (employee == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(employee);
+        }
+
         // PUT: api/Employees/5
         [ResponseType(typeof(void))]
         public IHttpActionResult PutEmployee(int id, Employee employee)

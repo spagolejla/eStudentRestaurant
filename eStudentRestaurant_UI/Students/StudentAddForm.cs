@@ -138,7 +138,7 @@ namespace eStudentRestaurant_UI.Students
 
         private void UsernameInput_Validating(object sender, CancelEventArgs e)
         {
-            HttpResponseMessage res = studentService.GetActionResponse("GetByUsername", UsernameInput.Text);
+            HttpResponseMessage res = studentService.GetActionResponse("UsernameExist", UsernameInput.Text);
 
             if (String.IsNullOrEmpty(UsernameInput.Text.Trim()))
             {
@@ -242,6 +242,7 @@ namespace eStudentRestaurant_UI.Students
                 newStudent.Username = UsernameInput.Text;
                 newStudent.PasswordSalt = UIHelper.GenerateSalt();
                 newStudent.PaswordHash = UIHelper.GenerateHash(newStudent.PasswordSalt, PasswordInput.Text);
+                newStudent.Active = true;
 
 
                 HttpResponseMessage response = studentService.PostResponse(newStudent);

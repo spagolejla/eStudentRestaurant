@@ -23,15 +23,13 @@ namespace eStudentRestaurant_API.Models
         public int ClientID { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public string JMBG { get; set; }
-        public System.DateTime BirthDate { get; set; }
-        public string Address_ { get; set; }
         public string Phone { get; set; }
         public Nullable<int> CityID { get; set; }
         public bool Active { get; set; }
         public string Username { get; set; }
         public string PaswordHash { get; set; }
         public string PasswordSalt { get; set; }
+        public string OrganizationName { get; set; }
     
         public virtual City City { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

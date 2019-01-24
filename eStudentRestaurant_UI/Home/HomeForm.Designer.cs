@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HomeForm));
             this.panel2 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -53,9 +52,6 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.LogoutReceptionButton = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.ToStudentPanel.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -323,50 +319,11 @@
             this.label17.TabIndex = 17;
             this.label17.Text = "Menus";
             // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.ForeColor = System.Drawing.Color.White;
-            this.label18.Location = new System.Drawing.Point(481, 19);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(115, 25);
-            this.label18.TabIndex = 18;
-            this.label18.Text = "Welcome,   ";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.ForeColor = System.Drawing.Color.White;
-            this.label19.Location = new System.Drawing.Point(584, 19);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(116, 25);
-            this.label19.TabIndex = 19;
-            this.label19.Text = "Lejla Špago";
-            // 
-            // LogoutReceptionButton
-            // 
-            this.LogoutReceptionButton.FlatAppearance.BorderSize = 0;
-            this.LogoutReceptionButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.LogoutReceptionButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LogoutReceptionButton.ForeColor = System.Drawing.Color.White;
-            this.LogoutReceptionButton.Image = ((System.Drawing.Image)(resources.GetObject("LogoutReceptionButton.Image")));
-            this.LogoutReceptionButton.Location = new System.Drawing.Point(701, 13);
-            this.LogoutReceptionButton.Name = "LogoutReceptionButton";
-            this.LogoutReceptionButton.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.LogoutReceptionButton.Size = new System.Drawing.Size(49, 43);
-            this.LogoutReceptionButton.TabIndex = 20;
-            this.LogoutReceptionButton.UseVisualStyleBackColor = true;
-            // 
             // HomeForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(27)))), ((int)(((byte)(51)))));
             this.ClientSize = new System.Drawing.Size(790, 605);
-            this.Controls.Add(this.LogoutReceptionButton);
-            this.Controls.Add(this.label19);
-            this.Controls.Add(this.label18);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel3);
@@ -426,8 +383,5 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Button LogoutReceptionButton;
     }
 }

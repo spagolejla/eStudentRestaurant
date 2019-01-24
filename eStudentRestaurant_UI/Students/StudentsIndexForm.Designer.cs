@@ -44,9 +44,6 @@
             this.SearchStudentsButton = new System.Windows.Forms.Button();
             this.SearchStudentsInput = new System.Windows.Forms.TextBox();
             this.SearchStudentsLabel = new System.Windows.Forms.Label();
-            this.LogoutReceptionButton = new System.Windows.Forms.Button();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.StudentsDataGrid)).BeginInit();
@@ -198,42 +195,6 @@
             this.SearchStudentsLabel.TabIndex = 33;
             this.SearchStudentsLabel.Text = "Search";
             // 
-            // LogoutReceptionButton
-            // 
-            this.LogoutReceptionButton.FlatAppearance.BorderSize = 0;
-            this.LogoutReceptionButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.LogoutReceptionButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LogoutReceptionButton.ForeColor = System.Drawing.Color.White;
-            this.LogoutReceptionButton.Image = ((System.Drawing.Image)(resources.GetObject("LogoutReceptionButton.Image")));
-            this.LogoutReceptionButton.Location = new System.Drawing.Point(715, 25);
-            this.LogoutReceptionButton.Name = "LogoutReceptionButton";
-            this.LogoutReceptionButton.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.LogoutReceptionButton.Size = new System.Drawing.Size(49, 31);
-            this.LogoutReceptionButton.TabIndex = 32;
-            this.LogoutReceptionButton.UseVisualStyleBackColor = true;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.ForeColor = System.Drawing.Color.White;
-            this.label19.Location = new System.Drawing.Point(598, 31);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(116, 25);
-            this.label19.TabIndex = 31;
-            this.label19.Text = "Lejla Špago";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.ForeColor = System.Drawing.Color.White;
-            this.label18.Location = new System.Drawing.Point(495, 31);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(115, 25);
-            this.label18.TabIndex = 30;
-            this.label18.Text = "Welcome,   ";
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -258,9 +219,6 @@
             this.Controls.Add(this.SearchStudentsButton);
             this.Controls.Add(this.SearchStudentsInput);
             this.Controls.Add(this.SearchStudentsLabel);
-            this.Controls.Add(this.LogoutReceptionButton);
-            this.Controls.Add(this.label19);
-            this.Controls.Add(this.label18);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "StudentsIndexForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -281,9 +239,6 @@
         private System.Windows.Forms.Button SearchStudentsButton;
         private System.Windows.Forms.TextBox SearchStudentsInput;
         private System.Windows.Forms.Label SearchStudentsLabel;
-        private System.Windows.Forms.Button LogoutReceptionButton;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView StudentsDataGrid;
         private System.Windows.Forms.DataGridViewTextBoxColumn StudentID;

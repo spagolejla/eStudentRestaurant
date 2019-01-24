@@ -51,7 +51,7 @@ namespace eStudentRestaurant_UI.Students
             UsernameInput.Text = student.Username;
             ActiveCheckBox.Checked = student.Active;
             BirthDatePicker.Value = student.BirthDate;
-            
+
 
         }
 
@@ -82,7 +82,7 @@ namespace eStudentRestaurant_UI.Students
                 CityComboItem.ID = (int)student.CityID;
                 CityComboItem.Text = student.City.Name;
 
-               
+
                 CityComboBox.SelectedIndex = (int)(student.CityID - 1);
 
 
@@ -183,7 +183,7 @@ namespace eStudentRestaurant_UI.Students
 
         private void UsernameInput_Validating(object sender, CancelEventArgs e)
         {
-            HttpResponseMessage res = studentService.GetActionResponse("GetByUsername", UsernameInput.Text);
+            HttpResponseMessage res = studentService.GetActionResponse("UsernameExist", UsernameInput.Text);
 
             if (String.IsNullOrEmpty(UsernameInput.Text.Trim()))
             {
@@ -203,8 +203,17 @@ namespace eStudentRestaurant_UI.Students
 
             else if (res.StatusCode != System.Net.HttpStatusCode.NotFound)
             {
-                e.Cancel = true;
-                errorProvider.SetError(UsernameInput, Messages.username_ex_err);
+                Student std = res.Content.ReadAsAsync<Student>().Result;
+                if (std.StudentID == student.StudentID)
+                {
+                    errorProvider.SetError(UsernameInput, null);
+                }
+                else
+                {
+                    e.Cancel = true;
+                    errorProvider.SetError(UsernameInput, Messages.username_ex_err);
+                }
+
             }
 
             else
@@ -255,7 +264,7 @@ namespace eStudentRestaurant_UI.Students
                 errorProvider.SetError(BirthDatePicker, null);
         }
 
-      
+
 
         private void PhoneInput_Validating(object sender, CancelEventArgs e)
         {
@@ -279,7 +288,7 @@ namespace eStudentRestaurant_UI.Students
                     student.LastName = LastNameInput.Text;
                     student.JMBG = JmbgInput.Text;
                     student.BirthDate = BirthDatePicker.Value;
-        
+
 
                     student.Address_ = AddressInput.Text;
                     student.Phone = PhoneInput.Text;
@@ -288,7 +297,7 @@ namespace eStudentRestaurant_UI.Students
                     if (PasswordInput.Text != String.Empty)
                     {
                         student.PasswordSalt = UIHelper.GenerateSalt();
-                        student.PaswordHash = UIHelper.GenerateHash(PasswordInput.Text, student.PasswordSalt);
+                        student.PaswordHash = UIHelper.GenerateHash(student.PasswordSalt, PasswordInput.Text);
                     }
 
                     student.Active = ActiveCheckBox.Checked;

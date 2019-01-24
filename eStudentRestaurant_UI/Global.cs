@@ -20,6 +20,9 @@ namespace eStudentRestaurant_UI
 
         public const string CitiesRoutes = "api/Cities";
 
+        public const string ClientsRoutes = "api/Clients";
+
+
 
 
 

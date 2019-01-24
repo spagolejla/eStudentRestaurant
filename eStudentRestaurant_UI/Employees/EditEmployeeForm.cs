@@ -109,7 +109,7 @@ namespace eStudentRestaurant_UI.Employees
                     if (PasswordInput.Text != String.Empty)
                     {
                         employee.PasswordSalt = UIHelper.GenerateSalt();
-                        employee.PaswordHash = UIHelper.GenerateHash(PasswordInput.Text, employee.PasswordSalt);
+                        employee.PaswordHash = UIHelper.GenerateHash(employee.PasswordSalt, PasswordInput.Text);
                     }
 
                     employee.Active = ActiveCheckBox.Checked;
@@ -225,7 +225,7 @@ namespace eStudentRestaurant_UI.Employees
 
         private void UsernameInput_Validating(object sender, CancelEventArgs e)
         {
-            HttpResponseMessage res = employeesService.GetActionResponse("GetByUsername", UsernameInput.Text);
+            HttpResponseMessage res = employeesService.GetActionResponse("UsernameExist", UsernameInput.Text);
 
             if (String.IsNullOrEmpty(UsernameInput.Text.Trim()))
             {
@@ -245,8 +245,16 @@ namespace eStudentRestaurant_UI.Employees
 
             else if (res.StatusCode != System.Net.HttpStatusCode.NotFound)
             {
+                Employee emp = res.Content.ReadAsAsync<Employee>().Result;
+                if (emp.EmployeeID == employee.EmployeeID)
+                {
+                    errorProvider.SetError(UsernameInput, null);
+                }
+                else
+                {
                 e.Cancel = true;
                 errorProvider.SetError(UsernameInput, Messages.username_ex_err);
+                }
             }
 
             else

@@ -1,0 +1,1330 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="eStudentRestaurantModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="CityID" />
+          </Key>
+          <Property Name="CityID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="StateID" Type="int" />
+        </EntityType>
+        <EntityType Name="Client">
+          <Key>
+            <PropertyRef Name="ClientID" />
+          </Key>
+          <Property Name="ClientID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="JMBG" Type="nvarchar" MaxLength="13" Nullable="false" />
+          <Property Name="BirthDate" Type="datetime" Nullable="false" />
+          <Property Name="Address_" Type="nvarchar" MaxLength="100" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="CityID" Type="int" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+          <Property Name="Username" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PaswordHash" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PasswordSalt" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="EmployeeID" />
+          </Key>
+          <Property Name="EmployeeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="JMBG" Type="nvarchar" MaxLength="13" Nullable="false" />
+          <Property Name="BirthDate" Type="datetime" Nullable="false" />
+          <Property Name="EmploymentDate" Type="datetime" Nullable="false" />
+          <Property Name="Address_" Type="nvarchar" MaxLength="100" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="CityID" Type="int" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+          <Property Name="Username" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PaswordHash" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PasswordSalt" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Menu">
+          <Key>
+            <PropertyRef Name="MenuID" />
+          </Key>
+          <Property Name="MenuID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name_" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Price" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MenuItem">
+          <Key>
+            <PropertyRef Name="MenuItemID" />
+          </Key>
+          <Property Name="MenuItemID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductID" Type="int" Nullable="false" />
+          <Property Name="MenuID" Type="int" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Order_">
+          <Key>
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <Property Name="OrderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderDate" Type="datetime" Nullable="false" />
+          <Property Name="OrderStatusID" Type="int" Nullable="false" />
+          <Property Name="TotalPrice" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="EmployeeID" Type="int" Nullable="false" />
+          <Property Name="StudentID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OrderItem">
+          <Key>
+            <PropertyRef Name="OrderItemID" />
+          </Key>
+          <Property Name="OrderItemID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderID" Type="int" Nullable="false" />
+          <Property Name="ProductID" Type="int" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OrderMenu">
+          <Key>
+            <PropertyRef Name="OrderMenuID" />
+          </Key>
+          <Property Name="OrderMenuID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MenuID" Type="int" Nullable="false" />
+          <Property Name="OrderID" Type="int" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OrderStatus">
+          <Key>
+            <PropertyRef Name="OrderStatusID" />
+          </Key>
+          <Property Name="OrderStatusID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name_" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name_" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Price" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="QuantityStock" Type="int" Nullable="false" />
+          <Property Name="LastPurchaseDate" Type="datetime" />
+          <Property Name="Picture" Type="varbinary(max)" />
+          <Property Name="PictureThumb" Type="varbinary(max)" />
+          <Property Name="Status" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Rating">
+          <Key>
+            <PropertyRef Name="RatingID" />
+          </Key>
+          <Property Name="RatingID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductID" Type="int" Nullable="false" />
+          <Property Name="StudentID" Type="int" Nullable="false" />
+          <Property Name="Rating" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Reservation">
+          <Key>
+            <PropertyRef Name="ReservationID" />
+          </Key>
+          <Property Name="ReservationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ClinetID" Type="int" Nullable="false" />
+          <Property Name="ReservationTypeID" Type="int" />
+          <Property Name="ReservationDateTime" Type="datetime" Nullable="false" />
+          <Property Name="PlacesNamber" Type="int" Nullable="false" />
+          <Property Name="Note" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="ReservationType">
+          <Key>
+            <PropertyRef Name="ReservationTypeID" />
+          </Key>
+          <Property Name="ReservationTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name_" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="State">
+          <Key>
+            <PropertyRef Name="StateID" />
+          </Key>
+          <Property Name="StateID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="StudentID" />
+          </Key>
+          <Property Name="StudentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="JMBG" Type="nvarchar" MaxLength="13" Nullable="false" />
+          <Property Name="BirthDate" Type="datetime" Nullable="false" />
+          <Property Name="Address_" Type="nvarchar" MaxLength="100" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="CityID" Type="int" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+          <Property Name="Username" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PaswordHash" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PasswordSalt" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_City_Client">
+          <End Role="City" Type="Self.City" Multiplicity="0..1" />
+          <End Role="Client" Type="Self.Client" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="CityID" />
+            </Principal>
+            <Dependent Role="Client">
+              <PropertyRef Name="CityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_City_Employee">
+          <End Role="City" Type="Self.City" Multiplicity="0..1" />
+          <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="CityID" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="CityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_City_Student">
+          <End Role="City" Type="Self.City" Multiplicity="0..1" />
+          <End Role="Student" Type="Self.Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="CityID" />
+            </Principal>
+            <Dependent Role="Student">
+              <PropertyRef Name="CityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Client_Reservation">
+          <End Role="Client" Type="Self.Client" Multiplicity="1" />
+          <End Role="Reservation" Type="Self.Reservation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="ClientID" />
+            </Principal>
+            <Dependent Role="Reservation">
+              <PropertyRef Name="ClinetID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employee_Order">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="Order_" Type="Self.Order_" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="Order_">
+              <PropertyRef Name="EmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Menu_MenuItem">
+          <End Role="Menu" Type="Self.Menu" Multiplicity="1" />
+          <End Role="MenuItem" Type="Self.MenuItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Menu">
+              <PropertyRef Name="MenuID" />
+            </Principal>
+            <Dependent Role="MenuItem">
+              <PropertyRef Name="MenuID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Menu_OrderMenu">
+          <End Role="Menu" Type="Self.Menu" Multiplicity="1" />
+          <End Role="OrderMenu" Type="Self.OrderMenu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Menu">
+              <PropertyRef Name="MenuID" />
+            </Principal>
+            <Dependent Role="OrderMenu">
+              <PropertyRef Name="MenuID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_OrderItem">
+          <End Role="Order_" Type="Self.Order_" Multiplicity="1" />
+          <End Role="OrderItem" Type="Self.OrderItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order_">
+              <PropertyRef Name="OrderID" />
+            </Principal>
+            <Dependent Role="OrderItem">
+              <PropertyRef Name="OrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_OrderMenu">
+          <End Role="Order_" Type="Self.Order_" Multiplicity="1" />
+          <End Role="OrderMenu" Type="Self.OrderMenu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order_">
+              <PropertyRef Name="OrderID" />
+            </Principal>
+            <Dependent Role="OrderMenu">
+              <PropertyRef Name="OrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderStatus_Order">
+          <End Role="OrderStatus" Type="Self.OrderStatus" Multiplicity="1" />
+          <End Role="Order_" Type="Self.Order_" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrderStatus">
+              <PropertyRef Name="OrderStatusID" />
+            </Principal>
+            <Dependent Role="Order_">
+              <PropertyRef Name="OrderStatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_MenuItem">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="MenuItem" Type="Self.MenuItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="MenuItem">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_OrderItem">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="OrderItem" Type="Self.OrderItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="OrderItem">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_Rating">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="Rating" Type="Self.Rating" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="Rating">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReservationType_Reservation">
+          <End Role="ReservationType" Type="Self.ReservationType" Multiplicity="0..1" />
+          <End Role="Reservation" Type="Self.Reservation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ReservationType">
+              <PropertyRef Name="ReservationTypeID" />
+            </Principal>
+            <Dependent Role="Reservation">
+              <PropertyRef Name="ReservationTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_State_City">
+          <End Role="State" Type="Self.State" Multiplicity="0..1" />
+          <End Role="City" Type="Self.City" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="State">
+              <PropertyRef Name="StateID" />
+            </Principal>
+            <Dependent Role="City">
+              <PropertyRef Name="StateID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Student_Order">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Order_" Type="Self.Order_" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="StudentID" />
+            </Principal>
+            <Dependent Role="Order_">
+              <PropertyRef Name="StudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Student_Rating">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Rating" Type="Self.Rating" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="StudentID" />
+            </Principal>
+            <Dependent Role="Rating">
+              <PropertyRef Name="StudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="esp_EmployeeInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="FirstName" Type="nvarchar" Mode="In" />
+          <Parameter Name="LastName" Type="nvarchar" Mode="In" />
+          <Parameter Name="JMBG" Type="nvarchar" Mode="In" />
+          <Parameter Name="BirthDate" Type="datetime" Mode="In" />
+          <Parameter Name="EmploymentDate" Type="datetime" Mode="In" />
+          <Parameter Name="Address" Type="nvarchar" Mode="In" />
+          <Parameter Name="Phone" Type="nvarchar" Mode="In" />
+          <Parameter Name="CityID" Type="int" Mode="In" />
+          <Parameter Name="Username" Type="nvarchar" Mode="In" />
+          <Parameter Name="PasswordHash" Type="nvarchar" Mode="In" />
+          <Parameter Name="PasswordSalt" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="esp_EmployeeSelectByName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="FirstLastName" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="esp_EmployeeUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="EmployeeID" Type="int" Mode="In" />
+          <Parameter Name="FirstName" Type="nvarchar" Mode="In" />
+          <Parameter Name="LastName" Type="nvarchar" Mode="In" />
+          <Parameter Name="JMBG" Type="nvarchar" Mode="In" />
+          <Parameter Name="BirthDate" Type="datetime" Mode="In" />
+          <Parameter Name="EmploymentDate" Type="datetime" Mode="In" />
+          <Parameter Name="Address" Type="nvarchar" Mode="In" />
+          <Parameter Name="Phone" Type="nvarchar" Mode="In" />
+          <Parameter Name="CityID" Type="int" Mode="In" />
+          <Parameter Name="Active" Type="bit" Mode="In" />
+          <Parameter Name="Username" Type="nvarchar" Mode="In" />
+          <Parameter Name="PasswordHash" Type="nvarchar" Mode="In" />
+          <Parameter Name="PasswordSalt" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="esp_EmployeSelectALL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="esp_EmployeSelectByUsername" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Username" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="esp_StudentSelectByName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="FirstLastName" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="esp_StudentSelectByUsername" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Username" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="esp_StudentUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="StudentID" Type="int" Mode="In" />
+          <Parameter Name="FirstName" Type="nvarchar" Mode="In" />
+          <Parameter Name="LastName" Type="nvarchar" Mode="In" />
+          <Parameter Name="JMBG" Type="nvarchar" Mode="In" />
+          <Parameter Name="BirthDate" Type="datetime" Mode="In" />
+          <Parameter Name="Address" Type="nvarchar" Mode="In" />
+          <Parameter Name="Phone" Type="nvarchar" Mode="In" />
+          <Parameter Name="CityID" Type="int" Mode="In" />
+          <Parameter Name="Active" Type="bit" Mode="In" />
+          <Parameter Name="Username" Type="nvarchar" Mode="In" />
+          <Parameter Name="PasswordHash" Type="nvarchar" Mode="In" />
+          <Parameter Name="PasswordSalt" Type="nvarchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="eStudentRestaurantModelStoreContainer">
+          <EntitySet Name="City" EntityType="Self.City" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Menu" EntityType="Self.Menu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MenuItem" EntityType="Self.MenuItem" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Order_" EntityType="Self.Order_" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrderItem" EntityType="Self.OrderItem" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrderMenu" EntityType="Self.OrderMenu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrderStatus" EntityType="Self.OrderStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Rating" EntityType="Self.Rating" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Reservation" EntityType="Self.Reservation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ReservationType" EntityType="Self.ReservationType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="State" EntityType="Self.State" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_City_Client" Association="Self.FK_City_Client">
+            <End Role="City" EntitySet="City" />
+            <End Role="Client" EntitySet="Client" />
+          </AssociationSet>
+          <AssociationSet Name="FK_City_Employee" Association="Self.FK_City_Employee">
+            <End Role="City" EntitySet="City" />
+            <End Role="Employee" EntitySet="Employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_City_Student" Association="Self.FK_City_Student">
+            <End Role="City" EntitySet="City" />
+            <End Role="Student" EntitySet="Student" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Client_Reservation" Association="Self.FK_Client_Reservation">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="Reservation" EntitySet="Reservation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employee_Order" Association="Self.FK_Employee_Order">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="Order_" EntitySet="Order_" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Menu_MenuItem" Association="Self.FK_Menu_MenuItem">
+            <End Role="Menu" EntitySet="Menu" />
+            <End Role="MenuItem" EntitySet="MenuItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Menu_OrderMenu" Association="Self.FK_Menu_OrderMenu">
+            <End Role="Menu" EntitySet="Menu" />
+            <End Role="OrderMenu" EntitySet="OrderMenu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_OrderItem" Association="Self.FK_Order_OrderItem">
+            <End Role="Order_" EntitySet="Order_" />
+            <End Role="OrderItem" EntitySet="OrderItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_OrderMenu" Association="Self.FK_Order_OrderMenu">
+            <End Role="Order_" EntitySet="Order_" />
+            <End Role="OrderMenu" EntitySet="OrderMenu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderStatus_Order" Association="Self.FK_OrderStatus_Order">
+            <End Role="OrderStatus" EntitySet="OrderStatus" />
+            <End Role="Order_" EntitySet="Order_" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_MenuItem" Association="Self.FK_Product_MenuItem">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="MenuItem" EntitySet="MenuItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_OrderItem" Association="Self.FK_Product_OrderItem">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="OrderItem" EntitySet="OrderItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_Rating" Association="Self.FK_Product_Rating">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="Rating" EntitySet="Rating" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReservationType_Reservation" Association="Self.FK_ReservationType_Reservation">
+            <End Role="ReservationType" EntitySet="ReservationType" />
+            <End Role="Reservation" EntitySet="Reservation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_State_City" Association="Self.FK_State_City">
+            <End Role="State" EntitySet="State" />
+            <End Role="City" EntitySet="City" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Student_Order" Association="Self.FK_Student_Order">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="Order_" EntitySet="Order_" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Student_Rating" Association="Self.FK_Student_Rating">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="Rating" EntitySet="Rating" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="eStudentRestaurantModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="CityID" />
+          </Key>
+          <Property Name="CityID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="StateID" Type="Int32" />
+          <NavigationProperty Name="Client" Relationship="Self.FK_City_Client" FromRole="City" ToRole="Client" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK_City_Employee" FromRole="City" ToRole="Employee" />
+          <NavigationProperty Name="Student" Relationship="Self.FK_City_Student" FromRole="City" ToRole="Student" />
+          <NavigationProperty Name="State" Relationship="Self.FK_State_City" FromRole="City" ToRole="State" />
+        </EntityType>
+        <EntityType Name="Client">
+          <Key>
+            <PropertyRef Name="ClientID" />
+          </Key>
+          <Property Name="ClientID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="JMBG" Type="String" MaxLength="13" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="BirthDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Address_" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CityID" Type="Int32" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PaswordHash" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PasswordSalt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="City" Relationship="Self.FK_City_Client" FromRole="Client" ToRole="City" />
+          <NavigationProperty Name="Reservation" Relationship="Self.FK_Client_Reservation" FromRole="Client" ToRole="Reservation" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="EmployeeID" />
+          </Key>
+          <Property Name="EmployeeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="JMBG" Type="String" MaxLength="13" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="BirthDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EmploymentDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Address_" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CityID" Type="Int32" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PaswordHash" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PasswordSalt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="City" Relationship="Self.FK_City_Employee" FromRole="Employee" ToRole="City" />
+          <NavigationProperty Name="Order_" Relationship="Self.FK_Employee_Order" FromRole="Employee" ToRole="Order_" />
+        </EntityType>
+        <EntityType Name="Menu">
+          <Key>
+            <PropertyRef Name="MenuID" />
+          </Key>
+          <Property Name="MenuID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name_" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <NavigationProperty Name="MenuItem" Relationship="Self.FK_Menu_MenuItem" FromRole="Menu" ToRole="MenuItem" />
+          <NavigationProperty Name="OrderMenu" Relationship="Self.FK_Menu_OrderMenu" FromRole="Menu" ToRole="OrderMenu" />
+        </EntityType>
+        <EntityType Name="MenuItem">
+          <Key>
+            <PropertyRef Name="MenuItemID" />
+          </Key>
+          <Property Name="MenuItemID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductID" Type="Int32" Nullable="false" />
+          <Property Name="MenuID" Type="Int32" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Menu" Relationship="Self.FK_Menu_MenuItem" FromRole="MenuItem" ToRole="Menu" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_Product_MenuItem" FromRole="MenuItem" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="Order_">
+          <Key>
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <Property Name="OrderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="OrderStatusID" Type="Int32" Nullable="false" />
+          <Property Name="TotalPrice" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="EmployeeID" Type="Int32" Nullable="false" />
+          <Property Name="StudentID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK_Employee_Order" FromRole="Order_" ToRole="Employee" />
+          <NavigationProperty Name="OrderItem" Relationship="Self.FK_Order_OrderItem" FromRole="Order_" ToRole="OrderItem" />
+          <NavigationProperty Name="OrderMenu" Relationship="Self.FK_Order_OrderMenu" FromRole="Order_" ToRole="OrderMenu" />
+          <NavigationProperty Name="OrderStatus" Relationship="Self.FK_OrderStatus_Order" FromRole="Order_" ToRole="OrderStatus" />
+          <NavigationProperty Name="Student" Relationship="Self.FK_Student_Order" FromRole="Order_" ToRole="Student" />
+        </EntityType>
+        <EntityType Name="OrderItem">
+          <Key>
+            <PropertyRef Name="OrderItemID" />
+          </Key>
+          <Property Name="OrderItemID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderID" Type="Int32" Nullable="false" />
+          <Property Name="ProductID" Type="Int32" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Order_" Relationship="Self.FK_Order_OrderItem" FromRole="OrderItem" ToRole="Order_" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_Product_OrderItem" FromRole="OrderItem" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="OrderMenu">
+          <Key>
+            <PropertyRef Name="OrderMenuID" />
+          </Key>
+          <Property Name="OrderMenuID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MenuID" Type="Int32" Nullable="false" />
+          <Property Name="OrderID" Type="Int32" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Menu" Relationship="Self.FK_Menu_OrderMenu" FromRole="OrderMenu" ToRole="Menu" />
+          <NavigationProperty Name="Order_" Relationship="Self.FK_Order_OrderMenu" FromRole="OrderMenu" ToRole="Order_" />
+        </EntityType>
+        <EntityType Name="OrderStatus">
+          <Key>
+            <PropertyRef Name="OrderStatusID" />
+          </Key>
+          <Property Name="OrderStatusID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name_" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Order_" Relationship="Self.FK_OrderStatus_Order" FromRole="OrderStatus" ToRole="Order_" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name_" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Price" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="QuantityStock" Type="Int32" Nullable="false" />
+          <Property Name="LastPurchaseDate" Type="DateTime" Precision="3" />
+          <Property Name="Picture" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="PictureThumb" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Status" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="MenuItem" Relationship="Self.FK_Product_MenuItem" FromRole="Product" ToRole="MenuItem" />
+          <NavigationProperty Name="OrderItem" Relationship="Self.FK_Product_OrderItem" FromRole="Product" ToRole="OrderItem" />
+          <NavigationProperty Name="Rating" Relationship="Self.FK_Product_Rating" FromRole="Product" ToRole="Rating" />
+        </EntityType>
+        <EntityType Name="Rating">
+          <Key>
+            <PropertyRef Name="RatingID" />
+          </Key>
+          <Property Name="RatingID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductID" Type="Int32" Nullable="false" />
+          <Property Name="StudentID" Type="Int32" Nullable="false" />
+          <Property Name="Rating1" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_Product_Rating" FromRole="Rating" ToRole="Product" />
+          <NavigationProperty Name="Student" Relationship="Self.FK_Student_Rating" FromRole="Rating" ToRole="Student" />
+        </EntityType>
+        <EntityType Name="Reservation">
+          <Key>
+            <PropertyRef Name="ReservationID" />
+          </Key>
+          <Property Name="ReservationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ClinetID" Type="Int32" Nullable="false" />
+          <Property Name="ReservationTypeID" Type="Int32" />
+          <Property Name="ReservationDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="PlacesNamber" Type="Int32" Nullable="false" />
+          <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Client" Relationship="Self.FK_Client_Reservation" FromRole="Reservation" ToRole="Client" />
+          <NavigationProperty Name="ReservationType" Relationship="Self.FK_ReservationType_Reservation" FromRole="Reservation" ToRole="ReservationType" />
+        </EntityType>
+        <EntityType Name="ReservationType">
+          <Key>
+            <PropertyRef Name="ReservationTypeID" />
+          </Key>
+          <Property Name="ReservationTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name_" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Reservation" Relationship="Self.FK_ReservationType_Reservation" FromRole="ReservationType" ToRole="Reservation" />
+        </EntityType>
+        <EntityType Name="State">
+          <Key>
+            <PropertyRef Name="StateID" />
+          </Key>
+          <Property Name="StateID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="City" Relationship="Self.FK_State_City" FromRole="State" ToRole="City" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="StudentID" />
+          </Key>
+          <Property Name="StudentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="JMBG" Type="String" MaxLength="13" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="BirthDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Address_" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CityID" Type="Int32" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PaswordHash" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PasswordSalt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="City" Relationship="Self.FK_City_Student" FromRole="Student" ToRole="City" />
+          <NavigationProperty Name="Order_" Relationship="Self.FK_Student_Order" FromRole="Student" ToRole="Order_" />
+          <NavigationProperty Name="Rating" Relationship="Self.FK_Student_Rating" FromRole="Student" ToRole="Rating" />
+        </EntityType>
+        <Association Name="FK_City_Client">
+          <End Role="City" Type="Self.City" Multiplicity="0..1" />
+          <End Role="Client" Type="Self.Client" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="CityID" />
+            </Principal>
+            <Dependent Role="Client">
+              <PropertyRef Name="CityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_City_Employee">
+          <End Role="City" Type="Self.City" Multiplicity="0..1" />
+          <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="CityID" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="CityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_City_Student">
+          <End Role="City" Type="Self.City" Multiplicity="0..1" />
+          <End Role="Student" Type="Self.Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="CityID" />
+            </Principal>
+            <Dependent Role="Student">
+              <PropertyRef Name="CityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_State_City">
+          <End Role="State" Type="Self.State" Multiplicity="0..1" />
+          <End Role="City" Type="Self.City" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="State">
+              <PropertyRef Name="StateID" />
+            </Principal>
+            <Dependent Role="City">
+              <PropertyRef Name="StateID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Client_Reservation">
+          <End Role="Client" Type="Self.Client" Multiplicity="1" />
+          <End Role="Reservation" Type="Self.Reservation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="ClientID" />
+            </Principal>
+            <Dependent Role="Reservation">
+              <PropertyRef Name="ClinetID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employee_Order">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="Order_" Type="Self.Order_" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="Order_">
+              <PropertyRef Name="EmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Menu_MenuItem">
+          <End Role="Menu" Type="Self.Menu" Multiplicity="1" />
+          <End Role="MenuItem" Type="Self.MenuItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Menu">
+              <PropertyRef Name="MenuID" />
+            </Principal>
+            <Dependent Role="MenuItem">
+              <PropertyRef Name="MenuID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Menu_OrderMenu">
+          <End Role="Menu" Type="Self.Menu" Multiplicity="1" />
+          <End Role="OrderMenu" Type="Self.OrderMenu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Menu">
+              <PropertyRef Name="MenuID" />
+            </Principal>
+            <Dependent Role="OrderMenu">
+              <PropertyRef Name="MenuID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_MenuItem">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="MenuItem" Type="Self.MenuItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="MenuItem">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_OrderItem">
+          <End Role="Order_" Type="Self.Order_" Multiplicity="1" />
+          <End Role="OrderItem" Type="Self.OrderItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order_">
+              <PropertyRef Name="OrderID" />
+            </Principal>
+            <Dependent Role="OrderItem">
+              <PropertyRef Name="OrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_OrderMenu">
+          <End Role="Order_" Type="Self.Order_" Multiplicity="1" />
+          <End Role="OrderMenu" Type="Self.OrderMenu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order_">
+              <PropertyRef Name="OrderID" />
+            </Principal>
+            <Dependent Role="OrderMenu">
+              <PropertyRef Name="OrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderStatus_Order">
+          <End Role="OrderStatus" Type="Self.OrderStatus" Multiplicity="1" />
+          <End Role="Order_" Type="Self.Order_" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrderStatus">
+              <PropertyRef Name="OrderStatusID" />
+            </Principal>
+            <Dependent Role="Order_">
+              <PropertyRef Name="OrderStatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Student_Order">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Order_" Type="Self.Order_" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="StudentID" />
+            </Principal>
+            <Dependent Role="Order_">
+              <PropertyRef Name="StudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_OrderItem">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="OrderItem" Type="Self.OrderItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="OrderItem">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_Rating">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="Rating" Type="Self.Rating" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="Rating">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Student_Rating">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Rating" Type="Self.Rating" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="StudentID" />
+            </Principal>
+            <Dependent Role="Rating">
+              <PropertyRef Name="StudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReservationType_Reservation">
+          <End Role="ReservationType" Type="Self.ReservationType" Multiplicity="0..1" />
+          <End Role="Reservation" Type="Self.Reservation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ReservationType">
+              <PropertyRef Name="ReservationTypeID" />
+            </Principal>
+            <Dependent Role="Reservation">
+              <PropertyRef Name="ReservationTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="eStudentRestaurantEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="City" EntityType="Self.City" />
+          <EntitySet Name="Client" EntityType="Self.Client" />
+          <EntitySet Name="Employee" EntityType="Self.Employee" />
+          <EntitySet Name="Menu" EntityType="Self.Menu" />
+          <EntitySet Name="MenuItem" EntityType="Self.MenuItem" />
+          <EntitySet Name="Order_" EntityType="Self.Order_" />
+          <EntitySet Name="OrderItem" EntityType="Self.OrderItem" />
+          <EntitySet Name="OrderMenu" EntityType="Self.OrderMenu" />
+          <EntitySet Name="OrderStatus" EntityType="Self.OrderStatus" />
+          <EntitySet Name="Product" EntityType="Self.Product" />
+          <EntitySet Name="Rating" EntityType="Self.Rating" />
+          <EntitySet Name="Reservation" EntityType="Self.Reservation" />
+          <EntitySet Name="ReservationType" EntityType="Self.ReservationType" />
+          <EntitySet Name="State" EntityType="Self.State" />
+          <EntitySet Name="Student" EntityType="Self.Student" />
+          <AssociationSet Name="FK_City_Client" Association="Self.FK_City_Client">
+            <End Role="City" EntitySet="City" />
+            <End Role="Client" EntitySet="Client" />
+          </AssociationSet>
+          <AssociationSet Name="FK_City_Employee" Association="Self.FK_City_Employee">
+            <End Role="City" EntitySet="City" />
+            <End Role="Employee" EntitySet="Employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_City_Student" Association="Self.FK_City_Student">
+            <End Role="City" EntitySet="City" />
+            <End Role="Student" EntitySet="Student" />
+          </AssociationSet>
+          <AssociationSet Name="FK_State_City" Association="Self.FK_State_City">
+            <End Role="State" EntitySet="State" />
+            <End Role="City" EntitySet="City" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Client_Reservation" Association="Self.FK_Client_Reservation">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="Reservation" EntitySet="Reservation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employee_Order" Association="Self.FK_Employee_Order">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="Order_" EntitySet="Order_" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Menu_MenuItem" Association="Self.FK_Menu_MenuItem">
+            <End Role="Menu" EntitySet="Menu" />
+            <End Role="MenuItem" EntitySet="MenuItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Menu_OrderMenu" Association="Self.FK_Menu_OrderMenu">
+            <End Role="Menu" EntitySet="Menu" />
+            <End Role="OrderMenu" EntitySet="OrderMenu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_MenuItem" Association="Self.FK_Product_MenuItem">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="MenuItem" EntitySet="MenuItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_OrderItem" Association="Self.FK_Order_OrderItem">
+            <End Role="Order_" EntitySet="Order_" />
+            <End Role="OrderItem" EntitySet="OrderItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_OrderMenu" Association="Self.FK_Order_OrderMenu">
+            <End Role="Order_" EntitySet="Order_" />
+            <End Role="OrderMenu" EntitySet="OrderMenu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderStatus_Order" Association="Self.FK_OrderStatus_Order">
+            <End Role="OrderStatus" EntitySet="OrderStatus" />
+            <End Role="Order_" EntitySet="Order_" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Student_Order" Association="Self.FK_Student_Order">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="Order_" EntitySet="Order_" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_OrderItem" Association="Self.FK_Product_OrderItem">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="OrderItem" EntitySet="OrderItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_Rating" Association="Self.FK_Product_Rating">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="Rating" EntitySet="Rating" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Student_Rating" Association="Self.FK_Student_Rating">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="Rating" EntitySet="Rating" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReservationType_Reservation" Association="Self.FK_ReservationType_Reservation">
+            <End Role="ReservationType" EntitySet="ReservationType" />
+            <End Role="Reservation" EntitySet="Reservation" />
+          </AssociationSet>
+          <FunctionImport Name="esp_EmployeSelectALL" ReturnType="Collection(eStudentRestaurantModel.Employe_Result)" />
+          <FunctionImport Name="esp_EmployeeInsert" ReturnType="Collection(Decimal)">
+            <Parameter Name="FirstName" Mode="In" Type="String" />
+            <Parameter Name="LastName" Mode="In" Type="String" />
+            <Parameter Name="JMBG" Mode="In" Type="String" />
+            <Parameter Name="BirthDate" Mode="In" Type="DateTime" />
+            <Parameter Name="EmploymentDate" Mode="In" Type="DateTime" />
+            <Parameter Name="Address" Mode="In" Type="String" />
+            <Parameter Name="Phone" Mode="In" Type="String" />
+            <Parameter Name="CityID" Mode="In" Type="Int32" />
+            <Parameter Name="Username" Mode="In" Type="String" />
+            <Parameter Name="PasswordHash" Mode="In" Type="String" />
+            <Parameter Name="PasswordSalt" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="esp_EmployeeSelectByName" ReturnType="Collection(eStudentRestaurantModel.Employe_Result)">
+          <Parameter Name="FirstLastName" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="esp_EmployeeUpdate">
+            <Parameter Name="EmployeeID" Mode="In" Type="Int32" />
+            <Parameter Name="FirstName" Mode="In" Type="String" />
+            <Parameter Name="LastName" Mode="In" Type="String" />
+            <Parameter Name="JMBG" Mode="In" Type="String" />
+            <Parameter Name="BirthDate" Mode="In" Type="DateTime" />
+            <Parameter Name="EmploymentDate" Mode="In" Type="DateTime" />
+            <Parameter Name="Address" Mode="In" Type="String" />
+            <Parameter Name="Phone" Mode="In" Type="String" />
+            <Parameter Name="CityID" Mode="In" Type="Int32" />
+            <Parameter Name="Active" Mode="In" Type="Boolean" />
+            <Parameter Name="Username" Mode="In" Type="String" />
+            <Parameter Name="PasswordHash" Mode="In" Type="String" />
+            <Parameter Name="PasswordSalt" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="esp_EmployeSelectByUsername" EntitySet="Employee" ReturnType="Collection(eStudentRestaurantModel.Employee)">
+          <Parameter Name="Username" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="esp_StudentSelectByName" ReturnType="Collection(eStudentRestaurantModel.Student_Result)">
+            <Parameter Name="FirstLastName" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="esp_StudentSelectByUsername" EntitySet="Student" ReturnType="Collection(eStudentRestaurantModel.Student)">
+            <Parameter Name="Username" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="esp_StudentUpdate">
+            <Parameter Name="StudentID" Mode="In" Type="Int32" />
+            <Parameter Name="FirstName" Mode="In" Type="String" />
+            <Parameter Name="LastName" Mode="In" Type="String" />
+            <Parameter Name="JMBG" Mode="In" Type="String" />
+            <Parameter Name="BirthDate" Mode="In" Type="DateTime" />
+            <Parameter Name="Address" Mode="In" Type="String" />
+            <Parameter Name="Phone" Mode="In" Type="String" />
+            <Parameter Name="CityID" Mode="In" Type="Int32" />
+            <Parameter Name="Active" Mode="In" Type="Boolean" />
+            <Parameter Name="Username" Mode="In" Type="String" />
+            <Parameter Name="PasswordHash" Mode="In" Type="String" />
+            <Parameter Name="PasswordSalt" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="Employe_Result">
+          <Property Type="Int32" Name="EmployeeID" Nullable="false" />
+          <Property Type="String" Name="FirstName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="LastName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Address_" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Phone" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="City" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Username" Nullable="false" MaxLength="50" />
+          <Property Type="Boolean" Name="Active" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="Student_Result">
+          <Property Type="Int32" Name="StudentID" Nullable="false" />
+          <Property Type="String" Name="FirstName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="LastName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Address_" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Phone" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="City" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Username" Nullable="false" MaxLength="50" />
+          <Property Type="Boolean" Name="Active" Nullable="false" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="eStudentRestaurantModelStoreContainer" CdmEntityContainer="eStudentRestaurantEntities">
+          <EntitySetMapping Name="City">
+            <EntityTypeMapping TypeName="eStudentRestaurantModel.City">
+              <MappingFragment StoreEntitySet="City">
+                <ScalarProperty Name="CityID" ColumnName="CityID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="StateID" ColumnName="StateID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Client">
+            <EntityTypeMapping TypeName="eStudentRestaurantModel.Client">
+              <MappingFragment StoreEntitySet="Client">
+                <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="JMBG" ColumnName="JMBG" />
+                <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+                <ScalarProperty Name="Address_" ColumnName="Address_" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="CityID" ColumnName="CityID" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="PaswordHash" ColumnName="PaswordHash" />
+                <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employee">
+            <EntityTypeMapping TypeName="eStudentRestaurantModel.Employee">
+              <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="JMBG" ColumnName="JMBG" />
+                <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+                <ScalarProperty Name="EmploymentDate" ColumnName="EmploymentDate" />
+                <ScalarProperty Name="Address_" ColumnName="Address_" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="CityID" ColumnName="CityID" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="PaswordHash" ColumnName="PaswordHash" />
+                <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Menu">
+            <EntityTypeMapping TypeName="eStudentRestaurantModel.Menu">
+              <MappingFragment StoreEntitySet="Menu">
+                <ScalarProperty Name="MenuID" ColumnName="MenuID" />
+                <ScalarProperty Name="Name_" ColumnName="Name_" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MenuItem">
+            <EntityTypeMapping TypeName="eStudentRestaurantModel.MenuItem">
+              <MappingFragment StoreEntitySet="MenuItem">
+                <ScalarProperty Name="MenuItemID" ColumnName="MenuItemID" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="MenuID" ColumnName="MenuID" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Order_">
+            <EntityTypeMapping TypeName="eStudentRestaurantModel.Order_">
+              <MappingFragment StoreEntitySet="Order_">
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+                <ScalarProperty Name="OrderStatusID" ColumnName="OrderStatusID" />
+                <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderItem">
+            <EntityTypeMapping TypeName="eStudentRestaurantModel.OrderItem">
+              <MappingFragment StoreEntitySet="OrderItem">
+                <ScalarProperty Name="OrderItemID" ColumnName="OrderItemID" />
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderMenu">
+            <EntityTypeMapping TypeName="eStudentRestaurantModel.OrderMenu">
+              <MappingFragment StoreEntitySet="OrderMenu">
+                <ScalarProperty Name="OrderMenuID" ColumnName="OrderMenuID" />
+                <ScalarProperty Name="MenuID" ColumnName="MenuID" />
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderStatus">
+            <EntityTypeMapping TypeName="eStudentRestaurantModel.OrderStatus">
+              <MappingFragment StoreEntitySet="OrderStatus">
+                <ScalarProperty Name="OrderStatusID" ColumnName="OrderStatusID" />
+                <ScalarProperty Name="Name_" ColumnName="Name_" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Product">
+            <EntityTypeMapping TypeName="eStudentRestaurantModel.Product">
+              <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="Name_" ColumnName="Name_" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="QuantityStock" ColumnName="QuantityStock" />
+                <ScalarProperty Name="LastPurchaseDate" ColumnName="LastPurchaseDate" />
+                <ScalarProperty Name="Picture" ColumnName="Picture" />
+                <ScalarProperty Name="PictureThumb" ColumnName="PictureThumb" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rating">
+            <EntityTypeMapping TypeName="eStudentRestaurantModel.Rating">
+              <MappingFragment StoreEntitySet="Rating">
+                <ScalarProperty Name="RatingID" ColumnName="RatingID" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+                <ScalarProperty Name="Rating1" ColumnName="Rating" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Reservation">
+            <EntityTypeMapping TypeName="eStudentRestaurantModel.Reservation">
+              <MappingFragment StoreEntitySet="Reservation">
+                <ScalarProperty Name="ReservationID" ColumnName="ReservationID" />
+                <ScalarProperty Name="ClinetID" ColumnName="ClinetID" />
+                <ScalarProperty Name="ReservationTypeID" ColumnName="ReservationTypeID" />
+                <ScalarProperty Name="ReservationDateTime" ColumnName="ReservationDateTime" />
+                <ScalarProperty Name="PlacesNamber" ColumnName="PlacesNamber" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ReservationType">
+            <EntityTypeMapping TypeName="eStudentRestaurantModel.ReservationType">
+              <MappingFragment StoreEntitySet="ReservationType">
+                <ScalarProperty Name="ReservationTypeID" ColumnName="ReservationTypeID" />
+                <ScalarProperty Name="Name_" ColumnName="Name_" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="State">
+            <EntityTypeMapping TypeName="eStudentRestaurantModel.State">
+              <MappingFragment StoreEntitySet="State">
+                <ScalarProperty Name="StateID" ColumnName="StateID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Student">
+            <EntityTypeMapping TypeName="eStudentRestaurantModel.Student">
+              <MappingFragment StoreEntitySet="Student">
+                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="JMBG" ColumnName="JMBG" />
+                <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+                <ScalarProperty Name="Address_" ColumnName="Address_" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="CityID" ColumnName="CityID" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="PaswordHash" ColumnName="PaswordHash" />
+                <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="esp_EmployeSelectALL" FunctionName="eStudentRestaurantModel.Store.esp_EmployeSelectALL">
+          <ResultMapping>
+              <ComplexTypeMapping TypeName="eStudentRestaurantModel.Employe_Result">
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Address_" ColumnName="Address_" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="esp_EmployeeInsert" FunctionName="eStudentRestaurantModel.Store.esp_EmployeeInsert" />
+          <FunctionImportMapping FunctionImportName="esp_EmployeeSelectByName" FunctionName="eStudentRestaurantModel.Store.esp_EmployeeSelectByName">
+          <ResultMapping>
+              <ComplexTypeMapping TypeName="eStudentRestaurantModel.Employe_Result">
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Address_" ColumnName="Address_" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="esp_EmployeeUpdate" FunctionName="eStudentRestaurantModel.Store.esp_EmployeeUpdate" />
+          <FunctionImportMapping FunctionImportName="esp_EmployeSelectByUsername" FunctionName="eStudentRestaurantModel.Store.esp_EmployeSelectByUsername">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="esp_StudentSelectByName" FunctionName="eStudentRestaurantModel.Store.esp_StudentSelectByName">
+          <ResultMapping>
+              <ComplexTypeMapping TypeName="eStudentRestaurantModel.Student_Result">
+                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Address_" ColumnName="Address_" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="esp_StudentSelectByUsername" FunctionName="eStudentRestaurantModel.Store.esp_StudentSelectByUsername">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="esp_StudentUpdate" FunctionName="eStudentRestaurantModel.Store.esp_StudentUpdate" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

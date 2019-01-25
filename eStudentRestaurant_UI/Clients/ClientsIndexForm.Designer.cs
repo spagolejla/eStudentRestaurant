@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.OrganizationNameInput = new System.Windows.Forms.TextBox();
@@ -38,21 +39,23 @@
             this.LastNameInput = new System.Windows.Forms.TextBox();
             this.FirstNameInput = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.EditClientButton = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.EditClientButton = new System.Windows.Forms.Button();
             this.AddClientButton = new System.Windows.Forms.Button();
             this.SearchClientsLabel = new System.Windows.Forms.Label();
             this.ClientsComboBox = new System.Windows.Forms.ComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label15 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.label15 = new System.Windows.Forms.Label();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -94,6 +97,7 @@
             this.OrganizationNameInput.Name = "OrganizationNameInput";
             this.OrganizationNameInput.Size = new System.Drawing.Size(104, 20);
             this.OrganizationNameInput.TabIndex = 106;
+            this.OrganizationNameInput.Validating += new System.ComponentModel.CancelEventHandler(this.OrganizationNameInput_Validating);
             // 
             // ActiveCheckBox
             // 
@@ -112,6 +116,7 @@
             this.PasswordInput.Name = "PasswordInput";
             this.PasswordInput.Size = new System.Drawing.Size(104, 20);
             this.PasswordInput.TabIndex = 104;
+            this.PasswordInput.Validating += new System.ComponentModel.CancelEventHandler(this.PasswordInput_Validating);
             // 
             // UsernameInput
             // 
@@ -119,6 +124,7 @@
             this.UsernameInput.Name = "UsernameInput";
             this.UsernameInput.Size = new System.Drawing.Size(95, 20);
             this.UsernameInput.TabIndex = 103;
+            this.UsernameInput.Validating += new System.ComponentModel.CancelEventHandler(this.UsernameInput_Validating);
             // 
             // PhoneInput
             // 
@@ -127,6 +133,7 @@
             this.PhoneInput.Name = "PhoneInput";
             this.PhoneInput.Size = new System.Drawing.Size(107, 20);
             this.PhoneInput.TabIndex = 75;
+            this.PhoneInput.Validating += new System.ComponentModel.CancelEventHandler(this.PhoneInput_Validating);
             // 
             // LastNameInput
             // 
@@ -134,6 +141,7 @@
             this.LastNameInput.Name = "LastNameInput";
             this.LastNameInput.Size = new System.Drawing.Size(94, 20);
             this.LastNameInput.TabIndex = 74;
+            this.LastNameInput.Validating += new System.ComponentModel.CancelEventHandler(this.LastNameInput_Validating);
             // 
             // FirstNameInput
             // 
@@ -141,6 +149,7 @@
             this.FirstNameInput.Name = "FirstNameInput";
             this.FirstNameInput.Size = new System.Drawing.Size(107, 20);
             this.FirstNameInput.TabIndex = 73;
+            this.FirstNameInput.Validating += new System.ComponentModel.CancelEventHandler(this.FirstNameInput_Validating);
             // 
             // label6
             // 
@@ -152,19 +161,6 @@
             this.label6.Size = new System.Drawing.Size(93, 17);
             this.label6.TabIndex = 54;
             this.label6.Text = "Organization:";
-            // 
-            // EditClientButton
-            // 
-            this.EditClientButton.BackColor = System.Drawing.Color.SteelBlue;
-            this.EditClientButton.FlatAppearance.BorderSize = 0;
-            this.EditClientButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.EditClientButton.ForeColor = System.Drawing.Color.White;
-            this.EditClientButton.Location = new System.Drawing.Point(33, 286);
-            this.EditClientButton.Name = "EditClientButton";
-            this.EditClientButton.Size = new System.Drawing.Size(92, 24);
-            this.EditClientButton.TabIndex = 53;
-            this.EditClientButton.Text = "Edit Client";
-            this.EditClientButton.UseVisualStyleBackColor = false;
             // 
             // label13
             // 
@@ -232,6 +228,20 @@
             this.label2.TabIndex = 41;
             this.label2.Text = "Details";
             // 
+            // EditClientButton
+            // 
+            this.EditClientButton.BackColor = System.Drawing.Color.SteelBlue;
+            this.EditClientButton.FlatAppearance.BorderSize = 0;
+            this.EditClientButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.EditClientButton.ForeColor = System.Drawing.Color.White;
+            this.EditClientButton.Location = new System.Drawing.Point(33, 286);
+            this.EditClientButton.Name = "EditClientButton";
+            this.EditClientButton.Size = new System.Drawing.Size(92, 24);
+            this.EditClientButton.TabIndex = 53;
+            this.EditClientButton.Text = "Edit Client";
+            this.EditClientButton.UseVisualStyleBackColor = false;
+            this.EditClientButton.Click += new System.EventHandler(this.EditClientButton_Click);
+            // 
             // AddClientButton
             // 
             this.AddClientButton.BackColor = System.Drawing.Color.SteelBlue;
@@ -244,6 +254,7 @@
             this.AddClientButton.TabIndex = 44;
             this.AddClientButton.Text = "Add Client";
             this.AddClientButton.UseVisualStyleBackColor = false;
+            this.AddClientButton.Click += new System.EventHandler(this.AddClientButton_Click);
             // 
             // SearchClientsLabel
             // 
@@ -277,17 +288,6 @@
             this.panel2.Size = new System.Drawing.Size(740, 263);
             this.panel2.TabIndex = 54;
             // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.White;
-            this.label15.Location = new System.Drawing.Point(15, 10);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(159, 22);
-            this.label15.TabIndex = 41;
-            this.label15.Text = "Clients reservation";
-            // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.SteelBlue;
@@ -300,6 +300,21 @@
             this.button1.TabIndex = 54;
             this.button1.Text = "Show";
             this.button1.UseVisualStyleBackColor = false;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.White;
+            this.label15.Location = new System.Drawing.Point(15, 10);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(159, 22);
+            this.label15.TabIndex = 41;
+            this.label15.Text = "Clients reservation";
+            // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
             // 
             // ClientsIndexForm
             // 
@@ -327,6 +342,7 @@
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -357,5 +373,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }

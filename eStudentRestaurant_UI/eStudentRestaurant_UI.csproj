@@ -53,6 +53,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clients\ClientAddForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clients\ClientAddForm.Designer.cs">
+      <DependentUpon>ClientAddForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Clients\ClientsIndexForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,6 +95,12 @@
     </Compile>
     <Compile Include="Home\HomeForm.Designer.cs">
       <DependentUpon>HomeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\ChildDialogForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\ChildDialogForm.Designer.cs">
+      <DependentUpon>ChildDialogForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Main\ChildForm.cs">
       <SubType>Form</SubType>
@@ -130,6 +142,9 @@
     <Compile Include="Util\ComboItem.cs" />
     <Compile Include="Util\UIHelper.cs" />
     <Compile Include="Util\WebAPIHelper.cs" />
+    <EmbeddedResource Include="Clients\ClientAddForm.resx">
+      <DependentUpon>ClientAddForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Clients\ClientsIndexForm.resx">
       <DependentUpon>ClientsIndexForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -144,6 +159,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Home\HomeForm.resx">
       <DependentUpon>HomeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\ChildDialogForm.resx">
+      <DependentUpon>ChildDialogForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main\ChildForm.resx">
       <DependentUpon>ChildForm.cs</DependentUpon>

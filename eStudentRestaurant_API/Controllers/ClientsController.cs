@@ -35,6 +35,23 @@ namespace eStudentRestaurant_API.Controllers
             return Ok(client);
         }
 
+        // Username exist
+        [HttpGet]
+        [ResponseType(typeof(Client))]
+        [Route("api/Clients/UsernameExist/{username?}")]
+        public IHttpActionResult UsernameExist(string username)
+        {
+            Client client = db.Client.Where(x => x.Username == username).FirstOrDefault();
+
+            if (client == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(client);
+        }
+
+
         // PUT: api/Clients/5
         [ResponseType(typeof(void))]
         public IHttpActionResult PutClient(int id, Client client)

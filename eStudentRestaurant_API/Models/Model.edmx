@@ -132,6 +132,7 @@
           <Property Name="ReservationDateTime" Type="datetime" Nullable="false" />
           <Property Name="PlacesNamber" Type="int" Nullable="false" />
           <Property Name="Note" Type="nvarchar(max)" />
+          <Property Name="Approved" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="ReservationType">
           <Key>
@@ -403,6 +404,9 @@
         <Function Name="esp_EmployeSelectByUsername" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Username" Type="nvarchar" Mode="In" />
         </Function>
+        <Function Name="esp_ReservationSelectByClientId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ClientId" Type="int" Mode="In" />
+        </Function>
         <Function Name="esp_StudentSelectByName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="FirstLastName" Type="nvarchar" Mode="In" />
         </Function>
@@ -668,6 +672,7 @@
           <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Client" Relationship="Self.FK_Client_Reservation" FromRole="Reservation" ToRole="Client" />
           <NavigationProperty Name="ReservationType" Relationship="Self.FK_ReservationType_Reservation" FromRole="Reservation" ToRole="ReservationType" />
+          <Property Name="Approved" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="ReservationType">
           <Key>
@@ -1048,6 +1053,9 @@
             <Parameter Name="PasswordHash" Mode="In" Type="String" />
             <Parameter Name="PasswordSalt" Mode="In" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="esp_ReservationSelectByClientId" ReturnType="Collection(eStudentRestaurantModel.Reservation_Result)">
+          <Parameter Name="ClientId" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="Employe_Result">
           <Property Type="Int32" Name="EmployeeID" Nullable="false" />
@@ -1068,6 +1076,15 @@
           <Property Type="String" Name="City" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="Username" Nullable="false" MaxLength="50" />
           <Property Type="Boolean" Name="Active" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="Reservation_Result">
+          <Property Type="Int32" Name="ReservationID" Nullable="false" />
+          <Property Type="Int32" Name="ClinetID" Nullable="false" />
+          <Property Type="String" Name="Name_" Nullable="false" MaxLength="50" />
+          <Property Type="DateTime" Name="ReservationDateTime" Nullable="false" Precision="23" />
+          <Property Type="Int32" Name="PlacesNamber" Nullable="false" />
+          <Property Type="String" Name="Note" Nullable="true" />
+          <Property Type="Boolean" Name="Approved" Nullable="false" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1206,6 +1223,7 @@
           <EntitySetMapping Name="Reservation">
             <EntityTypeMapping TypeName="eStudentRestaurantModel.Reservation">
               <MappingFragment StoreEntitySet="Reservation">
+                <ScalarProperty Name="Approved" ColumnName="Approved" />
                 <ScalarProperty Name="ReservationID" ColumnName="ReservationID" />
                 <ScalarProperty Name="ClinetID" ColumnName="ClinetID" />
                 <ScalarProperty Name="ReservationTypeID" ColumnName="ReservationTypeID" />
@@ -1298,6 +1316,19 @@
           <FunctionImportMapping FunctionImportName="esp_StudentSelectByUsername" FunctionName="eStudentRestaurantModel.Store.esp_StudentSelectByUsername">
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="esp_StudentUpdate" FunctionName="eStudentRestaurantModel.Store.esp_StudentUpdate" />
+          <FunctionImportMapping FunctionImportName="esp_ReservationSelectByClientId" FunctionName="eStudentRestaurantModel.Store.esp_ReservationSelectByClientId">
+          <ResultMapping>
+              <ComplexTypeMapping TypeName="eStudentRestaurantModel.Reservation_Result">
+                <ScalarProperty Name="ReservationID" ColumnName="ReservationID" />
+                <ScalarProperty Name="ClinetID" ColumnName="ClinetID" />
+                <ScalarProperty Name="Name_" ColumnName="Name_" />
+                <ScalarProperty Name="ReservationDateTime" ColumnName="ReservationDateTime" />
+                <ScalarProperty Name="PlacesNamber" ColumnName="PlacesNamber" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="Approved" ColumnName="Approved" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

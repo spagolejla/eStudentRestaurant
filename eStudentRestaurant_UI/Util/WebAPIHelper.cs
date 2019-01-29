@@ -33,6 +33,10 @@ namespace eStudentRestaurant_UI.Util
             return Client.GetAsync(Route + "/" + action + "/" + parameter).Result;
         }
 
+        public HttpResponseMessage GetActionResponseIdParam(string action, int parameter )
+        {
+            return Client.GetAsync(Route + "/" + action + "/" + parameter).Result;
+        }
 
         public HttpResponseMessage PostResponse(Object newObject)
         {

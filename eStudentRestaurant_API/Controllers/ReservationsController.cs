@@ -14,9 +14,9 @@ namespace eStudentRestaurant_API.Controllers
 {
     public class ReservationsController : ApiController
     {
-        private eStudentRestaurantEntities db = new eStudentRestaurantEntities();
+        private eStudentRestaurantEntities db = new eStudentRestaurantEntities(false);
 
-        
+
         // GET: api/Reservations/5
         [ResponseType(typeof(Reservation))]
         public IHttpActionResult GetReservation(int id)
@@ -30,18 +30,42 @@ namespace eStudentRestaurant_API.Controllers
             return Ok(reservation);
         }
 
-        // GET: api/Reservations/5
-        [ResponseType(typeof(List<Reservation>))]
-        public List<Reservation> GetReservationByClient(int ClientID)
+
+        [ResponseType(typeof(List<Reservation_Result>))]
+        [Route("api/Reservations/GetReservationByClient/{id}")]
+        public List<Reservation_Result> GetReservationByClient(int id)
         {
-           List<Reservation> reservations = db.Reservation.Where(x => x.ClinetID == ClientID).Include(rt => rt.ReservationType).ToList();
-            if (reservations == null)
+
+            return db.esp_ReservationSelectByClientId(id).ToList();
+        }
+
+        [HttpGet]
+        [ResponseType(typeof(Reservation))]
+        [Route("api/Reservations/ApprovedReservationExist/{id}")]
+        public IHttpActionResult ApprovedReservationExist(int id)
+        {
+            
+            Reservation res = db.Reservation.Find(id);
+
+            Reservation resApproved = db.Reservation.Where(x => x.Approved == true).Where(d => d.ReservationDateTime.Day ==
+            res.ReservationDateTime.Day && d.ReservationDateTime.Month == res.ReservationDateTime.Month
+            && d.ReservationDateTime.Year == res.ReservationDateTime.Year).FirstOrDefault();
+
+            if (resApproved == null)
             {
-                return null;
+                res.Approved = true;
+                db.SaveChanges();
+                return NotFound();
             }
 
-            return reservations;
+            return Ok(resApproved);
+
+
+
+           
         }
+
+
 
         // PUT: api/Reservations/5
         [ResponseType(typeof(void))]

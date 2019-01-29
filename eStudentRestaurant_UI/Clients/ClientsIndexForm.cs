@@ -18,19 +18,46 @@ namespace eStudentRestaurant_UI.Clients
     public partial class ClientsIndexForm : ChildForm
     {
         private WebAPIHelper clientsService = new WebAPIHelper(ConfigurationManager.AppSettings["APIAddress"], Global.ClientsRoutes);
+        private WebAPIHelper reservationsService = new WebAPIHelper(ConfigurationManager.AppSettings["APIAddress"], Global.ReservationsRoutes);
+
+
         private Client client;
         List<Client> clients;
         public ClientsIndexForm()
         {
             InitializeComponent();
             this.AutoValidate = AutoValidate.Disable;
+           
         }
 
         private void ClientsIndexForm_Load(object sender, EventArgs e)
         {
-            GetClients();
+            ReservationGridView.AutoGenerateColumns = false;
+            GetClients(); 
         }
 
+        private void BindGrid( int id)
+        {
+            HttpResponseMessage reservationResp = reservationsService.GetActionResponseIdParam("GetReservationByClient", id);
+
+            if (reservationResp.IsSuccessStatusCode)
+            {
+                List<Reservation_Result> reservations = reservationResp.Content.ReadAsAsync <List<Reservation_Result>>().Result;
+                if (reservations.Count != 0)
+                {
+                    ReservationGridView.DataSource = reservations;
+                }
+                else
+                {
+                    ReservationGridView.DataSource = null;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Error Code" +
+                    reservationResp.StatusCode + " : Message - " + reservationResp.ReasonPhrase);
+            }
+        }
         private void GetClients()
 
 
@@ -51,6 +78,7 @@ namespace eStudentRestaurant_UI.Clients
                 ClientsComboBox.DataSource = comboItems;
                 client = clients[0];
                 FillDetails();
+                
             }
             else
             {
@@ -73,6 +101,7 @@ namespace eStudentRestaurant_UI.Clients
 
                 UsernameInput.Text = client.Username;
 
+                BindGrid(client.ClientID);
             }
         }
 
@@ -80,7 +109,7 @@ namespace eStudentRestaurant_UI.Clients
         {
             if (clients.Count() > 0)
             {
-                //  int id = (int)ClientsComboBox.SelectedValue;
+               
 
                 client = clients[ClientsComboBox.SelectedIndex];
                 FillDetails();
@@ -282,6 +311,32 @@ namespace eStudentRestaurant_UI.Clients
             ClientAddForm frm = new ClientAddForm();
             frm.ShowDialog();
             GetClients();
+        }
+
+        private void ApproveReservationButton_Click(object sender, EventArgs e)
+        {
+            if (ReservationGridView.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Error! You didnt select reservation to edit!");
+            }
+            else
+            {
+                HttpResponseMessage resApproveResp = reservationsService.GetActionResponseIdParam("ApprovedReservationExist", Convert.ToInt32(ReservationGridView.SelectedRows[0].Cells[0].Value));
+
+                if (resApproveResp.StatusCode != System.Net.HttpStatusCode.NotFound)
+                {
+                    MessageBox.Show("Sorry, but reservation on that date is alerady exist!");
+                }
+                else
+                {
+                    MessageBox.Show("Success! Reservation is approved!");
+                    BindGrid(client.ClientID);
+                }
+
+               
+
+            }
+           
         }
     }
 }

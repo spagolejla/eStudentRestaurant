@@ -50,11 +50,22 @@
             this.SearchClientsLabel = new System.Windows.Forms.Label();
             this.ClientsComboBox = new System.Windows.Forms.ComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.ReservationGridView = new System.Windows.Forms.DataGridView();
+            this.ReservationID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ClientID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Name_ = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ReservationDateTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PlacesNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Note = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Approved = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.label15 = new System.Windows.Forms.Label();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.ApproveReservationButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ReservationGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
@@ -281,25 +292,92 @@
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.button1);
+            this.panel2.Controls.Add(this.ApproveReservationButton);
+            this.panel2.Controls.Add(this.flowLayoutPanel1);
             this.panel2.Controls.Add(this.label15);
             this.panel2.Location = new System.Drawing.Point(30, 330);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(740, 263);
             this.panel2.TabIndex = 54;
             // 
-            // button1
+            // flowLayoutPanel1
             // 
-            this.button1.BackColor = System.Drawing.Color.SteelBlue;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(185, 9);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(92, 25);
-            this.button1.TabIndex = 54;
-            this.button1.Text = "Show";
-            this.button1.UseVisualStyleBackColor = false;
+            this.flowLayoutPanel1.Controls.Add(this.ReservationGridView);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 52);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(553, 206);
+            this.flowLayoutPanel1.TabIndex = 55;
+            // 
+            // ReservationGridView
+            // 
+            this.ReservationGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(27)))), ((int)(((byte)(51)))));
+            this.ReservationGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ReservationGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ReservationID,
+            this.ClientID,
+            this.Name_,
+            this.ReservationDateTime,
+            this.PlacesNumber,
+            this.Note,
+            this.Approved});
+            this.ReservationGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(27)))), ((int)(((byte)(51)))));
+            this.ReservationGridView.Location = new System.Drawing.Point(3, 3);
+            this.ReservationGridView.MultiSelect = false;
+            this.ReservationGridView.Name = "ReservationGridView";
+            this.ReservationGridView.ReadOnly = true;
+            this.ReservationGridView.Size = new System.Drawing.Size(545, 203);
+            this.ReservationGridView.TabIndex = 0;
+            // 
+            // ReservationID
+            // 
+            this.ReservationID.DataPropertyName = "ReservationID";
+            this.ReservationID.HeaderText = "ReservationID";
+            this.ReservationID.Name = "ReservationID";
+            this.ReservationID.ReadOnly = true;
+            this.ReservationID.Visible = false;
+            // 
+            // ClientID
+            // 
+            this.ClientID.DataPropertyName = "ClientID";
+            this.ClientID.HeaderText = "ClientID";
+            this.ClientID.Name = "ClientID";
+            this.ClientID.ReadOnly = true;
+            this.ClientID.Visible = false;
+            // 
+            // Name_
+            // 
+            this.Name_.DataPropertyName = "Name_";
+            this.Name_.HeaderText = "Type";
+            this.Name_.Name = "Name_";
+            this.Name_.ReadOnly = true;
+            // 
+            // ReservationDateTime
+            // 
+            this.ReservationDateTime.DataPropertyName = "ReservationDateTime";
+            this.ReservationDateTime.HeaderText = "Date";
+            this.ReservationDateTime.Name = "ReservationDateTime";
+            this.ReservationDateTime.ReadOnly = true;
+            // 
+            // PlacesNumber
+            // 
+            this.PlacesNumber.DataPropertyName = "PlacesNamber";
+            this.PlacesNumber.HeaderText = "Number of places";
+            this.PlacesNumber.Name = "PlacesNumber";
+            this.PlacesNumber.ReadOnly = true;
+            // 
+            // Note
+            // 
+            this.Note.DataPropertyName = "Note";
+            this.Note.HeaderText = "Note";
+            this.Note.Name = "Note";
+            this.Note.ReadOnly = true;
+            // 
+            // Approved
+            // 
+            this.Approved.DataPropertyName = "Approved";
+            this.Approved.HeaderText = "Approved";
+            this.Approved.Name = "Approved";
+            this.Approved.ReadOnly = true;
             // 
             // label15
             // 
@@ -315,6 +393,20 @@
             // errorProvider
             // 
             this.errorProvider.ContainerControl = this;
+            // 
+            // ApproveReservationButton
+            // 
+            this.ApproveReservationButton.BackColor = System.Drawing.Color.SteelBlue;
+            this.ApproveReservationButton.FlatAppearance.BorderSize = 0;
+            this.ApproveReservationButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ApproveReservationButton.ForeColor = System.Drawing.Color.White;
+            this.ApproveReservationButton.Location = new System.Drawing.Point(420, 22);
+            this.ApproveReservationButton.Name = "ApproveReservationButton";
+            this.ApproveReservationButton.Size = new System.Drawing.Size(120, 24);
+            this.ApproveReservationButton.TabIndex = 56;
+            this.ApproveReservationButton.Text = "Approve reservation";
+            this.ApproveReservationButton.UseVisualStyleBackColor = false;
+            this.ApproveReservationButton.Click += new System.EventHandler(this.ApproveReservationButton_Click);
             // 
             // ClientsIndexForm
             // 
@@ -342,6 +434,8 @@
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.flowLayoutPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ReservationGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -372,7 +466,16 @@
         private System.Windows.Forms.TextBox UsernameInput;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ErrorProvider errorProvider;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.DataGridView ReservationGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ReservationID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ClientID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Name_;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ReservationDateTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PlacesNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Note;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Approved;
+        private System.Windows.Forms.Button ApproveReservationButton;
     }
 }

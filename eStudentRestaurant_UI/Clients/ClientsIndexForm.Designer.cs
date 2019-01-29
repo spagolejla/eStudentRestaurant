@@ -50,6 +50,7 @@
             this.SearchClientsLabel = new System.Windows.Forms.Label();
             this.ClientsComboBox = new System.Windows.Forms.ComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.ApproveReservationButton = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.ReservationGridView = new System.Windows.Forms.DataGridView();
             this.ReservationID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -61,7 +62,6 @@
             this.Approved = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.label15 = new System.Windows.Forms.Label();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
-            this.ApproveReservationButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -125,6 +125,7 @@
             // 
             this.PasswordInput.Location = new System.Drawing.Point(496, 91);
             this.PasswordInput.Name = "PasswordInput";
+            this.PasswordInput.PasswordChar = '*';
             this.PasswordInput.Size = new System.Drawing.Size(104, 20);
             this.PasswordInput.TabIndex = 104;
             this.PasswordInput.Validating += new System.ComponentModel.CancelEventHandler(this.PasswordInput_Validating);
@@ -300,6 +301,20 @@
             this.panel2.Size = new System.Drawing.Size(740, 263);
             this.panel2.TabIndex = 54;
             // 
+            // ApproveReservationButton
+            // 
+            this.ApproveReservationButton.BackColor = System.Drawing.Color.SteelBlue;
+            this.ApproveReservationButton.FlatAppearance.BorderSize = 0;
+            this.ApproveReservationButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ApproveReservationButton.ForeColor = System.Drawing.Color.White;
+            this.ApproveReservationButton.Location = new System.Drawing.Point(420, 22);
+            this.ApproveReservationButton.Name = "ApproveReservationButton";
+            this.ApproveReservationButton.Size = new System.Drawing.Size(120, 24);
+            this.ApproveReservationButton.TabIndex = 56;
+            this.ApproveReservationButton.Text = "Approve reservation";
+            this.ApproveReservationButton.UseVisualStyleBackColor = false;
+            this.ApproveReservationButton.Click += new System.EventHandler(this.ApproveReservationButton_Click);
+            // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.Controls.Add(this.ReservationGridView);
@@ -393,20 +408,6 @@
             // errorProvider
             // 
             this.errorProvider.ContainerControl = this;
-            // 
-            // ApproveReservationButton
-            // 
-            this.ApproveReservationButton.BackColor = System.Drawing.Color.SteelBlue;
-            this.ApproveReservationButton.FlatAppearance.BorderSize = 0;
-            this.ApproveReservationButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ApproveReservationButton.ForeColor = System.Drawing.Color.White;
-            this.ApproveReservationButton.Location = new System.Drawing.Point(420, 22);
-            this.ApproveReservationButton.Name = "ApproveReservationButton";
-            this.ApproveReservationButton.Size = new System.Drawing.Size(120, 24);
-            this.ApproveReservationButton.TabIndex = 56;
-            this.ApproveReservationButton.Text = "Approve reservation";
-            this.ApproveReservationButton.UseVisualStyleBackColor = false;
-            this.ApproveReservationButton.Click += new System.EventHandler(this.ApproveReservationButton_Click);
             // 
             // ClientsIndexForm
             // 

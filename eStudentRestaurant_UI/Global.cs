@@ -24,6 +24,9 @@ namespace eStudentRestaurant_UI
 
         public const string ReservationsRoutes = "api/Reservations";
 
+        public const string ProductsRoutes = "api/Products";
+
+
 
 
 

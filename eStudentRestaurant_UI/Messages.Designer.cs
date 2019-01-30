@@ -160,6 +160,15 @@ namespace eStudentRestaurant_UI {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to It is necessary to choose an image of larger dimensions..
+        /// </summary>
+        internal static string picture_war {
+            get {
+                return ResourceManager.GetString("picture_war", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Required fields are empty..
         /// </summary>
         internal static string Required_Error {
@@ -174,6 +183,15 @@ namespace eStudentRestaurant_UI {
         internal static string username_ex_err {
             get {
                 return ResourceManager.GetString("username_ex_err", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Warning!.
+        /// </summary>
+        internal static string warning {
+            get {
+                return ResourceManager.GetString("warning", resourceCulture);
             }
         }
     }

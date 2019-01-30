@@ -1,6 +1,7 @@
 ﻿using eStudentRestaurant_UI.Clients;
 using eStudentRestaurant_UI.Employees;
 using eStudentRestaurant_UI.Home;
+using eStudentRestaurant_UI.Products;
 using eStudentRestaurant_UI.Students;
 using System;
 using System.Collections.Generic;
@@ -125,6 +126,29 @@ namespace eStudentRestaurant_UI.Main
 
                 }
                 ClientsIndexForm frm = new ClientsIndexForm();
+                frm.MdiParent = MainForm.ActiveForm;
+                frm.Show();
+            }
+
+        }
+
+        private void ToProductButton_Click(object sender, EventArgs e)
+        {
+            if ((Application.OpenForms["ProductsIndexForm"] as ProductsIndexForm) != null)
+            {
+
+            }
+            else
+            {
+
+                foreach (Form fr in this.MdiChildren)
+                {
+
+                    fr.Dispose();
+                    fr.Close();
+
+                }
+                ProductsIndexForm frm = new ProductsIndexForm();
                 frm.MdiParent = MainForm.ActiveForm;
                 frm.Show();
             }

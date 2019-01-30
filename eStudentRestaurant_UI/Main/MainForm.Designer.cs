@@ -40,7 +40,7 @@
             this.MainLogoStudent = new System.Windows.Forms.Label();
             this.ToStudentButton = new System.Windows.Forms.Button();
             this.ToHomeButton = new System.Windows.Forms.Button();
-            this.ToPaymentButton = new System.Windows.Forms.Button();
+            this.ToProductButton = new System.Windows.Forms.Button();
             this.MainMenuPanel.SuspendLayout();
             this.MainLogoPanel.SuspendLayout();
             this.SuspendLayout();
@@ -56,7 +56,7 @@
             this.MainMenuPanel.Controls.Add(this.MainLogoPanel);
             this.MainMenuPanel.Controls.Add(this.ToStudentButton);
             this.MainMenuPanel.Controls.Add(this.ToHomeButton);
-            this.MainMenuPanel.Controls.Add(this.ToPaymentButton);
+            this.MainMenuPanel.Controls.Add(this.ToProductButton);
             this.MainMenuPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.MainMenuPanel.Location = new System.Drawing.Point(0, 0);
             this.MainMenuPanel.Name = "MainMenuPanel";
@@ -212,21 +212,22 @@
             this.ToHomeButton.UseVisualStyleBackColor = true;
             this.ToHomeButton.Click += new System.EventHandler(this.ToHomeButton_Click);
             // 
-            // ToPaymentButton
+            // ToProductButton
             // 
-            this.ToPaymentButton.FlatAppearance.BorderSize = 0;
-            this.ToPaymentButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ToPaymentButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ToPaymentButton.ForeColor = System.Drawing.Color.White;
-            this.ToPaymentButton.Image = ((System.Drawing.Image)(resources.GetObject("ToPaymentButton.Image")));
-            this.ToPaymentButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ToPaymentButton.Location = new System.Drawing.Point(1, 266);
-            this.ToPaymentButton.Name = "ToPaymentButton";
-            this.ToPaymentButton.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.ToPaymentButton.Size = new System.Drawing.Size(236, 46);
-            this.ToPaymentButton.TabIndex = 10;
-            this.ToPaymentButton.Text = "     Products";
-            this.ToPaymentButton.UseVisualStyleBackColor = true;
+            this.ToProductButton.FlatAppearance.BorderSize = 0;
+            this.ToProductButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ToProductButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ToProductButton.ForeColor = System.Drawing.Color.White;
+            this.ToProductButton.Image = ((System.Drawing.Image)(resources.GetObject("ToProductButton.Image")));
+            this.ToProductButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ToProductButton.Location = new System.Drawing.Point(1, 266);
+            this.ToProductButton.Name = "ToProductButton";
+            this.ToProductButton.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.ToProductButton.Size = new System.Drawing.Size(236, 46);
+            this.ToProductButton.TabIndex = 10;
+            this.ToProductButton.Text = "     Products";
+            this.ToProductButton.UseVisualStyleBackColor = true;
+            this.ToProductButton.Click += new System.EventHandler(this.ToProductButton_Click);
             // 
             // MainForm
             // 
@@ -257,7 +258,7 @@
         private System.Windows.Forms.Label MainLogoStudent;
         private System.Windows.Forms.Button ToStudentButton;
         private System.Windows.Forms.Button ToHomeButton;
-        private System.Windows.Forms.Button ToPaymentButton;
+        private System.Windows.Forms.Button ToProductButton;
         private System.Windows.Forms.Button ToClientsButton;
         private System.Windows.Forms.Button LogoutButton;
     }

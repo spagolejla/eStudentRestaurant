@@ -14,7 +14,7 @@ namespace eStudentRestaurant_API.Controllers
 {
     public class ProductsController : ApiController
     {
-        private eStudentRestaurantEntities db = new eStudentRestaurantEntities();
+        private eStudentRestaurantEntities db = new eStudentRestaurantEntities(false);
 
         // GET: api/Products
         public IQueryable<Product> GetProduct()
@@ -27,6 +27,33 @@ namespace eStudentRestaurant_API.Controllers
         public IHttpActionResult GetProduct(int id)
         {
             Product product = db.Product.Find(id);
+            if (product == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(product);
+        }
+
+        
+
+        [HttpGet]
+        [ResponseType(typeof(Product))]
+        [Route("api/Products/GetProductsByName/{name?}")]
+        public List<Product> GetProductsByName(string name = "")
+        {
+            return db.Product.Where(x => x.Name_.Contains(name)).ToList();
+        }
+
+
+        // name exist
+        [HttpGet]
+        [ResponseType(typeof(Product))]
+        [Route("api/Products/NameExist/{name}")]
+        public IHttpActionResult NameExist(string name)
+        {
+            Product product = db.Product.Where(x => x.Name_ == name).FirstOrDefault();
+
             if (product == null)
             {
                 return NotFound();

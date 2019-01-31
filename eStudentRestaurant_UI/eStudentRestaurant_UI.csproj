@@ -114,10 +114,22 @@
     <Compile Include="Main\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Menus\MenusIndexForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menus\MenusIndexForm.Designer.cs">
+      <DependentUpon>MenusIndexForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Messages.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Messages.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Orders\OrdersIndexForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Orders\OrdersIndexForm.Designer.cs">
+      <DependentUpon>OrdersIndexForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Products\ProductAddForm.cs">
       <SubType>Form</SubType>
@@ -181,9 +193,15 @@
     <EmbeddedResource Include="Main\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Menus\MenusIndexForm.resx">
+      <DependentUpon>MenusIndexForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Messages.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Messages.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Orders\OrdersIndexForm.resx">
+      <DependentUpon>OrdersIndexForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Products\ProductAddForm.resx">
       <DependentUpon>ProductAddForm.cs</DependentUpon>

@@ -159,7 +159,7 @@ namespace eStudentRestaurant_UI.Students
             else if (res.StatusCode != System.Net.HttpStatusCode.NotFound)
             {
                 e.Cancel = true;
-                errorProvider.SetError(UsernameInput, Messages.username_ex_err);
+                errorProvider.SetError(UsernameInput, Messages.name_ex_err);
             }
 
             else

@@ -133,6 +133,15 @@ namespace eStudentRestaurant_UI {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Product with that name is already exist!.
+        /// </summary>
+        internal static string name_ex_err {
+            get {
+                return ResourceManager.GetString("name_ex_err", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Not numbers allowed..
         /// </summary>
         internal static string number_err {

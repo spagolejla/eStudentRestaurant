@@ -1,6 +1,8 @@
 ﻿using eStudentRestaurant_UI.Clients;
 using eStudentRestaurant_UI.Employees;
 using eStudentRestaurant_UI.Home;
+using eStudentRestaurant_UI.Menus;
+using eStudentRestaurant_UI.Orders;
 using eStudentRestaurant_UI.Products;
 using eStudentRestaurant_UI.Students;
 using System;
@@ -35,10 +37,7 @@ namespace eStudentRestaurant_UI.Main
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void ToHomeButton_Click(object sender, EventArgs e)
         {
@@ -153,6 +152,50 @@ namespace eStudentRestaurant_UI.Main
                 frm.Show();
             }
 
+        }
+
+        private void ToOrdersButton_Click(object sender, EventArgs e)
+        {
+            if ((Application.OpenForms["OrdersIndexForm"] as OrdersIndexForm) != null)
+            {
+
+            }
+            else
+            {
+
+                foreach (Form fr in this.MdiChildren)
+                {
+
+                    fr.Dispose();
+                    fr.Close();
+
+                }
+                OrdersIndexForm frm = new OrdersIndexForm();
+                frm.MdiParent = MainForm.ActiveForm;
+                frm.Show();
+            }
+        }
+
+        private void ToMenusButton_Click(object sender, EventArgs e)
+        {
+            if ((Application.OpenForms["MenusIndexForm"] as MenusIndexForm) != null)
+            {
+
+            }
+            else
+            {
+
+                foreach (Form fr in this.MdiChildren)
+                {
+
+                    fr.Dispose();
+                    fr.Close();
+
+                }
+                MenusIndexForm frm = new MenusIndexForm();
+                frm.MdiParent = MainForm.ActiveForm;
+                frm.Show();
+            }
         }
     }
 }

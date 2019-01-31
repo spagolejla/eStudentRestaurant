@@ -32,8 +32,8 @@
             this.MainMenuPanel = new System.Windows.Forms.Panel();
             this.LogoutButton = new System.Windows.Forms.Button();
             this.ToClientsButton = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.ToMenusButton = new System.Windows.Forms.Button();
+            this.ToOrdersButton = new System.Windows.Forms.Button();
             this.ToEmployeesButton = new System.Windows.Forms.Button();
             this.MainLogoPanel = new System.Windows.Forms.Panel();
             this.MainLogoRestaurant = new System.Windows.Forms.Label();
@@ -50,8 +50,8 @@
             this.MainMenuPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(27)))), ((int)(((byte)(51)))));
             this.MainMenuPanel.Controls.Add(this.LogoutButton);
             this.MainMenuPanel.Controls.Add(this.ToClientsButton);
-            this.MainMenuPanel.Controls.Add(this.button2);
-            this.MainMenuPanel.Controls.Add(this.button1);
+            this.MainMenuPanel.Controls.Add(this.ToMenusButton);
+            this.MainMenuPanel.Controls.Add(this.ToOrdersButton);
             this.MainMenuPanel.Controls.Add(this.ToEmployeesButton);
             this.MainMenuPanel.Controls.Add(this.MainLogoPanel);
             this.MainMenuPanel.Controls.Add(this.ToStudentButton);
@@ -96,38 +96,39 @@
             this.ToClientsButton.UseVisualStyleBackColor = true;
             this.ToClientsButton.Click += new System.EventHandler(this.ToClientsButton_Click);
             // 
-            // button2
+            // ToMenusButton
             // 
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(0, 370);
-            this.button2.Name = "button2";
-            this.button2.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.button2.Size = new System.Drawing.Size(240, 46);
-            this.button2.TabIndex = 14;
-            this.button2.Text = "     Menus";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.ToMenusButton.FlatAppearance.BorderSize = 0;
+            this.ToMenusButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ToMenusButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ToMenusButton.ForeColor = System.Drawing.Color.White;
+            this.ToMenusButton.Image = ((System.Drawing.Image)(resources.GetObject("ToMenusButton.Image")));
+            this.ToMenusButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ToMenusButton.Location = new System.Drawing.Point(0, 370);
+            this.ToMenusButton.Name = "ToMenusButton";
+            this.ToMenusButton.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.ToMenusButton.Size = new System.Drawing.Size(240, 46);
+            this.ToMenusButton.TabIndex = 14;
+            this.ToMenusButton.Text = "     Menus";
+            this.ToMenusButton.UseVisualStyleBackColor = true;
+            this.ToMenusButton.Click += new System.EventHandler(this.ToMenusButton_Click);
             // 
-            // button1
+            // ToOrdersButton
             // 
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(0, 318);
-            this.button1.Name = "button1";
-            this.button1.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.button1.Size = new System.Drawing.Size(237, 46);
-            this.button1.TabIndex = 13;
-            this.button1.Text = "     Orders";
-            this.button1.UseVisualStyleBackColor = true;
+            this.ToOrdersButton.FlatAppearance.BorderSize = 0;
+            this.ToOrdersButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ToOrdersButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ToOrdersButton.ForeColor = System.Drawing.Color.White;
+            this.ToOrdersButton.Image = ((System.Drawing.Image)(resources.GetObject("ToOrdersButton.Image")));
+            this.ToOrdersButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ToOrdersButton.Location = new System.Drawing.Point(0, 318);
+            this.ToOrdersButton.Name = "ToOrdersButton";
+            this.ToOrdersButton.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.ToOrdersButton.Size = new System.Drawing.Size(237, 46);
+            this.ToOrdersButton.TabIndex = 13;
+            this.ToOrdersButton.Text = "     Orders";
+            this.ToOrdersButton.UseVisualStyleBackColor = true;
+            this.ToOrdersButton.Click += new System.EventHandler(this.ToOrdersButton_Click);
             // 
             // ToEmployeesButton
             // 
@@ -250,8 +251,8 @@
         #endregion
 
         private System.Windows.Forms.Panel MainMenuPanel;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button ToMenusButton;
+        private System.Windows.Forms.Button ToOrdersButton;
         private System.Windows.Forms.Button ToEmployeesButton;
         private System.Windows.Forms.Panel MainLogoPanel;
         private System.Windows.Forms.Label MainLogoRestaurant;

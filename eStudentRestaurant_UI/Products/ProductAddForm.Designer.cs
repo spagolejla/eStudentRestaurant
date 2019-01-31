@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.ProductNameLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -41,7 +42,9 @@
             this.pictureBox = new System.Windows.Forms.PictureBox();
             this.SaveProductButton = new System.Windows.Forms.Button();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // ProductNameLabel
@@ -105,6 +108,7 @@
             this.ProductNameInput.Name = "ProductNameInput";
             this.ProductNameInput.Size = new System.Drawing.Size(163, 20);
             this.ProductNameInput.TabIndex = 48;
+            this.ProductNameInput.Validating += new System.ComponentModel.CancelEventHandler(this.ProductNameInput_Validating);
             // 
             // PriceInput
             // 
@@ -112,6 +116,7 @@
             this.PriceInput.Name = "PriceInput";
             this.PriceInput.Size = new System.Drawing.Size(163, 20);
             this.PriceInput.TabIndex = 49;
+            this.PriceInput.Validating += new System.ComponentModel.CancelEventHandler(this.PriceInput_Validating);
             // 
             // InitialQuantityInput
             // 
@@ -119,6 +124,7 @@
             this.InitialQuantityInput.Name = "InitialQuantityInput";
             this.InitialQuantityInput.Size = new System.Drawing.Size(163, 20);
             this.InitialQuantityInput.TabIndex = 50;
+            this.InitialQuantityInput.Validating += new System.ComponentModel.CancelEventHandler(this.InitialQuantityInput_Validating);
             // 
             // PictureInput
             // 
@@ -162,10 +168,15 @@
             this.SaveProductButton.TabIndex = 56;
             this.SaveProductButton.Text = "Save";
             this.SaveProductButton.UseVisualStyleBackColor = false;
+            this.SaveProductButton.Click += new System.EventHandler(this.SaveProductButton_Click);
             // 
             // openFileDialog
             // 
             this.openFileDialog.FileName = "openFileDialog1";
+            // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
             // 
             // ProductAddForm
             // 
@@ -187,6 +198,7 @@
             this.Name = "ProductAddForm";
             this.Text = "ProductAddForm";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -207,5 +219,6 @@
         private System.Windows.Forms.PictureBox pictureBox;
         private System.Windows.Forms.Button SaveProductButton;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }

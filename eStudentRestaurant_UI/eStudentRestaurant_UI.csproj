@@ -114,6 +114,24 @@
     <Compile Include="Main\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Menus\MenuAddForn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menus\MenuAddForn.Designer.cs">
+      <DependentUpon>MenuAddForn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menus\MenuEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menus\MenuEditForm.Designer.cs">
+      <DependentUpon>MenuEditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menus\MenuItemAddForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menus\MenuItemAddForm.Designer.cs">
+      <DependentUpon>MenuItemAddForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Menus\MenusIndexForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -204,6 +222,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Main\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menus\MenuAddForn.resx">
+      <DependentUpon>MenuAddForn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menus\MenuEditForm.resx">
+      <DependentUpon>MenuEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menus\MenuItemAddForm.resx">
+      <DependentUpon>MenuItemAddForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menus\MenusIndexForm.resx">
       <DependentUpon>MenusIndexForm.cs</DependentUpon>

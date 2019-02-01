@@ -53,5 +53,9 @@ namespace eStudentRestaurant_UI.Util
             return Client.PutAsJsonAsync(Route + "/" + id, existingObject).Result;
         }
 
+        public HttpResponseMessage DeleteResponse(int id)
+        {
+            return Client.DeleteAsync(Route + "/" + id).Result;
+        }
     }
 }

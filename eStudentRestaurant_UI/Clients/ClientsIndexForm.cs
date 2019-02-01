@@ -59,8 +59,6 @@ namespace eStudentRestaurant_UI.Clients
             }
         }
         private void GetClients()
-
-
         {
             HttpResponseMessage response = clientsService.GetResponse();
 

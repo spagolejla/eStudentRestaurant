@@ -137,6 +137,18 @@
     <Compile Include="Products\ProductAddForm.Designer.cs">
       <DependentUpon>ProductAddForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Products\ProductEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Products\ProductEditForm.Designer.cs">
+      <DependentUpon>ProductEditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Products\ProductPurchaseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Products\ProductPurchaseForm.Designer.cs">
+      <DependentUpon>ProductPurchaseForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Products\ProductsIndexForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -205,6 +217,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Products\ProductAddForm.resx">
       <DependentUpon>ProductAddForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Products\ProductEditForm.resx">
+      <DependentUpon>ProductEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Products\ProductPurchaseForm.resx">
+      <DependentUpon>ProductPurchaseForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Products\ProductsIndexForm.resx">
       <DependentUpon>ProductsIndexForm.cs</DependentUpon>

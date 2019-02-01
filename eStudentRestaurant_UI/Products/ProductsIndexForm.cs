@@ -64,5 +64,34 @@ namespace eStudentRestaurant_UI.Products
         {
             BindGrid();
         }
+
+        private void EditProductButton_Click(object sender, EventArgs e)
+        {
+
+            if (ProductsDataGrid.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Error! You didnt select product to edit!");
+            }
+            else
+            {
+                ProductEditForm frm = new ProductEditForm(Convert.ToInt32(ProductsDataGrid.SelectedRows[0].Cells[0].Value));
+
+                if (frm.ShowDialog() == DialogResult.OK)
+                {
+                    BindGrid();
+                }
+
+            }
+            BindGrid();
+        }
+
+        private void PurchaseProductButton_Click(object sender, EventArgs e)
+        {
+
+            ProductPurchaseForm frm = new ProductPurchaseForm();
+
+            frm.ShowDialog();
+            BindGrid();
+        }
     }
 }

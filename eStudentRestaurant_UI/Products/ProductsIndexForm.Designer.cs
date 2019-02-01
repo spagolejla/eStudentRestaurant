@@ -82,6 +82,7 @@
             this.Quantity,
             this.Status});
             this.ProductsDataGrid.Location = new System.Drawing.Point(43, 134);
+            this.ProductsDataGrid.MultiSelect = false;
             this.ProductsDataGrid.Name = "ProductsDataGrid";
             this.ProductsDataGrid.ReadOnly = true;
             this.ProductsDataGrid.Size = new System.Drawing.Size(637, 385);
@@ -173,6 +174,7 @@
             this.EditProductButton.TabIndex = 50;
             this.EditProductButton.Text = "Edit Product";
             this.EditProductButton.UseVisualStyleBackColor = false;
+            this.EditProductButton.Click += new System.EventHandler(this.EditProductButton_Click);
             // 
             // PurchaseProductButton
             // 
@@ -186,6 +188,7 @@
             this.PurchaseProductButton.TabIndex = 51;
             this.PurchaseProductButton.Text = "Purchase products";
             this.PurchaseProductButton.UseVisualStyleBackColor = false;
+            this.PurchaseProductButton.Click += new System.EventHandler(this.PurchaseProductButton_Click);
             // 
             // ProductsIndexForm
             // 

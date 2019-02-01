@@ -65,7 +65,7 @@ namespace eStudentRestaurant_UI.Students
         {
             if (StudentsDataGrid.SelectedRows.Count == 0)
             {
-                MessageBox.Show("Error! You didnt select an employee to edit!");
+                MessageBox.Show("Error! You didnt select student to edit!");
             }
             else
             {

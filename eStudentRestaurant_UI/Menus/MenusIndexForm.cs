@@ -84,7 +84,7 @@ namespace eStudentRestaurant_UI.Menus
             HttpResponseMessage rsp = menuItemsService.GetActionResponseIdParam("GetItemsByMenuID", menu.MenuID);
             if (rsp.IsSuccessStatusCode)
             {
-                List<MenuItem> menuItems = rsp.Content.ReadAsAsync<List<MenuItem>>().Result;
+                List<MenuItem_Result> menuItems = rsp.Content.ReadAsAsync<List<MenuItem_Result>>().Result;
                 MenuItemsGrid.DataSource = menuItems;
             }
             else
@@ -109,18 +109,24 @@ namespace eStudentRestaurant_UI.Menus
 
         private void DeleteMenuButton_Click(object sender, EventArgs e)
         {
-            HttpResponseMessage rsp = menusService.DeleteResponse(menu.MenuID);
-            GetMenus();
+            DialogResult dialogResult = MessageBox.Show("Are you sure?", "Delete menu", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                HttpResponseMessage rsp = menusService.DeleteResponse(menu.MenuID);
+                GetMenus();
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                
+            }
+         
         }
 
         private void AddMenuButton_Click(object sender, EventArgs e)
         {
             MenuAddForn frm = new MenuAddForn();
-            if (frm.ShowDialog() == DialogResult.OK)
-            {
-                GetMenus();
-            }
-           
+            frm.ShowDialog();
+            GetMenus();
         }
 
         private void AddMenuItemButton_Click(object sender, EventArgs e)
@@ -136,6 +142,42 @@ namespace eStudentRestaurant_UI.Menus
                 {
                     BindGrid();
                 }
+
+                BindGrid();
+            }
+           
+        }
+
+        private void DeleteMenuItemButton_Click(object sender, EventArgs e)
+        {
+            if (MenuItemsGrid.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Error! You didnt select menu item to delete!");
+            }
+            else
+            {
+
+                DialogResult dialogResult = MessageBox.Show("Are you sure?", "Delete menu item", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    HttpResponseMessage rsp = menuItemsService.DeleteResponse(Convert.ToInt32(MenuItemsGrid.SelectedRows[0].Cells[0].Value));
+                    if (rsp.IsSuccessStatusCode)
+                    {
+                        MessageBox.Show(Messages.msg_succ);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error Code" +
+                        rsp.StatusCode + " : Message - " + rsp.ReasonPhrase);
+                    }
+
+                    BindGrid();
+                }
+                else if (dialogResult == DialogResult.No)
+                {
+
+                }
+               
             }
            
         }

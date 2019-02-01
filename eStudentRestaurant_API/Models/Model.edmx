@@ -407,6 +407,9 @@
         <Function Name="esp_ReservationSelectByClientId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ClientId" Type="int" Mode="In" />
         </Function>
+        <Function Name="esp_SelectMenuItemByMenuID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MenuID" Type="int" Mode="In" />
+        </Function>
         <Function Name="esp_StudentSelectByName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="FirstLastName" Type="nvarchar" Mode="In" />
         </Function>
@@ -1056,6 +1059,9 @@
           <FunctionImport Name="esp_ReservationSelectByClientId" ReturnType="Collection(eStudentRestaurantModel.Reservation_Result)">
           <Parameter Name="ClientId" Mode="In" Type="Int32" />
           </FunctionImport>
+          <FunctionImport Name="esp_SelectMenuItemByMenuID" ReturnType="Collection(eStudentRestaurantModel.MenuItem_Result)">
+            <Parameter Name="MenuID" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="Employe_Result">
           <Property Type="Int32" Name="EmployeeID" Nullable="false" />
@@ -1085,6 +1091,12 @@
           <Property Type="Int32" Name="PlacesNamber" Nullable="false" />
           <Property Type="String" Name="Note" Nullable="true" />
           <Property Type="Boolean" Name="Approved" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="MenuItem_Result">
+          <Property Type="Int32" Name="MenuID" Nullable="false" />
+          <Property Type="Int32" Name="MenuItemID" Nullable="false" />
+          <Property Type="String" Name="Product" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="Quantity" Nullable="false" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1326,6 +1338,16 @@
                 <ScalarProperty Name="PlacesNamber" ColumnName="PlacesNamber" />
                 <ScalarProperty Name="Note" ColumnName="Note" />
                 <ScalarProperty Name="Approved" ColumnName="Approved" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="esp_SelectMenuItemByMenuID" FunctionName="eStudentRestaurantModel.Store.esp_SelectMenuItemByMenuID">
+          <ResultMapping>
+              <ComplexTypeMapping TypeName="eStudentRestaurantModel.MenuItem_Result">
+                <ScalarProperty Name="MenuID" ColumnName="MenuID" />
+                <ScalarProperty Name="MenuItemID" ColumnName="MenuItemID" />
+                <ScalarProperty Name="Product" ColumnName="Product" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

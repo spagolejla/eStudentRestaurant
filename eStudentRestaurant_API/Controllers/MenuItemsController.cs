@@ -38,14 +38,11 @@ namespace eStudentRestaurant_API.Controllers
 
         // GET: api/MenuItems/5 GetItemsByMenuID
         [HttpGet]
-        [ResponseType(typeof(List<MenuItem>))]
+        [ResponseType(typeof(List<MenuItem_Result>))]
         [Route("api/MenuItems/GetItemsByMenuID/{id}")]
-        public List<MenuItem> GetItemsByMenuID(int id)
+        public List<MenuItem_Result> GetItemsByMenuID(int id)
         {
-            List<MenuItem> menuItems = db.MenuItem.Where(x => x.MenuID == id).Include(p=>p.Product).ToList();
-
-
-            return menuItems;
+            return db.esp_SelectMenuItemByMenuID(id).ToList();
         }
 
 

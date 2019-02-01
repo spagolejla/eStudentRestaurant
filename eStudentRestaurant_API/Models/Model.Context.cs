@@ -269,5 +269,14 @@ namespace eStudentRestaurant_API.Models
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Reservation_Result>("esp_ReservationSelectByClientId", clientIdParameter);
         }
+    
+        public virtual ObjectResult<MenuItem_Result> esp_SelectMenuItemByMenuID(Nullable<int> menuID)
+        {
+            var menuIDParameter = menuID.HasValue ?
+                new ObjectParameter("MenuID", menuID) :
+                new ObjectParameter("MenuID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<MenuItem_Result>("esp_SelectMenuItemByMenuID", menuIDParameter);
+        }
     }
 }

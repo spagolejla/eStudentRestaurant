@@ -111,6 +111,12 @@ namespace eStudentRestaurant_API.Controllers
                 return NotFound();
             }
 
+            List<MenuItem> menuItems = db.MenuItem.Where(x => x.MenuID == id).ToList();
+            if (menuItems.Count()>0)
+            {
+                db.MenuItem.RemoveRange(menuItems);
+                db.SaveChanges();
+            }
             db.Menu.Remove(menu);
             db.SaveChanges();
 

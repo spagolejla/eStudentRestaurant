@@ -42,12 +42,12 @@
             this.DeleteMenuButton = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.MenuItemsGrid = new System.Windows.Forms.DataGridView();
-            this.AddMenuItemButton = new System.Windows.Forms.Button();
-            this.DeleteMenuItemButton = new System.Windows.Forms.Button();
             this.MenuItemID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MenuID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Product = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AddMenuItemButton = new System.Windows.Forms.Button();
+            this.DeleteMenuItemButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MenuItemsGrid)).BeginInit();
             this.SuspendLayout();
@@ -205,10 +205,43 @@
             this.Quantity});
             this.MenuItemsGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(27)))), ((int)(((byte)(51)))));
             this.MenuItemsGrid.Location = new System.Drawing.Point(37, 456);
+            this.MenuItemsGrid.MultiSelect = false;
             this.MenuItemsGrid.Name = "MenuItemsGrid";
             this.MenuItemsGrid.ReadOnly = true;
             this.MenuItemsGrid.Size = new System.Drawing.Size(500, 137);
             this.MenuItemsGrid.TabIndex = 55;
+            // 
+            // MenuItemID
+            // 
+            this.MenuItemID.DataPropertyName = "MenuItemID";
+            this.MenuItemID.HeaderText = "MenuItemID";
+            this.MenuItemID.Name = "MenuItemID";
+            this.MenuItemID.ReadOnly = true;
+            this.MenuItemID.Visible = false;
+            // 
+            // MenuID
+            // 
+            this.MenuID.DataPropertyName = "MenuID";
+            this.MenuID.HeaderText = "MenuID";
+            this.MenuID.Name = "MenuID";
+            this.MenuID.ReadOnly = true;
+            this.MenuID.Visible = false;
+            // 
+            // Product
+            // 
+            this.Product.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Product.DataPropertyName = "Product";
+            this.Product.HeaderText = "Product";
+            this.Product.Name = "Product";
+            this.Product.ReadOnly = true;
+            // 
+            // Quantity
+            // 
+            this.Quantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Quantity.DataPropertyName = "Quantity";
+            this.Quantity.HeaderText = "Quantity";
+            this.Quantity.Name = "Quantity";
+            this.Quantity.ReadOnly = true;
             // 
             // AddMenuItemButton
             // 
@@ -236,38 +269,7 @@
             this.DeleteMenuItemButton.TabIndex = 57;
             this.DeleteMenuItemButton.Text = "Delete Menu Item";
             this.DeleteMenuItemButton.UseVisualStyleBackColor = false;
-            // 
-            // MenuItemID
-            // 
-            this.MenuItemID.DataPropertyName = "MenuItemID";
-            this.MenuItemID.HeaderText = "MenuItemID";
-            this.MenuItemID.Name = "MenuItemID";
-            this.MenuItemID.ReadOnly = true;
-            this.MenuItemID.Visible = false;
-            // 
-            // MenuID
-            // 
-            this.MenuID.DataPropertyName = "MenuID";
-            this.MenuID.HeaderText = "MenuID";
-            this.MenuID.Name = "MenuID";
-            this.MenuID.ReadOnly = true;
-            this.MenuID.Visible = false;
-            // 
-            // Product
-            // 
-            this.Product.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Product.DataPropertyName = "Product.Name_";
-            this.Product.HeaderText = "Product";
-            this.Product.Name = "Product";
-            this.Product.ReadOnly = true;
-            // 
-            // Quantity
-            // 
-            this.Quantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Quantity.DataPropertyName = "Quantity";
-            this.Quantity.HeaderText = "Quantity";
-            this.Quantity.Name = "Quantity";
-            this.Quantity.ReadOnly = true;
+            this.DeleteMenuItemButton.Click += new System.EventHandler(this.DeleteMenuItemButton_Click);
             // 
             // MenusIndexForm
             // 

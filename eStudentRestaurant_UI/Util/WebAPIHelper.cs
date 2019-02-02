@@ -38,6 +38,11 @@ namespace eStudentRestaurant_UI.Util
             return Client.GetAsync(Route + "/" + action + "/" + parameter).Result;
         }
 
+        public HttpResponseMessage GetActionResponseDateParam(string action, int d, int m, int y )
+        {
+            return Client.GetAsync(Route + "/" + action + "/" + d + "/" + m + "/" + y).Result;
+        }
+
         public HttpResponseMessage PostResponse(Object newObject)
         {
             return Client.PostAsJsonAsync(Route, newObject).Result;

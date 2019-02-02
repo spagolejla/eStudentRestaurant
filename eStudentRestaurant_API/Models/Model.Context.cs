@@ -278,5 +278,22 @@ namespace eStudentRestaurant_API.Models
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<MenuItem_Result>("esp_SelectMenuItemByMenuID", menuIDParameter);
         }
+    
+        public virtual ObjectResult<Order_Result> esp_OrderSelectByDate(Nullable<int> day, Nullable<int> month, Nullable<int> year)
+        {
+            var dayParameter = day.HasValue ?
+                new ObjectParameter("day", day) :
+                new ObjectParameter("day", typeof(int));
+    
+            var monthParameter = month.HasValue ?
+                new ObjectParameter("month", month) :
+                new ObjectParameter("month", typeof(int));
+    
+            var yearParameter = year.HasValue ?
+                new ObjectParameter("year", year) :
+                new ObjectParameter("year", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Order_Result>("esp_OrderSelectByDate", dayParameter, monthParameter, yearParameter);
+        }
     }
 }

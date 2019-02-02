@@ -72,8 +72,8 @@
           <Property Name="OrderDate" Type="datetime" Nullable="false" />
           <Property Name="OrderStatusID" Type="int" Nullable="false" />
           <Property Name="TotalPrice" Type="decimal" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="EmployeeID" Type="int" Nullable="false" />
           <Property Name="StudentID" Type="int" Nullable="false" />
+          <Property Name="EmployeeID" Type="int" />
         </EntityType>
         <EntityType Name="OrderItem">
           <Key>
@@ -214,7 +214,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Employee_Order">
-          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
           <End Role="Order_" Type="Self.Order_" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Employee">
@@ -404,6 +404,11 @@
         <Function Name="esp_EmployeSelectByUsername" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Username" Type="nvarchar" Mode="In" />
         </Function>
+        <Function Name="esp_OrderSelectByDate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="day" Type="int" Mode="In" />
+          <Parameter Name="month" Type="int" Mode="In" />
+          <Parameter Name="year" Type="int" Mode="In" />
+        </Function>
         <Function Name="esp_ReservationSelectByClientId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ClientId" Type="int" Mode="In" />
         </Function>
@@ -566,7 +571,7 @@
           <Property Name="PaswordHash" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="PasswordSalt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="City" Relationship="Self.FK_City_Employee" FromRole="Employee" ToRole="City" />
-          <NavigationProperty Name="Order_" Relationship="Self.FK_Employee_Order" FromRole="Employee" ToRole="Order_" />
+          <NavigationProperty Name="Order_" Relationship="eStudentRestaurantModel.FK_Employee_Order" FromRole="Employee" ToRole="Order_" />
         </EntityType>
         <EntityType Name="Menu">
           <Key>
@@ -598,13 +603,13 @@
           <Property Name="OrderDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="OrderStatusID" Type="Int32" Nullable="false" />
           <Property Name="TotalPrice" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="EmployeeID" Type="Int32" Nullable="false" />
           <Property Name="StudentID" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Employee" Relationship="Self.FK_Employee_Order" FromRole="Order_" ToRole="Employee" />
           <NavigationProperty Name="OrderItem" Relationship="Self.FK_Order_OrderItem" FromRole="Order_" ToRole="OrderItem" />
           <NavigationProperty Name="OrderMenu" Relationship="Self.FK_Order_OrderMenu" FromRole="Order_" ToRole="OrderMenu" />
           <NavigationProperty Name="OrderStatus" Relationship="Self.FK_OrderStatus_Order" FromRole="Order_" ToRole="OrderStatus" />
           <NavigationProperty Name="Student" Relationship="Self.FK_Student_Order" FromRole="Order_" ToRole="Student" />
+          <Property Name="EmployeeID" Type="Int32" />
+          <NavigationProperty Name="Employee" Relationship="eStudentRestaurantModel.FK_Employee_Order" FromRole="Order_" ToRole="Employee" />
         </EntityType>
         <EntityType Name="OrderItem">
           <Key>
@@ -770,18 +775,6 @@
             </Principal>
             <Dependent Role="Reservation">
               <PropertyRef Name="ClinetID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Employee_Order">
-          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
-          <End Role="Order_" Type="Self.Order_" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Employee">
-              <PropertyRef Name="EmployeeID" />
-            </Principal>
-            <Dependent Role="Order_">
-              <PropertyRef Name="EmployeeID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -953,10 +946,6 @@
             <End Role="Client" EntitySet="Client" />
             <End Role="Reservation" EntitySet="Reservation" />
           </AssociationSet>
-          <AssociationSet Name="FK_Employee_Order" Association="Self.FK_Employee_Order">
-            <End Role="Employee" EntitySet="Employee" />
-            <End Role="Order_" EntitySet="Order_" />
-          </AssociationSet>
           <AssociationSet Name="FK_Menu_MenuItem" Association="Self.FK_Menu_MenuItem">
             <End Role="Menu" EntitySet="Menu" />
             <End Role="MenuItem" EntitySet="MenuItem" />
@@ -1060,7 +1049,16 @@
           <Parameter Name="ClientId" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="esp_SelectMenuItemByMenuID" ReturnType="Collection(eStudentRestaurantModel.MenuItem_Result)">
-            <Parameter Name="MenuID" Mode="In" Type="Int32" />
+          <Parameter Name="MenuID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <AssociationSet Name="FK_Employee_Order" Association="eStudentRestaurantModel.FK_Employee_Order">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="Order_" EntitySet="Order_" />
+          </AssociationSet>
+          <FunctionImport Name="esp_OrderSelectByDate" ReturnType="Collection(eStudentRestaurantModel.Order_Result)">
+            <Parameter Name="day" Mode="In" Type="Int32" />
+            <Parameter Name="month" Mode="In" Type="Int32" />
+            <Parameter Name="year" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="Employe_Result">
@@ -1097,6 +1095,26 @@
           <Property Type="Int32" Name="MenuItemID" Nullable="false" />
           <Property Type="String" Name="Product" Nullable="false" MaxLength="50" />
           <Property Type="Int32" Name="Quantity" Nullable="false" />
+        </ComplexType>
+        <Association Name="FK_Employee_Order">
+          <End Type="eStudentRestaurantModel.Employee" Role="Employee" Multiplicity="0..1" />
+          <End Type="eStudentRestaurantModel.Order_" Role="Order_" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="Order_">
+              <PropertyRef Name="EmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="Order_Result">
+          <Property Type="Int32" Name="OrderID" Nullable="false" />
+          <Property Type="DateTime" Name="OrderDate" Nullable="false" Precision="23" />
+          <Property Type="Decimal" Name="TotalPrice" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="Student" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="Employee" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="Status" Nullable="false" MaxLength="20" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1171,11 +1189,11 @@
           <EntitySetMapping Name="Order_">
             <EntityTypeMapping TypeName="eStudentRestaurantModel.Order_">
               <MappingFragment StoreEntitySet="Order_">
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
                 <ScalarProperty Name="OrderID" ColumnName="OrderID" />
                 <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
                 <ScalarProperty Name="OrderStatusID" ColumnName="OrderStatusID" />
                 <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
-                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
                 <ScalarProperty Name="StudentID" ColumnName="StudentID" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -1348,6 +1366,18 @@
                 <ScalarProperty Name="MenuItemID" ColumnName="MenuItemID" />
                 <ScalarProperty Name="Product" ColumnName="Product" />
                 <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="esp_OrderSelectByDate" FunctionName="eStudentRestaurantModel.Store.esp_OrderSelectByDate">
+          <ResultMapping>
+              <ComplexTypeMapping TypeName="eStudentRestaurantModel.Order_Result">
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+                <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+                <ScalarProperty Name="Student" ColumnName="Student" />
+                <ScalarProperty Name="Employee" ColumnName="Employee" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

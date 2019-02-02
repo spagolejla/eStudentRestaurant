@@ -10,7 +10,7 @@
         <EntityTypeShape EntityType="eStudentRestaurantModel.Employee" Width="1.5" PointX="5.25" PointY="7.5" IsExpanded="true" />
         <EntityTypeShape EntityType="eStudentRestaurantModel.Menu" Width="1.5" PointX="7.5" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="eStudentRestaurantModel.MenuItem" Width="1.5" PointX="12.75" PointY="10" IsExpanded="true" />
-        <EntityTypeShape EntityType="eStudentRestaurantModel.Order_" Width="1.5" PointX="7.5" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="eStudentRestaurantModel.Order_" Width="1.5" PointX="7.625" PointY="11.5" IsExpanded="true" />
         <EntityTypeShape EntityType="eStudentRestaurantModel.OrderItem" Width="1.5" PointX="9.75" PointY="10.75" IsExpanded="true" />
         <EntityTypeShape EntityType="eStudentRestaurantModel.OrderMenu" Width="1.5" PointX="9.75" PointY="7.75" IsExpanded="true" />
         <EntityTypeShape EntityType="eStudentRestaurantModel.OrderStatus" Width="1.5" PointX="5.25" PointY="20" IsExpanded="true" />
@@ -25,7 +25,6 @@
         <AssociationConnector Association="eStudentRestaurantModel.FK_City_Student" ManuallyRouted="false" />
         <AssociationConnector Association="eStudentRestaurantModel.FK_State_City" ManuallyRouted="false" />
         <AssociationConnector Association="eStudentRestaurantModel.FK_Client_Reservation" ManuallyRouted="false" />
-        <AssociationConnector Association="eStudentRestaurantModel.FK_Employee_Order" ManuallyRouted="false" />
         <AssociationConnector Association="eStudentRestaurantModel.FK_Menu_MenuItem" ManuallyRouted="false" />
         <AssociationConnector Association="eStudentRestaurantModel.FK_Menu_OrderMenu" ManuallyRouted="false" />
         <AssociationConnector Association="eStudentRestaurantModel.FK_Product_MenuItem" ManuallyRouted="false" />
@@ -37,6 +36,7 @@
         <AssociationConnector Association="eStudentRestaurantModel.FK_Product_Rating" ManuallyRouted="false" />
         <AssociationConnector Association="eStudentRestaurantModel.FK_Student_Rating" ManuallyRouted="false" />
         <AssociationConnector Association="eStudentRestaurantModel.FK_ReservationType_Reservation" ManuallyRouted="false" />
+        <AssociationConnector Association="eStudentRestaurantModel.FK_Employee_Order" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

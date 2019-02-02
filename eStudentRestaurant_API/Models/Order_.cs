@@ -25,15 +25,15 @@ namespace eStudentRestaurant_API.Models
         public System.DateTime OrderDate { get; set; }
         public int OrderStatusID { get; set; }
         public decimal TotalPrice { get; set; }
-        public int EmployeeID { get; set; }
         public int StudentID { get; set; }
+        public Nullable<int> EmployeeID { get; set; }
     
-        public virtual Employee Employee { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrderItem> OrderItem { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrderMenu> OrderMenu { get; set; }
         public virtual OrderStatus OrderStatus { get; set; }
         public virtual Student Student { get; set; }
+        public virtual Employee Employee { get; set; }
     }
 }

@@ -39,6 +39,7 @@
             this.OrderStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label2 = new System.Windows.Forms.Label();
             this.TodayButton = new System.Windows.Forms.Button();
+            this.OrderDetailsButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.OrdersGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -74,7 +75,7 @@
             this.OrdersGridView.Location = new System.Drawing.Point(39, 181);
             this.OrdersGridView.Name = "OrdersGridView";
             this.OrdersGridView.ReadOnly = true;
-            this.OrdersGridView.Size = new System.Drawing.Size(542, 150);
+            this.OrdersGridView.Size = new System.Drawing.Size(556, 280);
             this.OrdersGridView.TabIndex = 42;
             // 
             // OrderID
@@ -146,11 +147,26 @@
             this.TodayButton.UseVisualStyleBackColor = false;
             this.TodayButton.Click += new System.EventHandler(this.TodayButton_Click);
             // 
+            // OrderDetailsButton
+            // 
+            this.OrderDetailsButton.BackColor = System.Drawing.Color.SteelBlue;
+            this.OrderDetailsButton.FlatAppearance.BorderSize = 0;
+            this.OrderDetailsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.OrderDetailsButton.ForeColor = System.Drawing.Color.White;
+            this.OrderDetailsButton.Location = new System.Drawing.Point(632, 181);
+            this.OrderDetailsButton.Name = "OrderDetailsButton";
+            this.OrderDetailsButton.Size = new System.Drawing.Size(120, 42);
+            this.OrderDetailsButton.TabIndex = 108;
+            this.OrderDetailsButton.Text = "Order details";
+            this.OrderDetailsButton.UseVisualStyleBackColor = false;
+            this.OrderDetailsButton.Click += new System.EventHandler(this.OrderDetailsButton_Click);
+            // 
             // OrdersIndexForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(790, 605);
+            this.Controls.Add(this.OrderDetailsButton);
             this.Controls.Add(this.TodayButton);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.OrdersGridView);
@@ -164,6 +180,7 @@
             this.Controls.SetChildIndex(this.OrdersGridView, 0);
             this.Controls.SetChildIndex(this.label2, 0);
             this.Controls.SetChildIndex(this.TodayButton, 0);
+            this.Controls.SetChildIndex(this.OrderDetailsButton, 0);
             ((System.ComponentModel.ISupportInitialize)(this.OrdersGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -183,5 +200,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn OrderStatus;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button TodayButton;
+        private System.Windows.Forms.Button OrderDetailsButton;
     }
 }

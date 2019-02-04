@@ -295,5 +295,14 @@ namespace eStudentRestaurant_API.Models
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Order_Result>("esp_OrderSelectByDate", dayParameter, monthParameter, yearParameter);
         }
+    
+        public virtual ObjectResult<OrderDetails_Result> esp_OrderDetailsSelectByOrderID(Nullable<int> orderID)
+        {
+            var orderIDParameter = orderID.HasValue ?
+                new ObjectParameter("OrderID", orderID) :
+                new ObjectParameter("OrderID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<OrderDetails_Result>("esp_OrderDetailsSelectByOrderID", orderIDParameter);
+        }
     }
 }

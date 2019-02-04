@@ -1,4 +1,5 @@
-﻿using eStudentRestaurant_UI.Main;
+﻿using eStudentRestaurant_UI.Login;
+using eStudentRestaurant_UI.Main;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,12 @@ namespace eStudentRestaurant_UI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
+
+            LoginForm frm = new LoginForm();
+            frm.ShowDialog();
+
+            if (frm.DialogResult == DialogResult.OK)
+                Application.Run(new MainForm());
         }
     }
 }

@@ -165,7 +165,11 @@ namespace eStudentRestaurant_UI.Products
                 e.Cancel = true;
                 errorProvider.SetError(InitialQuantityInput, Messages.Error);
             }
-
+            else if (Convert.ToInt32(InitialQuantityInput.Text) <= 0)
+            {
+                e.Cancel = true;
+                errorProvider.SetError(InitialQuantityInput, "Negative or zero values are not allowed");
+            }
             else
             {
                 errorProvider.SetError(InitialQuantityInput, "");

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using eStudentRestaurant_UI.Login;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,19 @@ namespace eStudentRestaurant_UI.Main
         public ChildForm()
         {
             InitializeComponent();
+            
+            LoggeUserLabel.Text =Global.LoggedUser.FirstName + " " +Global.LoggedUser.LastName;
         }
+
+       
+
+        private void LogutButton_Click(object sender, EventArgs e)
+        {
+            Application.Restart();
+
+        }
+
+       
+    
     }
 }

@@ -78,6 +78,7 @@
             this.LogoutButton.TabIndex = 16;
             this.LogoutButton.Text = "Logut";
             this.LogoutButton.UseVisualStyleBackColor = true;
+            this.LogoutButton.Click += new System.EventHandler(this.LogoutButton_Click);
             // 
             // ToClientsButton
             // 
@@ -241,6 +242,7 @@
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainForm";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.MainMenuPanel.ResumeLayout(false);
             this.MainLogoPanel.ResumeLayout(false);
             this.MainLogoPanel.PerformLayout();

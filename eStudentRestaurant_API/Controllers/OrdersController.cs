@@ -26,13 +26,31 @@ namespace eStudentRestaurant_API.Controllers
         [ResponseType(typeof(Order_))]
         public IHttpActionResult GetOrder_(int id)
         {
-            Order_ order_ = db.Order_.Find(id);
+            Order_ order_ = db.Order_.Where(x => x.OrderID == id).FirstOrDefault();
             if (order_ == null)
             {
                 return NotFound();
             }
 
             return Ok(order_);
+        }
+
+        [ResponseType(typeof(OrderItem))]
+        [Route("api/Orders/GetOrderItems/{id}")]
+        public List<OrderItem> GetOrderItems(int id)
+        {
+            List<OrderItem> orderItems = db.OrderItem.Where(x => x.OrderID == id).Include(p=>p.Product).ToList();
+
+            return orderItems;
+        }
+
+        [ResponseType(typeof(OrderMenu))]
+        [Route("api/Orders/GetOrderMenus/{id}")]
+        public List<OrderMenu> GetOrderMenus(int id)
+        {
+            List<OrderMenu> orderMenus = db.OrderMenu.Where(x => x.OrderID == id).Include(m=>m.Menu).ToList();
+
+            return orderMenus;
         }
 
         [ResponseType(typeof(Order_Result))]
@@ -48,6 +66,13 @@ namespace eStudentRestaurant_API.Controllers
             {
                 return db.esp_OrderSelectByDate(day, month, year).ToList();
             }
+        }
+
+        [ResponseType(typeof(OrderDetails_Result))]
+        [Route("api/Orders/GetOrderDetailsByOrderID/{id?}")]
+        public List<OrderDetails_Result> GetOrderDetailsByOrderID(int id)
+        {
+            return db.esp_OrderDetailsSelectByOrderID(id).ToList();
         }
 
         // PUT: api/Orders/5

@@ -29,42 +29,43 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ChildForm));
-            this.LogoutReceptionButton = new System.Windows.Forms.Button();
-            this.label19 = new System.Windows.Forms.Label();
+            this.LogutButton = new System.Windows.Forms.Button();
+            this.LoggeUserLabel = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // LogoutReceptionButton
+            // LogutButton
             // 
-            this.LogoutReceptionButton.FlatAppearance.BorderSize = 0;
-            this.LogoutReceptionButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.LogoutReceptionButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LogoutReceptionButton.ForeColor = System.Drawing.Color.White;
-            this.LogoutReceptionButton.Image = ((System.Drawing.Image)(resources.GetObject("LogoutReceptionButton.Image")));
-            this.LogoutReceptionButton.Location = new System.Drawing.Point(728, 22);
-            this.LogoutReceptionButton.Name = "LogoutReceptionButton";
-            this.LogoutReceptionButton.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.LogoutReceptionButton.Size = new System.Drawing.Size(49, 31);
-            this.LogoutReceptionButton.TabIndex = 35;
-            this.LogoutReceptionButton.UseVisualStyleBackColor = true;
+            this.LogutButton.FlatAppearance.BorderSize = 0;
+            this.LogutButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LogutButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LogutButton.ForeColor = System.Drawing.Color.White;
+            this.LogutButton.Image = ((System.Drawing.Image)(resources.GetObject("LogutButton.Image")));
+            this.LogutButton.Location = new System.Drawing.Point(728, 22);
+            this.LogutButton.Name = "LogutButton";
+            this.LogutButton.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.LogutButton.Size = new System.Drawing.Size(49, 31);
+            this.LogutButton.TabIndex = 35;
+            this.LogutButton.UseVisualStyleBackColor = true;
+            this.LogutButton.Click += new System.EventHandler(this.LogutButton_Click);
             // 
-            // label19
+            // LoggeUserLabel
             // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.ForeColor = System.Drawing.Color.White;
-            this.label19.Location = new System.Drawing.Point(616, 22);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(116, 25);
-            this.label19.TabIndex = 34;
-            this.label19.Text = "Lejla Špago";
+            this.LoggeUserLabel.AutoSize = true;
+            this.LoggeUserLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LoggeUserLabel.ForeColor = System.Drawing.Color.White;
+            this.LoggeUserLabel.Location = new System.Drawing.Point(530, 22);
+            this.LoggeUserLabel.Name = "LoggeUserLabel";
+            this.LoggeUserLabel.Size = new System.Drawing.Size(53, 25);
+            this.LoggeUserLabel.TabIndex = 34;
+            this.LoggeUserLabel.Text = "User";
             // 
             // label18
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.ForeColor = System.Drawing.Color.White;
-            this.label18.Location = new System.Drawing.Point(513, 22);
+            this.label18.Location = new System.Drawing.Point(409, 22);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(115, 25);
             this.label18.TabIndex = 33;
@@ -76,8 +77,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(27)))), ((int)(((byte)(51)))));
             this.ClientSize = new System.Drawing.Size(790, 605);
-            this.Controls.Add(this.LogoutReceptionButton);
-            this.Controls.Add(this.label19);
+            this.Controls.Add(this.LogutButton);
+            this.Controls.Add(this.LoggeUserLabel);
             this.Controls.Add(this.label18);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ChildForm";
@@ -90,8 +91,8 @@
 
         #endregion
 
-        private System.Windows.Forms.Button LogoutReceptionButton;
-        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Button LogutButton;
+        private System.Windows.Forms.Label LoggeUserLabel;
         private System.Windows.Forms.Label label18;
     }
 }

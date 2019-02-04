@@ -153,6 +153,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\OrderDetails_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\OrderItem.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>

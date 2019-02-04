@@ -404,6 +404,9 @@
         <Function Name="esp_EmployeSelectByUsername" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Username" Type="nvarchar" Mode="In" />
         </Function>
+        <Function Name="esp_OrderDetailsSelectByOrderID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="OrderID" Type="int" Mode="In" />
+        </Function>
         <Function Name="esp_OrderSelectByDate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="day" Type="int" Mode="In" />
           <Parameter Name="month" Type="int" Mode="In" />
@@ -1060,6 +1063,9 @@
             <Parameter Name="month" Mode="In" Type="Int32" />
             <Parameter Name="year" Mode="In" Type="Int32" />
           </FunctionImport>
+          <FunctionImport Name="esp_OrderDetailsSelectByOrderID" ReturnType="Collection(eStudentRestaurantModel.OrderDetails_Result)">
+          <Parameter Name="OrderID" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="Employe_Result">
           <Property Type="Int32" Name="EmployeeID" Nullable="false" />
@@ -1115,6 +1121,11 @@
           <Property Type="String" Name="Student" Nullable="false" MaxLength="100" />
           <Property Type="String" Name="Employee" Nullable="false" MaxLength="100" />
           <Property Type="String" Name="Status" Nullable="false" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="OrderDetails_Result">
+          <Property Type="String" Name="Product" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="Quantity" Nullable="false" />
+          <Property Type="Decimal" Name="Price" Nullable="false" Precision="18" Scale="0" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1378,6 +1389,15 @@
                 <ScalarProperty Name="Student" ColumnName="Student" />
                 <ScalarProperty Name="Employee" ColumnName="Employee" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="esp_OrderDetailsSelectByOrderID" FunctionName="eStudentRestaurantModel.Store.esp_OrderDetailsSelectByOrderID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="eStudentRestaurantModel.OrderDetails_Result">
+                <ScalarProperty Name="Product" ColumnName="Product" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

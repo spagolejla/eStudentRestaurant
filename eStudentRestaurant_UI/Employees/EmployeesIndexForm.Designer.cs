@@ -45,6 +45,7 @@
             this.Username = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Active = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
+            this.PassChangeButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.EmployeesDataGrid)).BeginInit();
             this.SuspendLayout();
@@ -85,7 +86,7 @@
             this.EditEmployeeButton.FlatAppearance.BorderSize = 0;
             this.EditEmployeeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.EditEmployeeButton.ForeColor = System.Drawing.Color.White;
-            this.EditEmployeeButton.Location = new System.Drawing.Point(550, 73);
+            this.EditEmployeeButton.Location = new System.Drawing.Point(545, 73);
             this.EditEmployeeButton.Name = "EditEmployeeButton";
             this.EditEmployeeButton.Size = new System.Drawing.Size(91, 30);
             this.EditEmployeeButton.TabIndex = 28;
@@ -99,7 +100,7 @@
             this.AddEmployeeButton.FlatAppearance.BorderSize = 0;
             this.AddEmployeeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddEmployeeButton.ForeColor = System.Drawing.Color.White;
-            this.AddEmployeeButton.Location = new System.Drawing.Point(672, 73);
+            this.AddEmployeeButton.Location = new System.Drawing.Point(672, 74);
             this.AddEmployeeButton.Name = "AddEmployeeButton";
             this.AddEmployeeButton.Size = new System.Drawing.Size(92, 29);
             this.AddEmployeeButton.TabIndex = 27;
@@ -112,7 +113,7 @@
             this.panel1.Controls.Add(this.EmployeesDataGrid);
             this.panel1.Location = new System.Drawing.Point(24, 129);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(740, 464);
+            this.panel1.Size = new System.Drawing.Size(740, 397);
             this.panel1.TabIndex = 29;
             // 
             // EmployeesDataGrid
@@ -128,13 +129,12 @@
             this.City,
             this.Username,
             this.Active});
-            this.EmployeesDataGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.EmployeesDataGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(27)))), ((int)(((byte)(51)))));
             this.EmployeesDataGrid.Location = new System.Drawing.Point(0, 0);
             this.EmployeesDataGrid.MultiSelect = false;
             this.EmployeesDataGrid.Name = "EmployeesDataGrid";
             this.EmployeesDataGrid.ReadOnly = true;
-            this.EmployeesDataGrid.Size = new System.Drawing.Size(740, 464);
+            this.EmployeesDataGrid.Size = new System.Drawing.Size(740, 380);
             this.EmployeesDataGrid.TabIndex = 0;
             // 
             // EmployeeID
@@ -206,12 +206,27 @@
             this.label1.TabIndex = 40;
             this.label1.Text = "Employees";
             // 
+            // PassChangeButton
+            // 
+            this.PassChangeButton.BackColor = System.Drawing.Color.SteelBlue;
+            this.PassChangeButton.FlatAppearance.BorderSize = 0;
+            this.PassChangeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PassChangeButton.ForeColor = System.Drawing.Color.White;
+            this.PassChangeButton.Location = new System.Drawing.Point(24, 554);
+            this.PassChangeButton.Name = "PassChangeButton";
+            this.PassChangeButton.Size = new System.Drawing.Size(140, 30);
+            this.PassChangeButton.TabIndex = 41;
+            this.PassChangeButton.Text = "Change password";
+            this.PassChangeButton.UseVisualStyleBackColor = false;
+            this.PassChangeButton.Click += new System.EventHandler(this.PassChangeButton_Click);
+            // 
             // EmployeesIndexForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(27)))), ((int)(((byte)(51)))));
             this.ClientSize = new System.Drawing.Size(790, 605);
+            this.Controls.Add(this.PassChangeButton);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.EditEmployeeButton);
@@ -222,6 +237,14 @@
             this.Name = "EmployeesIndexForm";
             this.Text = "EmployeesIndexForm";
             this.Load += new System.EventHandler(this.EmployeesIndexForm_Load);
+            this.Controls.SetChildIndex(this.SearchEmployeesLabel, 0);
+            this.Controls.SetChildIndex(this.SearchEmpoyeesInput, 0);
+            this.Controls.SetChildIndex(this.SearchEmployeesButton, 0);
+            this.Controls.SetChildIndex(this.AddEmployeeButton, 0);
+            this.Controls.SetChildIndex(this.EditEmployeeButton, 0);
+            this.Controls.SetChildIndex(this.panel1, 0);
+            this.Controls.SetChildIndex(this.label1, 0);
+            this.Controls.SetChildIndex(this.PassChangeButton, 0);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.EmployeesDataGrid)).EndInit();
             this.ResumeLayout(false);
@@ -246,5 +269,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Username;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Active;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button PassChangeButton;
     }
 }

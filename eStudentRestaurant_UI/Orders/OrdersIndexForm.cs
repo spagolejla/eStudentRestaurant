@@ -66,5 +66,35 @@ namespace eStudentRestaurant_UI.Orders
             DateTime today = DateTime.Now;
             BindGrid(today);
         }
+
+        private void OrderDetailsButton_Click(object sender, EventArgs e)
+        {
+            if (OrdersGridView.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Error! You didnt select order!");
+            }
+            else if (Convert.ToString(OrdersGridView.SelectedRows[0].Cells[5].Value) == "Processed")
+            {
+                MessageBox.Show("Error! Order is already processed!");
+
+            }
+            else if (Convert.ToString(OrdersGridView.SelectedRows[0].Cells[5].Value) == "Refused")
+            {
+                MessageBox.Show("Error! Order is already processed, and refused!");
+
+            }
+            else
+            {
+                OrderDetailsForm frm = new OrderDetailsForm(Convert.ToInt32(OrdersGridView.SelectedRows[0].Cells[0].Value));
+
+                if (frm.ShowDialog() == DialogResult.OK)
+                {
+                    BindGrid(Convert.ToDateTime( OrdersGridView.SelectedRows[0].Cells[1].Value));
+                }
+
+
+                BindGrid(Convert.ToDateTime(OrdersGridView.SelectedRows[0].Cells[1].Value));
+            }
+        }
     }
 }

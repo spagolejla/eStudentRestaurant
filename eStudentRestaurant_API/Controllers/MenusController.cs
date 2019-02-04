@@ -35,6 +35,16 @@ namespace eStudentRestaurant_API.Controllers
             return Ok(menu);
         }
 
+        [HttpGet]
+        [ResponseType(typeof(MenuItem))]
+        [Route("api/Menus/GetMenuItems/{id}")]
+        public List<MenuItem> GetMenuItems(int id)
+        {
+            List<MenuItem> menuItems = db.MenuItem.Where(x => x.MenuID == id).Include(p => p.Product).ToList();
+
+            return menuItems;
+        }
+
         // name exist
         [HttpGet]
         [ResponseType(typeof(Menu))]

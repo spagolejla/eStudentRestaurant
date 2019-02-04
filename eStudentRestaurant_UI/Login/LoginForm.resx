@@ -117,15 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="LogutButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        xAAADsQBlSsOGwAAAQhJREFUOE+lkzFLA0EQhQ+xCtZBjtQp8gvEQkTyu4QgYhFSiliFYGWVQlKE1Cks
-        QopgYZFCrC1EguX5ze07nI2XkyQPPth5M/eO291LTFmWHcMUvmAF3w6rPS/QzB8shHEDc2jDuePMYfUF
-        TGCgR4MwbuFBZaWYu4YnlUEKiFOd6GmVrzu7BHShBwfQgCu1gjAsoK/yj+jdg2kINVBHwogCWD/CwvEB
-        hZ6hrtEgjDvwAe9QpSX8HiXFtgFv0NJ4aYB966vjEwrNINVoEEYUsC56xSaO4AjUkTAs4L9jtJlDSOFS
-        rSA1975Ie11lM21z7Kc5FSclmD+G+GUY9l0W4H/jTdip6AiT5AclNghsl8pgbAAAAABJRU5ErkJggg==
-</value>
-  </data>
 </root>

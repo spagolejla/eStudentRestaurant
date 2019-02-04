@@ -84,7 +84,11 @@ namespace eStudentRestaurant_UI.Products
                 e.Cancel = true;
                 errorProvider.SetError(QuantityInput, "Only numbers are allowed, the highest is 5-digit");
             }
-
+            else if (Convert.ToInt32(QuantityInput.Text) <=0)
+            {
+                e.Cancel = true;
+                errorProvider.SetError(QuantityInput, "Negative or zero values are not allowed");
+            }
             else
             {
                 errorProvider.SetError(QuantityInput, "");

@@ -68,6 +68,11 @@ namespace eStudentRestaurant_UI.Employees
             {
                 MessageBox.Show("Error! You didnt select an employee to edit!");
             }
+            else if (Convert.ToInt32(EmployeesDataGrid.SelectedRows[0].Cells[0].Value) == Global.LoggedUser.EmployeeID)
+            {
+                MessageBox.Show("Sorry! But you can't edit yourself!");
+
+            }
             else
             {
                 EditEmployeeForm frm = new EditEmployeeForm(Convert.ToInt32(EmployeesDataGrid.SelectedRows[0].Cells[0].Value));
@@ -79,6 +84,12 @@ namespace eStudentRestaurant_UI.Employees
 
             }
             BindGrid();
+        }
+
+        private void PassChangeButton_Click(object sender, EventArgs e)
+        {
+            PasswordChangeForm frm = new PasswordChangeForm();
+            frm.ShowDialog();
         }
     }
 }

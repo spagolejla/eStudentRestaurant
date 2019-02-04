@@ -1,6 +1,7 @@
 ﻿using eStudentRestaurant_UI.Clients;
 using eStudentRestaurant_UI.Employees;
 using eStudentRestaurant_UI.Home;
+using eStudentRestaurant_UI.Login;
 using eStudentRestaurant_UI.Menus;
 using eStudentRestaurant_UI.Orders;
 using eStudentRestaurant_UI.Products;
@@ -196,6 +197,19 @@ namespace eStudentRestaurant_UI.Main
                 frm.MdiParent = MainForm.ActiveForm;
                 frm.Show();
             }
+        }
+
+        private void LogoutButton_Click(object sender, EventArgs e)
+        {
+            Application.Restart();
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            
+
+               
+            
         }
     }
 }

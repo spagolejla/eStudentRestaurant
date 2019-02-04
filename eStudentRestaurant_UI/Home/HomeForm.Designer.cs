@@ -28,47 +28,55 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel2 = new System.Windows.Forms.Panel();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HomeForm));
+            this.EmployeePanel = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.ToStudentPanel = new System.Windows.Forms.Panel();
+            this.StudentPanel = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.StudentsLabel = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.ProductPanel = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
+            this.ClientPanel = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.OrderPanel = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.panel5 = new System.Windows.Forms.Panel();
+            this.MenuPanel = new System.Windows.Forms.Panel();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
-            this.panel2.SuspendLayout();
-            this.ToStudentPanel.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.panel4.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.panel5.SuspendLayout();
+            this.ToEmployeeButton = new System.Windows.Forms.Button();
+            this.ToStudentButton = new System.Windows.Forms.Button();
+            this.ToClientsButton = new System.Windows.Forms.Button();
+            this.ToProductsButton = new System.Windows.Forms.Button();
+            this.ToOrdersButton = new System.Windows.Forms.Button();
+            this.ToMenusButton = new System.Windows.Forms.Button();
+            this.EmployeePanel.SuspendLayout();
+            this.StudentPanel.SuspendLayout();
+            this.ProductPanel.SuspendLayout();
+            this.ClientPanel.SuspendLayout();
+            this.OrderPanel.SuspendLayout();
+            this.MenuPanel.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel2
+            // EmployeePanel
             // 
-            this.panel2.BackColor = System.Drawing.Color.SteelBlue;
-            this.panel2.Controls.Add(this.label4);
-            this.panel2.Controls.Add(this.label5);
-            this.panel2.Location = new System.Drawing.Point(34, 169);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(207, 127);
-            this.panel2.TabIndex = 5;
+            this.EmployeePanel.BackColor = System.Drawing.Color.SteelBlue;
+            this.EmployeePanel.Controls.Add(this.ToEmployeeButton);
+            this.EmployeePanel.Controls.Add(this.label4);
+            this.EmployeePanel.Controls.Add(this.label5);
+            this.EmployeePanel.Location = new System.Drawing.Point(34, 169);
+            this.EmployeePanel.Name = "EmployeePanel";
+            this.EmployeePanel.Size = new System.Drawing.Size(207, 127);
+            this.EmployeePanel.TabIndex = 5;
             // 
             // label4
             // 
@@ -103,15 +111,16 @@
             this.label6.TabIndex = 6;
             this.label6.Text = "Employees";
             // 
-            // ToStudentPanel
+            // StudentPanel
             // 
-            this.ToStudentPanel.BackColor = System.Drawing.Color.SteelBlue;
-            this.ToStudentPanel.Controls.Add(this.label3);
-            this.ToStudentPanel.Controls.Add(this.label2);
-            this.ToStudentPanel.Location = new System.Drawing.Point(328, 169);
-            this.ToStudentPanel.Name = "ToStudentPanel";
-            this.ToStudentPanel.Size = new System.Drawing.Size(179, 127);
-            this.ToStudentPanel.TabIndex = 7;
+            this.StudentPanel.BackColor = System.Drawing.Color.SteelBlue;
+            this.StudentPanel.Controls.Add(this.ToStudentButton);
+            this.StudentPanel.Controls.Add(this.label3);
+            this.StudentPanel.Controls.Add(this.label2);
+            this.StudentPanel.Location = new System.Drawing.Point(328, 169);
+            this.StudentPanel.Name = "StudentPanel";
+            this.StudentPanel.Size = new System.Drawing.Size(179, 127);
+            this.StudentPanel.TabIndex = 7;
             // 
             // label3
             // 
@@ -145,7 +154,6 @@
             this.StudentsLabel.Size = new System.Drawing.Size(90, 25);
             this.StudentsLabel.TabIndex = 8;
             this.StudentsLabel.Text = "Students";
-            this.StudentsLabel.Click += new System.EventHandler(this.StudentsLabel_Click);
             // 
             // label9
             // 
@@ -158,15 +166,16 @@
             this.label9.TabIndex = 9;
             this.label9.Text = "Products";
             // 
-            // panel1
+            // ProductPanel
             // 
-            this.panel1.BackColor = System.Drawing.Color.SteelBlue;
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.label7);
-            this.panel1.Location = new System.Drawing.Point(34, 399);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(207, 127);
-            this.panel1.TabIndex = 10;
+            this.ProductPanel.BackColor = System.Drawing.Color.SteelBlue;
+            this.ProductPanel.Controls.Add(this.ToProductsButton);
+            this.ProductPanel.Controls.Add(this.label1);
+            this.ProductPanel.Controls.Add(this.label7);
+            this.ProductPanel.Location = new System.Drawing.Point(34, 399);
+            this.ProductPanel.Name = "ProductPanel";
+            this.ProductPanel.Size = new System.Drawing.Size(207, 127);
+            this.ProductPanel.TabIndex = 10;
             // 
             // label1
             // 
@@ -190,15 +199,16 @@
             this.label7.TabIndex = 4;
             this.label7.Text = "Product";
             // 
-            // panel4
+            // ClientPanel
             // 
-            this.panel4.BackColor = System.Drawing.Color.SteelBlue;
-            this.panel4.Controls.Add(this.label11);
-            this.panel4.Controls.Add(this.label12);
-            this.panel4.Location = new System.Drawing.Point(576, 169);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(179, 127);
-            this.panel4.TabIndex = 12;
+            this.ClientPanel.BackColor = System.Drawing.Color.SteelBlue;
+            this.ClientPanel.Controls.Add(this.ToClientsButton);
+            this.ClientPanel.Controls.Add(this.label11);
+            this.ClientPanel.Controls.Add(this.label12);
+            this.ClientPanel.Location = new System.Drawing.Point(576, 169);
+            this.ClientPanel.Name = "ClientPanel";
+            this.ClientPanel.Size = new System.Drawing.Size(179, 127);
+            this.ClientPanel.TabIndex = 12;
             // 
             // label11
             // 
@@ -244,15 +254,16 @@
             this.label14.TabIndex = 14;
             this.label14.Text = "Orders";
             // 
-            // panel3
+            // OrderPanel
             // 
-            this.panel3.BackColor = System.Drawing.Color.SteelBlue;
-            this.panel3.Controls.Add(this.label8);
-            this.panel3.Controls.Add(this.label10);
-            this.panel3.Location = new System.Drawing.Point(328, 399);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(179, 127);
-            this.panel3.TabIndex = 15;
+            this.OrderPanel.BackColor = System.Drawing.Color.SteelBlue;
+            this.OrderPanel.Controls.Add(this.ToOrdersButton);
+            this.OrderPanel.Controls.Add(this.label8);
+            this.OrderPanel.Controls.Add(this.label10);
+            this.OrderPanel.Location = new System.Drawing.Point(328, 399);
+            this.OrderPanel.Name = "OrderPanel";
+            this.OrderPanel.Size = new System.Drawing.Size(179, 127);
+            this.OrderPanel.TabIndex = 15;
             // 
             // label8
             // 
@@ -276,15 +287,16 @@
             this.label10.TabIndex = 4;
             this.label10.Text = "Orders";
             // 
-            // panel5
+            // MenuPanel
             // 
-            this.panel5.BackColor = System.Drawing.Color.SteelBlue;
-            this.panel5.Controls.Add(this.label15);
-            this.panel5.Controls.Add(this.label16);
-            this.panel5.Location = new System.Drawing.Point(576, 399);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(179, 127);
-            this.panel5.TabIndex = 16;
+            this.MenuPanel.BackColor = System.Drawing.Color.SteelBlue;
+            this.MenuPanel.Controls.Add(this.ToMenusButton);
+            this.MenuPanel.Controls.Add(this.label15);
+            this.MenuPanel.Controls.Add(this.label16);
+            this.MenuPanel.Location = new System.Drawing.Point(576, 399);
+            this.MenuPanel.Name = "MenuPanel";
+            this.MenuPanel.Size = new System.Drawing.Size(179, 127);
+            this.MenuPanel.TabIndex = 16;
             // 
             // label15
             // 
@@ -319,39 +331,139 @@
             this.label17.TabIndex = 17;
             this.label17.Text = "Menus";
             // 
+            // ToEmployeeButton
+            // 
+            this.ToEmployeeButton.FlatAppearance.BorderSize = 0;
+            this.ToEmployeeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ToEmployeeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ToEmployeeButton.ForeColor = System.Drawing.Color.White;
+            this.ToEmployeeButton.Image = ((System.Drawing.Image)(resources.GetObject("ToEmployeeButton.Image")));
+            this.ToEmployeeButton.Location = new System.Drawing.Point(148, 92);
+            this.ToEmployeeButton.Name = "ToEmployeeButton";
+            this.ToEmployeeButton.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.ToEmployeeButton.Size = new System.Drawing.Size(40, 32);
+            this.ToEmployeeButton.TabIndex = 36;
+            this.ToEmployeeButton.UseVisualStyleBackColor = false;
+            this.ToEmployeeButton.Click += new System.EventHandler(this.ToEmployeesButton_Click);
+            // 
+            // ToStudentButton
+            // 
+            this.ToStudentButton.FlatAppearance.BorderSize = 0;
+            this.ToStudentButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ToStudentButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ToStudentButton.ForeColor = System.Drawing.Color.White;
+            this.ToStudentButton.Image = ((System.Drawing.Image)(resources.GetObject("ToStudentButton.Image")));
+            this.ToStudentButton.Location = new System.Drawing.Point(123, 92);
+            this.ToStudentButton.Name = "ToStudentButton";
+            this.ToStudentButton.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.ToStudentButton.Size = new System.Drawing.Size(40, 32);
+            this.ToStudentButton.TabIndex = 37;
+            this.ToStudentButton.UseVisualStyleBackColor = false;
+            this.ToStudentButton.Click += new System.EventHandler(this.ToStudentButton_Click);
+            // 
+            // ToClientsButton
+            // 
+            this.ToClientsButton.FlatAppearance.BorderSize = 0;
+            this.ToClientsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ToClientsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ToClientsButton.ForeColor = System.Drawing.Color.White;
+            this.ToClientsButton.Image = ((System.Drawing.Image)(resources.GetObject("ToClientsButton.Image")));
+            this.ToClientsButton.Location = new System.Drawing.Point(123, 92);
+            this.ToClientsButton.Name = "ToClientsButton";
+            this.ToClientsButton.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.ToClientsButton.Size = new System.Drawing.Size(40, 32);
+            this.ToClientsButton.TabIndex = 37;
+            this.ToClientsButton.UseVisualStyleBackColor = false;
+            this.ToClientsButton.Click += new System.EventHandler(this.ToClientsButton_Click);
+            // 
+            // ToProductsButton
+            // 
+            this.ToProductsButton.FlatAppearance.BorderSize = 0;
+            this.ToProductsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ToProductsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ToProductsButton.ForeColor = System.Drawing.Color.White;
+            this.ToProductsButton.Image = ((System.Drawing.Image)(resources.GetObject("ToProductsButton.Image")));
+            this.ToProductsButton.Location = new System.Drawing.Point(148, 92);
+            this.ToProductsButton.Name = "ToProductsButton";
+            this.ToProductsButton.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.ToProductsButton.Size = new System.Drawing.Size(40, 32);
+            this.ToProductsButton.TabIndex = 38;
+            this.ToProductsButton.UseVisualStyleBackColor = false;
+            this.ToProductsButton.Click += new System.EventHandler(this.ToProductButton_Click);
+            // 
+            // ToOrdersButton
+            // 
+            this.ToOrdersButton.FlatAppearance.BorderSize = 0;
+            this.ToOrdersButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ToOrdersButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ToOrdersButton.ForeColor = System.Drawing.Color.White;
+            this.ToOrdersButton.Image = ((System.Drawing.Image)(resources.GetObject("ToOrdersButton.Image")));
+            this.ToOrdersButton.Location = new System.Drawing.Point(123, 92);
+            this.ToOrdersButton.Name = "ToOrdersButton";
+            this.ToOrdersButton.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.ToOrdersButton.Size = new System.Drawing.Size(40, 32);
+            this.ToOrdersButton.TabIndex = 38;
+            this.ToOrdersButton.UseVisualStyleBackColor = false;
+            this.ToOrdersButton.Click += new System.EventHandler(this.ToOrdersButton_Click);
+            // 
+            // ToMenusButton
+            // 
+            this.ToMenusButton.FlatAppearance.BorderSize = 0;
+            this.ToMenusButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ToMenusButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ToMenusButton.ForeColor = System.Drawing.Color.White;
+            this.ToMenusButton.Image = ((System.Drawing.Image)(resources.GetObject("ToMenusButton.Image")));
+            this.ToMenusButton.Location = new System.Drawing.Point(123, 95);
+            this.ToMenusButton.Name = "ToMenusButton";
+            this.ToMenusButton.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.ToMenusButton.Size = new System.Drawing.Size(40, 32);
+            this.ToMenusButton.TabIndex = 38;
+            this.ToMenusButton.UseVisualStyleBackColor = false;
+            this.ToMenusButton.Click += new System.EventHandler(this.ToMenusButton_Click);
+            // 
             // HomeForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(27)))), ((int)(((byte)(51)))));
             this.ClientSize = new System.Drawing.Size(790, 605);
             this.Controls.Add(this.label17);
-            this.Controls.Add(this.panel5);
-            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.MenuPanel);
+            this.Controls.Add(this.OrderPanel);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label13);
-            this.Controls.Add(this.panel4);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.ClientPanel);
+            this.Controls.Add(this.ProductPanel);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.StudentsLabel);
-            this.Controls.Add(this.ToStudentPanel);
+            this.Controls.Add(this.StudentPanel);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.panel2);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Controls.Add(this.EmployeePanel);
             this.Name = "HomeForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "HomeForm";
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            this.ToStudentPanel.ResumeLayout(false);
-            this.ToStudentPanel.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
+            this.Controls.SetChildIndex(this.EmployeePanel, 0);
+            this.Controls.SetChildIndex(this.label6, 0);
+            this.Controls.SetChildIndex(this.StudentPanel, 0);
+            this.Controls.SetChildIndex(this.StudentsLabel, 0);
+            this.Controls.SetChildIndex(this.label9, 0);
+            this.Controls.SetChildIndex(this.ProductPanel, 0);
+            this.Controls.SetChildIndex(this.ClientPanel, 0);
+            this.Controls.SetChildIndex(this.label13, 0);
+            this.Controls.SetChildIndex(this.label14, 0);
+            this.Controls.SetChildIndex(this.OrderPanel, 0);
+            this.Controls.SetChildIndex(this.MenuPanel, 0);
+            this.Controls.SetChildIndex(this.label17, 0);
+            this.EmployeePanel.ResumeLayout(false);
+            this.EmployeePanel.PerformLayout();
+            this.StudentPanel.ResumeLayout(false);
+            this.StudentPanel.PerformLayout();
+            this.ProductPanel.ResumeLayout(false);
+            this.ProductPanel.PerformLayout();
+            this.ClientPanel.ResumeLayout(false);
+            this.ClientPanel.PerformLayout();
+            this.OrderPanel.ResumeLayout(false);
+            this.OrderPanel.PerformLayout();
+            this.MenuPanel.ResumeLayout(false);
+            this.MenuPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -359,29 +471,35 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel EmployeePanel;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Panel ToStudentPanel;
+        private System.Windows.Forms.Panel StudentPanel;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label StudentsLabel;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel ProductPanel;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel ClientPanel;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel OrderPanel;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Panel MenuPanel;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Button ToEmployeeButton;
+        private System.Windows.Forms.Button ToStudentButton;
+        private System.Windows.Forms.Button ToProductsButton;
+        private System.Windows.Forms.Button ToClientsButton;
+        private System.Windows.Forms.Button ToOrdersButton;
+        private System.Windows.Forms.Button ToMenusButton;
     }
 }

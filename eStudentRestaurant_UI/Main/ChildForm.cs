@@ -16,8 +16,8 @@ namespace eStudentRestaurant_UI.Main
         public ChildForm()
         {
             InitializeComponent();
-            
-            LoggeUserLabel.Text =Global.LoggedUser.FirstName + " " +Global.LoggedUser.LastName;
+
+           
         }
 
        
@@ -28,7 +28,13 @@ namespace eStudentRestaurant_UI.Main
 
         }
 
-       
-    
+        private void ChildForm_Load(object sender, EventArgs e)
+        {
+            if (Global.LoggedUser != null)
+            {
+                LoggeUserLabel.Text = Global.LoggedUser.FirstName + " " + Global.LoggedUser.LastName;
+
+            }
+        }
     }
 }

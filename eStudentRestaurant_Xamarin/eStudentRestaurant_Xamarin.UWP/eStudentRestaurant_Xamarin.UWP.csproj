@@ -143,8 +143,20 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>12.0.1</Version>
+    </PackageReference>
+    <PackageReference Include="PCLCrypto">
+      <Version>2.0.147</Version>
+    </PackageReference>
     <PackageReference Include="Xamarin.Forms" Version="3.4.0.1008975" />
-    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.1.5"/>
+    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.1.5" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\eStudentRestaurant_PCL\eStudentRestaurant_PCL.csproj">
+      <Project>{650755b0-a9df-47d8-9e76-d4f9f2ecefea}</Project>
+      <Name>eStudentRestaurant_PCL</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="..\eStudentRestaurant_Xamarin\eStudentRestaurant_Xamarin.projitems" Label="Shared" />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">

@@ -304,5 +304,23 @@ namespace eStudentRestaurant_API.Models
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<OrderDetails_Result>("esp_OrderDetailsSelectByOrderID", orderIDParameter);
         }
+    
+        public virtual ObjectResult<Client> esp_ClientSelectByUsername(string username)
+        {
+            var usernameParameter = username != null ?
+                new ObjectParameter("Username", username) :
+                new ObjectParameter("Username", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Client>("esp_ClientSelectByUsername", usernameParameter);
+        }
+    
+        public virtual ObjectResult<Client> esp_ClientSelectByUsername(string username, MergeOption mergeOption)
+        {
+            var usernameParameter = username != null ?
+                new ObjectParameter("Username", username) :
+                new ObjectParameter("Username", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Client>("esp_ClientSelectByUsername", mergeOption, usernameParameter);
+        }
     }
 }

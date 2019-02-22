@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="eStudentRestaurant_Xamarin.ClientRegistration"
+             BackgroundColor="#081b33">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="CenterAndExpand"
+                     Margin="10" >
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition  Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition  Width="*"></ColumnDefinition>
+
+                </Grid.ColumnDefinitions>
+
+                <Label Text="Client Registration" FontSize="25" HorizontalTextAlignment="Center" Grid.ColumnSpan="2" TextColor="White" Margin="20"/>
+
+                <Label Text="First name:" FontSize="18" Grid.Row="1" VerticalTextAlignment="Center" TextColor="White"/>
+                <Entry x:Name="firstNameInput" Grid.Row="1"  Grid.Column="1"></Entry>
+
+                <Label Text="Last name::"  FontSize="18" Grid.Row="2"  VerticalTextAlignment="Center" TextColor="White"/>
+                <Entry x:Name="lastNameInput" Grid.Row="2" Grid.Column="1" ></Entry>
+
+                <Label Text="Phone:" FontSize="18" Grid.Row="3"  VerticalTextAlignment="Center" TextColor="White"/>
+                <Entry x:Name="phoneInput" Grid.Row="3" Grid.Column="1"></Entry>
+
+                <Label Text="Organization:" FontSize="18" Grid.Row="4"  VerticalTextAlignment="Center" TextColor="White"/>
+                <Entry x:Name="organizationInput" Grid.Row="4" Grid.Column="1"></Entry>
+
+                <Label Text="Username:" FontSize="18" Grid.Row="5"  VerticalTextAlignment="Center" TextColor="White"/>
+                <Entry x:Name="usernameInput" Grid.Row="5" Grid.Column="1"></Entry>
+
+                <Label Text="Password:" FontSize="18" Grid.Row="6"  VerticalTextAlignment="Center" TextColor="White"/>
+                <Entry x:Name="passwordInput"  Grid.Row="6"  Grid.Column="1" IsPassword ="True" ></Entry>
+                
+                <Button x:Name="ClientRegBtn" Text="Register" BackgroundColor="#4682b4"  TextColor="White" Grid.Row="7" Grid.Column="1"  Clicked="ClientRegBtn_Clicked"></Button>
+
+            </Grid>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

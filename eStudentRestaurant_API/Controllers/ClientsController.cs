@@ -35,6 +35,21 @@ namespace eStudentRestaurant_API.Controllers
             return Ok(client);
         }
 
+        [HttpGet]
+        [ResponseType(typeof(Student))]
+        [Route("api/Clients/GetClientByUsername/{username?}")]
+        public IHttpActionResult GetClientByUsername(string username)
+        {
+            Client client = db.esp_ClientSelectByUsername(username).FirstOrDefault();
+
+            if (client == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(client);
+        }
+
         // Username exist
         [HttpGet]
         [ResponseType(typeof(Client))]

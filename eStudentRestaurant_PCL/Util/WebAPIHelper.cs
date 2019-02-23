@@ -44,10 +44,11 @@ namespace eStudentRestaurant_PCL.Util
 
         public HttpResponseMessage PostResponse(Object newObject)
         {
-            var jsonObject = new StringContent(JsonConvert.SerializeObject(newObject), Encoding.UTF8, "application/json");
-            
+            StringContent jsonObject = new StringContent(JsonConvert.SerializeObject(newObject),
+                Encoding.UTF8, "application/json");
             return Client.PostAsync(Route, jsonObject).Result;
         }
+
 
         //public HttpResponseMessage PostActionResponse(string action, Object newObject)
         //{

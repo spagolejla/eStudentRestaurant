@@ -4,6 +4,7 @@
              x:Class="eStudentRestaurant_Xamarin.StudentRegistration"
              BackgroundColor="#081b33">
     <ContentPage.Content>
+        <ScrollView>
         <StackLayout VerticalOptions="CenterAndExpand"
                      Margin="10" >
 
@@ -63,5 +64,6 @@
             </Grid>
 
         </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

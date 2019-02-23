@@ -39,7 +39,14 @@ namespace eStudentRestaurant_Xamarin
             student.PasswordSalt = UIHelper.GenerateSalt();
             student.PaswordHash = UIHelper.GenerateHash(student.PasswordSalt, passwordInput.Text);
 
-            studentsService.PostResponse(student);
+            try
+            {
+                studentsService.PostResponse(student);
+            }
+            catch (Exception ex)
+            {
+                DisplayAlert("Error!", ex.Message + ex.StackTrace , "OK");
+            }
 
             DisplayAlert("Success!", "Registration has successfully passed", "OK");
 

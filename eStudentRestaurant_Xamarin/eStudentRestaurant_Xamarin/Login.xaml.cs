@@ -48,6 +48,8 @@ namespace eStudentRestaurant_Xamarin
                     {
                         // this.Navigation.PushAsync(new MainPage());
                         DisplayAlert("Success!", "Student se prijavios", "OK");
+                        this.Navigation.PushAsync(new StudentMainPage());
+
 
                     }
                     else

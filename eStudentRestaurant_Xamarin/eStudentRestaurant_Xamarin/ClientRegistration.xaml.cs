@@ -3,6 +3,7 @@ using eStudentRestaurant_PCL.Util;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -37,14 +38,36 @@ namespace eStudentRestaurant_Xamarin
             try
             {
                 clientsService.PostResponse(client);
-            }
-            catch (Exception ex)
-            {
-                DisplayAlert("Error!", ex.Message, "OK");
-            }
-          
+                DisplayAlert("Success!", "Registration has successfully passed", "OK");
 
-            DisplayAlert("Success!", "Registration has successfully passed", "OK");
+
+            }
+            catch (AggregateException ex)
+            {
+
+                DisplayAlert("Error!", ex.InnerException.Message, "OK");
+
+            }
+
+
+            /* try
+             {
+                 HttpResponseMessage response = clientsService.GetActionResponse("GetClientByUsername", "mirna");
+
+                 if (response.IsSuccessStatusCode)
+                 {
+
+                 }
+             }
+             catch (AggregateException ex)
+             {
+
+                 throw;
+             }*/
+
+
+
+
 
         }
     }

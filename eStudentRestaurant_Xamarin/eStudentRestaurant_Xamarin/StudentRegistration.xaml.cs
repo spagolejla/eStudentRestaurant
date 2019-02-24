@@ -42,13 +42,14 @@ namespace eStudentRestaurant_Xamarin
             try
             {
                 studentsService.PostResponse(student);
+                DisplayAlert("Success!", "Registration has successfully passed", "OK");
+
             }
             catch (Exception ex)
             {
-                DisplayAlert("Error!", ex.Message + ex.StackTrace , "OK");
+                DisplayAlert("Error!", ex.Message , "OK");
             }
 
-            DisplayAlert("Success!", "Registration has successfully passed", "OK");
 
         }
 

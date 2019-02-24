@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:local="clr-namespace:eStudentRestaurant_Xamarin.Converters"
+             x:Class="eStudentRestaurant_Xamarin.StudentMainPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:ImageConverter x:Key="ImageConverter"></local:ImageConverter>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout Padding="30">
+            <Label Text="Avaible products" FontSize="15" HorizontalTextAlignment="Center" Margin="20"/>
+            <ListView x:Name="ProductsList" RowHeight="100">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Image x:Name="ProductImage" Grid.Column="0" Source="{Binding PictureThumb, Converter={StaticResource ImageConverter}}" Margin="5"></Image>
+                                
+                                <StackLayout Grid.Column="1" Padding="12">
+                                    <Label Text="{Binding Name_}" FontAttributes="Bold"></Label>
+                                    <Label Text="{Binding Price}"></Label>
+                                </StackLayout>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

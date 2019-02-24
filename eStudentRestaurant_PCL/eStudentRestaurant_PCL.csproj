@@ -60,6 +60,7 @@
     <Compile Include="Class1.cs" />
     <Compile Include="Model\City.cs" />
     <Compile Include="Model\Client.cs" />
+    <Compile Include="Model\Product.cs" />
     <Compile Include="Model\Student.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Util\UIHelper.cs" />

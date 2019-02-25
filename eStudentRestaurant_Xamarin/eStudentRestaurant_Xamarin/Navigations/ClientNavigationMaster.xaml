@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="eStudentRestaurant_Xamarin.Navigations.ClientNavigationMaster"
+             Title="Navigation">
+    <StackLayout BackgroundColor="#081b33">
+        <ListView x:Name="MenuItemsListView"
+              SeparatorVisibility="Default"
+              HasUnevenRows="true"
+              ItemsSource="{Binding MenuItems}">
+            <ListView.Header>
+                <Grid BackgroundColor="#4682b4">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="10"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="10"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="30"/>
+
+                    </Grid.RowDefinitions>
+                    <Label
+              Grid.Column="1"
+              Grid.Row="1"
+              TextColor="White"
+              Text="eStudent Restaurant"
+              Style="{DynamicResource SubtitleStyle}"
+              HorizontalOptions="Center"
+              Margin="10"
+              />
+                    <Label
+              Grid.ColumnSpan="3"
+              Grid.Row="2"
+              TextColor="White"
+              Text="Welcome Client"
+              Margin="23,0"
+              
+              />
+                </Grid>
+            </ListView.Header>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Margin="10" Padding="15,10" HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                            <Image Margin="5" Source="{Binding Icon}"></Image>
+                            <Label VerticalOptions="FillAndExpand" 
+                    VerticalTextAlignment="Center" 
+                    TextColor="White"
+                    Text="{Binding Title}" 
+                    FontSize="15"
+                     Margin="5" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>

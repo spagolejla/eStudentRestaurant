@@ -27,7 +27,7 @@ namespace eStudentRestaurant_Xamarin
         {
             this.Navigation.PushAsync(new StudentRegistration());
         }
-    
+
         private void ClientRegistrationButton_Clicked(object sender, EventArgs e)
         {
             this.Navigation.PushAsync(new ClientRegistration());
@@ -35,7 +35,7 @@ namespace eStudentRestaurant_Xamarin
 
         private void SignInButton_Clicked(object sender, EventArgs e)
         {
-            
+
             try
             {
                 HttpResponseMessage studentResponse = studentsService.GetActionResponse("GetStudentByUsername", usernameInput.Text);
@@ -44,17 +44,13 @@ namespace eStudentRestaurant_Xamarin
                 {
                     var jsonResult = studentResponse.Content.ReadAsStringAsync();
                     Student s = JsonConvert.DeserializeObject<Student>(jsonResult.Result);
-                    if (s.PaswordHash == UIHelper.GenerateHash(s.PasswordSalt, passwordInput.Text)) 
+                    if (s.PaswordHash == UIHelper.GenerateHash(s.PasswordSalt, passwordInput.Text))
                     {
-                        // this.Navigation.PushAsync(new MainPage());
-                        DisplayAlert("Success!", "Student se prijavios", "OK");
-                        this.Navigation.PushAsync(new StudentMainPage());
-
-
+                        this.Navigation.PushModalAsync(new Navigations.StudentNavigation());
                     }
                     else
-	                {
-                        DisplayAlert("Error!"," Wrong password!", "OK");
+                    {
+                        DisplayAlert("Error!", " Wrong password!", "OK");
                     }
                 }
                 else if (studentResponse.StatusCode == System.Net.HttpStatusCode.NotFound)
@@ -66,8 +62,7 @@ namespace eStudentRestaurant_Xamarin
                         Client c = JsonConvert.DeserializeObject<Client>(jsonResult.Result);
                         if (c.PaswordHash == UIHelper.GenerateHash(c.PasswordSalt, passwordInput.Text))
                         {
-                            // this.Navigation.PushAsync(new MainPage());
-                            DisplayAlert("Success!", "Client se prijavio", "OK");
+                            this.Navigation.PushModalAsync(new Navigations.ClientNavigation());
 
                         }
                         else
@@ -89,7 +84,7 @@ namespace eStudentRestaurant_Xamarin
             }
             catch (Exception ex)
             {
-                        DisplayAlert("Error!",ex.Message, "OK");
+                DisplayAlert("Error!", ex.Message, "OK");
 
             }
 

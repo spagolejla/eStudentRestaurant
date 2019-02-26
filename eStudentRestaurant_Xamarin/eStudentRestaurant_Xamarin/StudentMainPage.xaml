@@ -11,7 +11,7 @@
     <ContentPage.Content>
         <StackLayout Padding="30">
             <Label Text="Avaible products" FontSize="15" HorizontalTextAlignment="Center" Margin="20"/>
-            <ListView x:Name="ProductsList" RowHeight="100">
+            <ListView x:Name="ProductsList" RowHeight="100" ItemTapped="ProductsList_ItemTapped">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>

@@ -105,13 +105,22 @@
     <Folder Include="Resources\drawable-xhdpi\" />
     <Folder Include="Resources\drawable-xxhdpi\" />
     <Folder Include="Resources\drawable-xxxhdpi\" />
-    <Folder Include="Resources\drawable\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\eStudentRestaurant_PCL\eStudentRestaurant_PCL.csproj">
       <Project>{650755b0-a9df-47d8-9e76-d4f9f2ecefea}</Project>
       <Name>eStudentRestaurant_PCL</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\account-logout-32.png" />
+    <AndroidResource Include="Resources\drawable\border-color-16.png" />
+    <AndroidResource Include="Resources\drawable\guest-16.png" />
+    <AndroidResource Include="Resources\drawable\list.png" />
+    <AndroidResource Include="Resources\drawable\logout-16.png" />
+    <AndroidResource Include="Resources\drawable\menu-16.png" />
+    <AndroidResource Include="Resources\drawable\pizza-16.png" />
+    <AndroidResource Include="Resources\drawable\plus-16.png" />
   </ItemGroup>
   <Import Project="..\eStudentRestaurant_Xamarin\eStudentRestaurant_Xamarin.projitems" Label="Shared" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />

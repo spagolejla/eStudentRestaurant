@@ -39,5 +39,13 @@ namespace eStudentRestaurant_Xamarin
 
             base.OnAppearing();
         }
+
+        public void ProductsList_ItemTapped (object sender, ItemTappedEventArgs e)
+        {
+            if (e.Item != null)
+            {
+                this.Navigation.PushAsync(new ProductDetailsPage((e.Item as Product).ProductID));
+            }
+        }
     }
 }

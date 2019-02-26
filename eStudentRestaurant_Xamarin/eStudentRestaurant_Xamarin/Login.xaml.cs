@@ -46,6 +46,7 @@ namespace eStudentRestaurant_Xamarin
                     Student s = JsonConvert.DeserializeObject<Student>(jsonResult.Result);
                     if (s.PaswordHash == UIHelper.GenerateHash(s.PasswordSalt, passwordInput.Text))
                     {
+                        Global.loggedStudent = s;
                         this.Navigation.PushModalAsync(new Navigations.StudentNavigation());
                     }
                     else
@@ -62,6 +63,7 @@ namespace eStudentRestaurant_Xamarin
                         Client c = JsonConvert.DeserializeObject<Client>(jsonResult.Result);
                         if (c.PaswordHash == UIHelper.GenerateHash(c.PasswordSalt, passwordInput.Text))
                         {
+                            Global.loggedClient = c;
                             this.Navigation.PushModalAsync(new Navigations.ClientNavigation());
 
                         }

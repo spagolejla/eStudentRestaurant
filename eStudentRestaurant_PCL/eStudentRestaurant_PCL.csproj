@@ -60,6 +60,12 @@
     <Compile Include="Class1.cs" />
     <Compile Include="Model\City.cs" />
     <Compile Include="Model\Client.cs" />
+    <Compile Include="Model\Menu.cs" />
+    <Compile Include="Model\MenuItem.cs" />
+    <Compile Include="Model\Order.cs" />
+    <Compile Include="Model\OrderItem.cs" />
+    <Compile Include="Model\OrderMenu.cs" />
+    <Compile Include="Model\OrderStatus.cs" />
     <Compile Include="Model\Product.cs" />
     <Compile Include="Model\Student.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

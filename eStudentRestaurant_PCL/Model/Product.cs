@@ -16,5 +16,6 @@ namespace eStudentRestaurant_PCL.Model
         public byte[] Picture { get; set; }
         public byte[] PictureThumb { get; set; }
         public bool Status { get; set; }
+        public Nullable<decimal> AverageRating { get; set; }
     }
 }

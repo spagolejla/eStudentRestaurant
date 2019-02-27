@@ -19,14 +19,16 @@ namespace eStudentRestaurant_PCL.Model
         public int OrderStatusID { get; set; }
         public decimal TotalPrice { get; set; }
         public int StudentID { get; set; }
-        
+        public int EmployeeID { get; set; }
 
-      
-        public virtual List<OrderItem> OrderItem { get; set; }
+
+
+
+        public  List<OrderItem> OrderItem { get; set; }
        
-        public virtual List<OrderMenu> OrderMenu { get; set; }
-        public virtual OrderStatus OrderStatus { get; set; }
-        public virtual Student Student { get; set; }
+        public  List<OrderMenu> OrderMenu { get; set; }
+        public  OrderStatus OrderStatus { get; set; }
+        
         
     }
 }

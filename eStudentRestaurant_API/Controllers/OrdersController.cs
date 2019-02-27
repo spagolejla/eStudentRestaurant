@@ -75,6 +75,13 @@ namespace eStudentRestaurant_API.Controllers
             return db.esp_OrderDetailsSelectByOrderID(id).ToList();
         }
 
+        [ResponseType(typeof(OrderDetails_Result))]
+        [Route("api/Orders/GetOrdersByStudentID/{id?}")]
+        public List<Order_> GetOrdersByStudentID(int id)
+        {
+            return db.Order_.Where(x => x.StudentID == id).Include(os => os.OrderStatus).OrderByDescending(d=>d.OrderDate).ToList();
+        }
+
         // PUT: api/Orders/5
         [ResponseType(typeof(void))]
         public IHttpActionResult PutOrder_(int id, Order_ order_)
@@ -114,15 +121,58 @@ namespace eStudentRestaurant_API.Controllers
         [ResponseType(typeof(Order_))]
         public IHttpActionResult PostOrder_(Order_ order_)
         {
+            
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.Order_.Add(order_);
+            Order_ newOrder = new Order_();
+            newOrder.EmployeeID = order_.EmployeeID;
+            newOrder.StudentID = order_.StudentID;
+            newOrder.OrderDate = order_.OrderDate;
+            newOrder.TotalPrice = order_.TotalPrice;
+            newOrder.OrderStatusID = order_.OrderStatusID;
+            
+
+            db.Order_.Add(newOrder);
             db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = order_.OrderID }, order_);
+            if (order_.OrderItem.Count != 0)
+            {
+                foreach (var item in order_.OrderItem)
+                {
+                    OrderItem oi = new OrderItem()
+                    {
+                        OrderID = newOrder.OrderID,
+                        ProductID = item.ProductID,
+                        Quantity = item.Quantity
+                    };
+
+                    db.OrderItem.Add(oi);
+                }
+            }
+
+            if (order_.OrderMenu.Count != 0)
+            {
+                foreach (var menu in order_.OrderMenu)
+                {
+                    OrderMenu mi = new OrderMenu()
+                    {
+                        OrderID = newOrder.OrderID,
+                        MenuID = menu.MenuID,
+                        Quantity = menu.Quantity
+                    };
+
+                    db.OrderMenu.Add(mi);
+                }
+
+            }
+
+            db.SaveChanges();
+
+
+            return CreatedAtRoute("DefaultApi", new { id = newOrder.OrderID }, order_);
         }
 
         // DELETE: api/Orders/5

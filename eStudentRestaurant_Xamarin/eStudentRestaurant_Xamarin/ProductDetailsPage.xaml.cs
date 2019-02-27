@@ -50,9 +50,48 @@ namespace eStudentRestaurant_Xamarin
 
         }
 
-        private async void AddToBasketButton_OnClicked(object sender, EventArgs e)
+        private  void AddToBasketButton_OnClicked(object sender, EventArgs e)
         {
-            await DisplayAlert("Success", "Pie added to your basket!", "Done");
+            if (Global.ActiveOrder == null)
+            {
+                Global.ActiveOrder = new Order();
+                Global.ActiveOrder.OrderDate = DateTime.Now;
+                Global.ActiveOrder.OrderStatusID = 1;
+                Global.ActiveOrder.StudentID = Global.loggedStudent.StudentID;
+                Global.ActiveOrder.EmployeeID = 1;
+
+            }
+                bool exists = false;
+                foreach (var item in Global.ActiveOrder.OrderItem)
+                {
+                    if (item.ProductID == product.ProductID)
+                    {
+                        item.Quantity += Convert.ToInt32(QuantityInput.Text);
+                        Global.ActiveOrder.TotalPrice += product.Price * Convert.ToInt32(QuantityInput.Text);
+                        exists = true;
+                        break;
+                    }
+                }
+
+                if (!exists)
+                {
+                    OrderItem item = new OrderItem();
+                    item.ProductID = product.ProductID;
+                    item.Quantity = Convert.ToInt32(QuantityInput.Text);
+                    item.Product = product;
+                    item.Product.Picture = null;
+                    Global.ActiveOrder.TotalPrice += product.Price * Convert.ToInt32(QuantityInput.Text);
+
+                    Global.ActiveOrder.OrderItem.Add(item);
+
+                }
+
+
+                DisplayAlert("Success!", "Product added to your basket!", "Done");
+                this.Navigation.PushAsync(new Orders.ActiveOrder());
+
+               
+            }
+          
         }
     }
-}

@@ -31,6 +31,7 @@
               Margin="10"
               />
               <Label
+              x:Name="WelcomeLabel"    
               Grid.ColumnSpan="3"
               Grid.Row="2"
               TextColor="White"

@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="eStudentRestaurant_Xamarin.Orders.OrdersListPage">
+    <ContentPage.Content>
+        <StackLayout Padding="30">
+            <Label Text="Order history" FontSize="15" HorizontalTextAlignment="Center" Margin="20" />
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <StackLayout  Padding="12" Orientation="Horizontal" Grid.Row="0">
+                    <Label Grid.Column="0" Text="Order code" FontAttributes="Bold" Margin="10"></Label>
+                    <Label Grid.Column="1" Text="Date" FontAttributes="Bold" Margin="10"></Label>
+                    <Label Grid.Column="2" Text="Total price" FontAttributes="Bold" Margin="10"></Label>
+                    <Label Grid.Column="3" Text="Status" FontAttributes="Bold" Margin="10"></Label>
+                </StackLayout>
+
+            </Grid>
+            <ListView x:Name="OrdersList" RowHeight="100" Grid.Row="1" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+
+                                </Grid.ColumnDefinitions>
+                               
+                                
+                                <StackLayout  Padding="12" Orientation="Horizontal">
+                                    <Label Grid.Column="0" Text="{Binding OrderID}" Margin="10" ></Label>
+                                    <Label Grid.Column="1" Text="{Binding OrderDate}"  Margin="10"></Label>
+                                    <Label Grid.Column="2" Text="{Binding TotalPrice}" Margin="10"></Label>
+                                    <Label Grid.Column="3" Text="{Binding OrderStatus.Name_}" Margin="10" ></Label>
+                                </StackLayout>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

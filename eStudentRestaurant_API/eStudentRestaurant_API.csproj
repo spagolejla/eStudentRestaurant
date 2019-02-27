@@ -109,6 +109,7 @@
     <Compile Include="Controllers\MenuItemsController.cs" />
     <Compile Include="Controllers\MenusController.cs" />
     <Compile Include="Controllers\OrderItemsController.cs" />
+    <Compile Include="Controllers\OrderMenusController.cs" />
     <Compile Include="Controllers\OrdersController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\ReservationsController.cs" />

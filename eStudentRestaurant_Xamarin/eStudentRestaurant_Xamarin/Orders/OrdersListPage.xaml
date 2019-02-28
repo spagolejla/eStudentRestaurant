@@ -44,7 +44,7 @@
                                 <StackLayout  Padding="12" Orientation="Horizontal">
                                     <Label Grid.Column="0" Text="{Binding OrderID}" Margin="10" ></Label>
                                     <Label Grid.Column="1" Text="{Binding OrderDate}"  Margin="10"></Label>
-                                    <Label Grid.Column="2" Text="{Binding TotalPrice}" Margin="10"></Label>
+                                    <Label Grid.Column="2" Text="{Binding TotalPrice, StringFormat=' {0} KM'}" Margin="10"></Label>
                                     <Label Grid.Column="3" Text="{Binding OrderStatus.Name_}" Margin="10" ></Label>
                                 </StackLayout>
                             </Grid>

@@ -8,7 +8,7 @@
               SeparatorVisibility="Default"
               HasUnevenRows="true"
               ItemsSource="{Binding MenuItems}">
-            <ListView.Header>
+            <ListView.Header Padding="10">
                 <Grid BackgroundColor="#4682b4">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="10"/>
@@ -31,6 +31,7 @@
               Margin="10"
               />
                     <Label
+              x:Name="ClientNameLabel"          
               Grid.ColumnSpan="3"
               Grid.Row="2"
               TextColor="White"

@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="eStudentRestaurant_Xamarin.Clients.ReservationDetailsPage">
+    <ContentPage.Content>
+        <StackLayout Padding="30">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"></RowDefinition>
+                    <RowDefinition Height="150"></RowDefinition>
+                    <RowDefinition Height="50"></RowDefinition>
+                    <RowDefinition Height="50"></RowDefinition>
+                    <RowDefinition Height="50"></RowDefinition>
+                    <RowDefinition Height="50"></RowDefinition>
+
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width=".4*"></ColumnDefinition>
+                    <ColumnDefinition Width=".6*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Label x:Name="ReservationNameLabel" 
+               Grid.Row="0" 
+               Grid.Column="0" 
+               Grid.ColumnSpan="2" 
+               Style="{StaticResource TitleLabelStyle}"></Label>
+                <Label x:Name="ReservationNoteLabel" 
+               Grid.Row="1" Grid.ColumnSpan="2" 
+               Style="{StaticResource MediumLabelStyle}"></Label>
+
+                <Label x:Name="PlacesNumberLabel" 
+               FontAttributes="Bold" 
+               Grid.Row="2"></Label>
+                <Label x:Name="DateLabel" 
+               FontAttributes="Bold" 
+               Grid.Row="3"></Label>
+                <Label x:Name="AprovedLabel" 
+               FontAttributes="Bold" 
+               Grid.Row="4"></Label>
+
+
+
+
+            </Grid>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -122,6 +122,9 @@
     <AndroidResource Include="Resources\drawable\pizza-16.png" />
     <AndroidResource Include="Resources\drawable\plus-16.png" />
   </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\home-5-16.png" />
+  </ItemGroup>
   <Import Project="..\eStudentRestaurant_Xamarin\eStudentRestaurant_Xamarin.projitems" Label="Shared" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

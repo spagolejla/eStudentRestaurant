@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="eStudentRestaurant_Xamarin.Clients.ReservationsListPage">
+    <ContentPage.Content>
+        <StackLayout Padding="30">
+            <Label Text="Reservations" FontSize="15" HorizontalTextAlignment="Center" Margin="20"/>
+            <ListView x:Name="ReservationsList" RowHeight="80"  ItemTapped="ReservationsList_ItemTapped">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+
+                                <StackLayout Grid.Column="1" Padding="5" Orientation="Horizontal">
+                                    <Label Text="{Binding Name_}" FontAttributes="Bold" Margin="30" WidthRequest="200"></Label>
+                                    <Label Text="{Binding ReservationDateTime, StringFormat='\{0:MM/dd/yy}'}"  Margin="30"></Label>
+                                    <Label  Margin="30">
+                                        <Label.Triggers>
+                                            <DataTrigger TargetType="Label" Binding="{Binding Approved}" Value="false">
+                                                <Setter Property="Text" Value="Declined" />
+                                                <Setter Property="TextColor" Value="Red" />
+                                            </DataTrigger>
+                                            <DataTrigger TargetType="Label" Binding="{Binding Approved}" Value="true">
+                                                <Setter Property="Text" Value="Approved" />
+                                                <Setter Property="TextColor" Value="Green" />
+                                            </DataTrigger>
+                                        </Label.Triggers>
+                                    </Label>
+                                   
+
+                                </StackLayout>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -22,7 +22,7 @@ namespace eStudentRestaurant_Xamarin.Navigations
             InitializeComponent();
 
             BindingContext = new StudentNavigationMasterViewModel();
-            WelcomeLabel.Text = "Wellcome " + Global.loggedStudent.FirstName + Global.loggedStudent.LastName; 
+            WelcomeLabel.Text = "Wellcome " + Global.loggedStudent.FirstName + " " + Global.loggedStudent.LastName; 
             ListView = MenuItemsListView;
         }
 
@@ -38,8 +38,8 @@ namespace eStudentRestaurant_Xamarin.Navigations
                     new StudentNavigationMenuItem {Title = "Menus" , Icon = "menu-16.png", TargetType = typeof(Menus.MenuListPage)},
                     new StudentNavigationMenuItem {Title = "Orders" , Icon = "list.png", TargetType = typeof(Orders.OrdersListPage)},
                     new StudentNavigationMenuItem {Title = "Active order" , Icon = "border-color-16.png", TargetType = typeof(Orders.ActiveOrder)},
-                    new StudentNavigationMenuItem {Title = "My profile" , Icon = "guest-16.png", TargetType = typeof(MainPage)},
-                    new StudentNavigationMenuItem {Title = "Logut" , Icon = "logout-16.png", TargetType = typeof(MainPage)},
+                    new StudentNavigationMenuItem {Title = "My profile" , Icon = "guest-16.png", TargetType = typeof(StudentProfilePage)},
+                    new StudentNavigationMenuItem {Title = "Logut" , Icon = "logout-16.png", TargetType = typeof(LogoutActivity)},
 
                 });
             }

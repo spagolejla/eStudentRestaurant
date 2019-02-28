@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="eStudentRestaurant_Xamarin.Clients.ClientMainPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout >
+                <Grid BackgroundColor="#4682b4">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="10"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="10"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="10"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="10"/>
+
+                    </Grid.RowDefinitions>
+                    <Label
+                     Text="eStudent Restaurant"
+                     Grid.Column="1"
+                     Grid.Row="1"
+                     TextColor="White"
+                     FontSize="Large"
+                     HorizontalOptions="Center"
+                     Margin="5"
+                     />
+                    <Label
+                     Text="- Modul Client - "
+                     Grid.Column="1"
+                     Grid.Row="2"
+                     TextColor="White"
+                     FontSize="Medium"
+                     HorizontalOptions="Center"
+                     Margin="5"
+                     />
+
+                </Grid>
+            </StackLayout>
+            <StackLayout Padding="30">
+               
+               <Label Text="Wellcome to eStudentRestaurant. With this app you can easily reserve our Restaurant for your organization events!"
+               Style="{StaticResource MediumLabelStyle}"> </Label>
+                      
+                <Button   
+                Text="Add reservation" 
+                Style="{StaticResource RegularButtonStyle}" 
+                Padding="10" 
+                Margin="100"
+                ></Button>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

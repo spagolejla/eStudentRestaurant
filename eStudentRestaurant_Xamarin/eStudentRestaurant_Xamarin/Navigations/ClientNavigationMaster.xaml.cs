@@ -22,24 +22,26 @@ namespace eStudentRestaurant_Xamarin.Navigations
             InitializeComponent();
 
             BindingContext = new ClientNavigationMasterViewModel();
+            ClientNameLabel.Text = "Wellcome " + Global.loggedClient.FirstName + " " + Global.loggedClient.LastName;
             ListView = MenuItemsListView;
         }
 
         class ClientNavigationMasterViewModel : INotifyPropertyChanged
         {
             public ObservableCollection<ClientNavigationMenuItem> MenuItems { get; set; }
-            
+
             public ClientNavigationMasterViewModel()
             {
                 MenuItems = new ObservableCollection<ClientNavigationMenuItem>(new[]
                 {
-                    new ClientNavigationMenuItem {Title = "Reservations" , Icon = "list.png", TargetType = typeof(MainPage)},
+                    new ClientNavigationMenuItem {Title = "Home" , Icon = "home-5-16.png", TargetType = typeof(Clients.ClientMainPage)},
+                    new ClientNavigationMenuItem {Title = "Reservations" , Icon = "list.png", TargetType = typeof(Clients.ReservationsListPage)},
                     new ClientNavigationMenuItem {Title = "Make reservation" , Icon = "plus-16.png", TargetType = typeof(MainPage)},
-                    new ClientNavigationMenuItem {Title = "Profile" , Icon = "guest-16.png", TargetType = typeof(MainPage)},
-                    new ClientNavigationMenuItem {Title = "Logut" , Icon = "logout-16.png", TargetType = typeof(MainPage)},
+                    new ClientNavigationMenuItem {Title = "Profile" , Icon = "guest-16.png", TargetType = typeof(Clients.ClientProfilePage)},
+                    new ClientNavigationMenuItem {Title = "Logut" , Icon = "logout-16.png", TargetType = typeof(LogoutActivity)},
                 });
             }
-            
+
             #region INotifyPropertyChanged Implementation
             public event PropertyChangedEventHandler PropertyChanged;
             void OnPropertyChanged([CallerMemberName] string propertyName = "")

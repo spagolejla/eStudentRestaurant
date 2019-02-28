@@ -21,7 +21,7 @@ namespace eStudentRestaurant_API.Controllers
         [ResponseType(typeof(Reservation))]
         public IHttpActionResult GetReservation(int id)
         {
-            Reservation reservation = db.Reservation.Find(id);
+            Reservation reservation = db.Reservation.Where(x=>x.ReservationID == id).Include(rt=>rt.ReservationType).FirstOrDefault();
             if (reservation == null)
             {
                 return NotFound();

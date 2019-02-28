@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="eStudentRestaurant_Xamarin.StudentProfilePage">
+  <ContentPage.Content>
+
+    <StackLayout>
+      <StackLayout >
+        <Grid BackgroundColor="#4682b4">
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="10"/>
+          </Grid.ColumnDefinitions>
+          <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="30"/>
+
+          </Grid.RowDefinitions>
+          <Label
+x:Name="StudentNameLabel"
+Grid.Column="1"
+Grid.Row="1"
+TextColor="White"
+Text="Student Name"
+Style="{DynamicResource SubtitleStyle}"
+HorizontalOptions="Center"
+Margin="10"
+              />
+
+        </Grid>
+      </StackLayout>
+      <ScrollView HorizontalOptions="Center">
+        <StackLayout Padding="20" HorizontalOptions="Center" >
+          <Grid>
+            <Grid.RowDefinitions>
+              <RowDefinition Height="Auto"></RowDefinition>
+              <RowDefinition Height="Auto"></RowDefinition>
+              <RowDefinition Height="Auto"></RowDefinition>
+              <RowDefinition Height="Auto"></RowDefinition>
+              <RowDefinition Height="Auto"></RowDefinition>
+              <RowDefinition Height="Auto"></RowDefinition>
+              <RowDefinition Height="Auto"></RowDefinition>
+              <RowDefinition Height="Auto"></RowDefinition>
+              <RowDefinition Height="Auto"></RowDefinition>
+              <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition  Width="Auto"></ColumnDefinition>
+              <ColumnDefinition  Width="*"></ColumnDefinition>
+
+            </Grid.ColumnDefinitions>
+          </Grid>
+          <StackLayout Orientation="Horizontal">
+            <Label Text="First name:" FontSize="18"  Grid.Row="0" VerticalTextAlignment="Center"  FontAttributes="Bold"/>
+            <Label x:Name="FirstNameLabel" FontSize="18" Grid.Row="0"  Grid.Column="1"></Label>
+          </StackLayout>
+
+          <StackLayout Orientation="Horizontal">
+            <Label Text="Last name:   "  FontSize="18" Grid.Row="1"  VerticalTextAlignment="Center" FontAttributes="Bold" />
+            <Label x:Name="LastNameLabel" FontSize="18" Grid.Row="1" Grid.Column="1" ></Label>
+          </StackLayout>
+          <StackLayout Orientation="Horizontal">
+            <Label Text="Jmbg:   " FontSize="18" Grid.Row="2"  VerticalTextAlignment="Center" FontAttributes="Bold" />
+            <Label x:Name="JmbgLabel" FontSize="18" Grid.Row="2" Grid.Column="1"></Label>
+          </StackLayout>
+          <StackLayout Orientation="Horizontal">
+            <Label Text="Birthday:   " FontSize="18" Grid.Row="3"  VerticalTextAlignment="Center" FontAttributes="Bold"/>
+            <Label x:Name="BirthdayLabel" FontSize="18" Grid.Row="3" Grid.Column="1"></Label>
+          </StackLayout>
+          <StackLayout Orientation="Horizontal">
+            <Label Text="Address:   " FontSize="18" Grid.Row="4"  VerticalTextAlignment="Center" FontAttributes="Bold"/>
+            <Label x:Name="AddrressLabel" FontSize="18" Grid.Row="4" Grid.Column="1"></Label>
+          </StackLayout>
+          <StackLayout Orientation="Horizontal">
+            <Label Text="Phone:   " FontSize="18" Grid.Row="5"  VerticalTextAlignment="Center" FontAttributes="Bold" />
+            <Label x:Name="PhoneLabel" FontSize="18" Grid.Row="5" Grid.Column="1"></Label>
+          </StackLayout>
+          <StackLayout Orientation="Horizontal">
+            <Label Text="City:   " FontSize="18" Grid.Row="6"  VerticalTextAlignment="Center" FontAttributes="Bold" />
+            <Label x:Name="CityNameLabel" FontSize="18" Grid.Row="6" Grid.Column="1"></Label>
+          </StackLayout>
+          <StackLayout Orientation="Horizontal">
+            <Label Text="Username:   " FontSize="18" Grid.Row="7"  VerticalTextAlignment="Center" FontAttributes="Bold"/>
+            <Label x:Name="UsernameLabel" FontSize="18" Grid.Row="7" Grid.Column="1"></Label>
+          </StackLayout>
+          <StackLayout Orientation="Horizontal">
+            <Label Text="Password:   " FontSize="18" Grid.Row="8"  VerticalTextAlignment="Center" FontAttributes="Bold" />
+            <Label x:Name="PasswordLabel" FontSize="18" Grid.Row="8"  Grid.Column="1" Text="********" ></Label>
+          </StackLayout>
+        </StackLayout>
+
+      </ScrollView>
+    </StackLayout>
+
+  </ContentPage.Content>
+</ContentPage>

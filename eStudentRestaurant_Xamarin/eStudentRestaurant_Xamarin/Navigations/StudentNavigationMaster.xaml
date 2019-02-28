@@ -8,8 +8,8 @@
               SeparatorVisibility="None"
               HasUnevenRows="true"
               ItemsSource="{Binding MenuItems}">
-      <ListView.Header>
-          <Grid BackgroundColor="#4682b4">
+            <ListView.Header Padding="10">
+          <Grid BackgroundColor="#4682b4" >
           <Grid.ColumnDefinitions>
             <ColumnDefinition Width="10"/>
             <ColumnDefinition Width="*"/>

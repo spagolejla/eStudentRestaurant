@@ -92,13 +92,13 @@ namespace eStudentRestaurant_Xamarin.Orders
             else
             {
                 HttpResponseMessage response = ordersService.PostResponse(Global.ActiveOrder);
-                DisplayAlert("Info",response.StatusCode.ToString(),"OK");
+               
                 if (response.IsSuccessStatusCode)
                 {
                     DisplayAlert("Success!","Order successfully added", "OK");
 
                     Global.ActiveOrder = null;
-                    this.Navigation.PushAsync(new StudentMainPage());
+                    this.Navigation.PushAsync(new Orders.OrdersListPage());
                 }
             }
         }

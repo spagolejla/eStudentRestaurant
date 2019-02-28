@@ -67,6 +67,9 @@
     <Compile Include="Model\OrderMenu.cs" />
     <Compile Include="Model\OrderStatus.cs" />
     <Compile Include="Model\Product.cs" />
+    <Compile Include="Model\Reservation.cs" />
+    <Compile Include="Model\ReservationType.cs" />
+    <Compile Include="Model\Reservation_Result.cs" />
     <Compile Include="Model\Student.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Util\UIHelper.cs" />

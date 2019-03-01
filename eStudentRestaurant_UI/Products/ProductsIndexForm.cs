@@ -24,11 +24,19 @@ namespace eStudentRestaurant_UI.Products
         {
             InitializeComponent();
             ProductsDataGrid.AutoGenerateColumns = false;
+            ProductsDataGrid.Select();
+            ProductsDataGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
 
 
         private void BindGrid()
         {
+            if (SearchProductsInput.Text.Length>50)
+            {
+                MessageBox.Show("Error! To much characters!");
+            }
+            else
+            {
             HttpResponseMessage response = productsService.GetActionResponse("GetProductsByName", SearchProductsInput.Text.Trim());
 
             if (response.IsSuccessStatusCode)
@@ -44,6 +52,9 @@ namespace eStudentRestaurant_UI.Products
             {
                 MessageBox.Show("Error Code" +
                 response.StatusCode + " : Message - " + response.ReasonPhrase);
+            }
+
+
             }
         }
 

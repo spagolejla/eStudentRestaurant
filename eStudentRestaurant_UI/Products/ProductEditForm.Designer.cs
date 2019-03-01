@@ -41,7 +41,6 @@
             this.ProductNameLabel = new System.Windows.Forms.Label();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
-            this.label2 = new System.Windows.Forms.Label();
             this.ActiveCheckBox = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
@@ -53,9 +52,9 @@
             this.SaveProductButton.FlatAppearance.BorderSize = 0;
             this.SaveProductButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SaveProductButton.ForeColor = System.Drawing.Color.White;
-            this.SaveProductButton.Location = new System.Drawing.Point(314, 409);
+            this.SaveProductButton.Location = new System.Drawing.Point(335, 192);
             this.SaveProductButton.Name = "SaveProductButton";
-            this.SaveProductButton.Size = new System.Drawing.Size(81, 38);
+            this.SaveProductButton.Size = new System.Drawing.Size(81, 24);
             this.SaveProductButton.TabIndex = 66;
             this.SaveProductButton.Text = "Save";
             this.SaveProductButton.UseVisualStyleBackColor = false;
@@ -64,7 +63,7 @@
             // pictureBox
             // 
             this.pictureBox.BackColor = System.Drawing.Color.White;
-            this.pictureBox.Location = new System.Drawing.Point(134, 209);
+            this.pictureBox.Location = new System.Drawing.Point(296, 51);
             this.pictureBox.Name = "pictureBox";
             this.pictureBox.Size = new System.Drawing.Size(120, 120);
             this.pictureBox.TabIndex = 65;
@@ -76,7 +75,7 @@
             this.ChoosePictureButton.FlatAppearance.BorderSize = 0;
             this.ChoosePictureButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ChoosePictureButton.ForeColor = System.Drawing.Color.White;
-            this.ChoosePictureButton.Location = new System.Drawing.Point(314, 171);
+            this.ChoosePictureButton.Location = new System.Drawing.Point(190, 192);
             this.ChoosePictureButton.Name = "ChoosePictureButton";
             this.ChoosePictureButton.Size = new System.Drawing.Size(81, 24);
             this.ChoosePictureButton.TabIndex = 64;
@@ -86,22 +85,22 @@
             // 
             // PictureInput
             // 
-            this.PictureInput.Location = new System.Drawing.Point(134, 171);
+            this.PictureInput.Location = new System.Drawing.Point(108, 151);
             this.PictureInput.Name = "PictureInput";
             this.PictureInput.Size = new System.Drawing.Size(163, 20);
             this.PictureInput.TabIndex = 63;
             // 
             // PriceInput
             // 
-            this.PriceInput.Location = new System.Drawing.Point(134, 123);
+            this.PriceInput.Location = new System.Drawing.Point(108, 102);
             this.PriceInput.Name = "PriceInput";
-            this.PriceInput.Size = new System.Drawing.Size(163, 20);
+            this.PriceInput.Size = new System.Drawing.Size(59, 20);
             this.PriceInput.TabIndex = 62;
             this.PriceInput.Validating += new System.ComponentModel.CancelEventHandler(this.PriceInput_Validating);
             // 
             // ProductNameInput
             // 
-            this.ProductNameInput.Location = new System.Drawing.Point(134, 86);
+            this.ProductNameInput.Location = new System.Drawing.Point(108, 51);
             this.ProductNameInput.Name = "ProductNameInput";
             this.ProductNameInput.Size = new System.Drawing.Size(163, 20);
             this.ProductNameInput.TabIndex = 61;
@@ -112,7 +111,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(139, 9);
+            this.label5.Location = new System.Drawing.Point(163, 9);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(144, 29);
             this.label5.TabIndex = 60;
@@ -123,7 +122,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(18, 124);
+            this.label4.Location = new System.Drawing.Point(23, 92);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(44, 17);
             this.label4.TabIndex = 59;
@@ -134,7 +133,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(18, 171);
+            this.label1.Location = new System.Drawing.Point(23, 151);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(56, 17);
             this.label1.TabIndex = 58;
@@ -145,7 +144,7 @@
             this.ProductNameLabel.AutoSize = true;
             this.ProductNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ProductNameLabel.ForeColor = System.Drawing.Color.White;
-            this.ProductNameLabel.Location = new System.Drawing.Point(18, 86);
+            this.ProductNameLabel.Location = new System.Drawing.Point(23, 52);
             this.ProductNameLabel.Name = "ProductNameLabel";
             this.ProductNameLabel.Size = new System.Drawing.Size(49, 17);
             this.ProductNameLabel.TabIndex = 57;
@@ -159,22 +158,11 @@
             // 
             this.errorProvider.ContainerControl = this;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(18, 357);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(52, 17);
-            this.label2.TabIndex = 67;
-            this.label2.Text = "Status:";
-            // 
             // ActiveCheckBox
             // 
             this.ActiveCheckBox.AutoSize = true;
             this.ActiveCheckBox.ForeColor = System.Drawing.Color.White;
-            this.ActiveCheckBox.Location = new System.Drawing.Point(134, 358);
+            this.ActiveCheckBox.Location = new System.Drawing.Point(199, 102);
             this.ActiveCheckBox.Name = "ActiveCheckBox";
             this.ActiveCheckBox.Size = new System.Drawing.Size(56, 17);
             this.ActiveCheckBox.TabIndex = 103;
@@ -185,9 +173,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(488, 489);
+            this.ClientSize = new System.Drawing.Size(454, 239);
             this.Controls.Add(this.ActiveCheckBox);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.SaveProductButton);
             this.Controls.Add(this.pictureBox);
             this.Controls.Add(this.ChoosePictureButton);
@@ -221,7 +208,6 @@
         private System.Windows.Forms.Label ProductNameLabel;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.ErrorProvider errorProvider;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.CheckBox ActiveCheckBox;
     }
 }

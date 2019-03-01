@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProductsIndexForm));
             this.label1 = new System.Windows.Forms.Label();
             this.AddProductButton = new System.Windows.Forms.Button();
             this.ProductsDataGrid = new System.Windows.Forms.DataGridView();
@@ -63,7 +62,7 @@
             this.AddProductButton.FlatAppearance.BorderSize = 0;
             this.AddProductButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddProductButton.ForeColor = System.Drawing.Color.White;
-            this.AddProductButton.Location = new System.Drawing.Point(466, 85);
+            this.AddProductButton.Location = new System.Drawing.Point(555, 91);
             this.AddProductButton.Name = "AddProductButton";
             this.AddProductButton.Size = new System.Drawing.Size(92, 27);
             this.AddProductButton.TabIndex = 45;
@@ -85,7 +84,7 @@
             this.ProductsDataGrid.MultiSelect = false;
             this.ProductsDataGrid.Name = "ProductsDataGrid";
             this.ProductsDataGrid.ReadOnly = true;
-            this.ProductsDataGrid.Size = new System.Drawing.Size(637, 385);
+            this.ProductsDataGrid.Size = new System.Drawing.Size(713, 447);
             this.ProductsDataGrid.TabIndex = 46;
             // 
             // ProductID
@@ -136,7 +135,7 @@
             // 
             this.SearchProductsButton.FlatAppearance.BorderSize = 0;
             this.SearchProductsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SearchProductsButton.Image = ((System.Drawing.Image)(resources.GetObject("SearchProductsButton.Image")));
+            this.SearchProductsButton.Image = global::eStudentRestaurant_UI.Properties.Resources.search_3_16;
             this.SearchProductsButton.Location = new System.Drawing.Point(371, 91);
             this.SearchProductsButton.Name = "SearchProductsButton";
             this.SearchProductsButton.Size = new System.Drawing.Size(30, 21);
@@ -168,7 +167,7 @@
             this.EditProductButton.FlatAppearance.BorderSize = 0;
             this.EditProductButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.EditProductButton.ForeColor = System.Drawing.Color.White;
-            this.EditProductButton.Location = new System.Drawing.Point(588, 85);
+            this.EditProductButton.Location = new System.Drawing.Point(445, 91);
             this.EditProductButton.Name = "EditProductButton";
             this.EditProductButton.Size = new System.Drawing.Size(92, 27);
             this.EditProductButton.TabIndex = 50;
@@ -182,11 +181,11 @@
             this.PurchaseProductButton.FlatAppearance.BorderSize = 0;
             this.PurchaseProductButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.PurchaseProductButton.ForeColor = System.Drawing.Color.White;
-            this.PurchaseProductButton.Location = new System.Drawing.Point(43, 548);
+            this.PurchaseProductButton.Location = new System.Drawing.Point(664, 91);
             this.PurchaseProductButton.Name = "PurchaseProductButton";
-            this.PurchaseProductButton.Size = new System.Drawing.Size(120, 36);
+            this.PurchaseProductButton.Size = new System.Drawing.Size(92, 27);
             this.PurchaseProductButton.TabIndex = 51;
-            this.PurchaseProductButton.Text = "Purchase products";
+            this.PurchaseProductButton.Text = "Purchase ";
             this.PurchaseProductButton.UseVisualStyleBackColor = false;
             this.PurchaseProductButton.Click += new System.EventHandler(this.PurchaseProductButton_Click);
             // 

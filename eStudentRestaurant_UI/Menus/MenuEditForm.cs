@@ -38,6 +38,7 @@ namespace eStudentRestaurant_UI.Menus
             MenuNameInput.Text = menuEdit.Name_;
             MenuPriceInput.Text = menuEdit.Price.ToString();
             MenuDescriptionInput.Text = menuEdit.Description;
+            ActiveCheckBox.Checked = (bool)menuEdit.Active;
         }
 
         #region Validating
@@ -124,7 +125,7 @@ namespace eStudentRestaurant_UI.Menus
                 menuEdit.Name_ = MenuNameInput.Text;
                 menuEdit.Price = Convert.ToDecimal( MenuPriceInput.Text);
                 menuEdit.Description = MenuDescriptionInput.Text;
-
+                menuEdit.Active = ActiveCheckBox.Checked;
                 HttpResponseMessage rsp = menusService.PutResponse(menuEdit.MenuID, menuEdit);
 
                 if (rsp.IsSuccessStatusCode)
@@ -138,6 +139,11 @@ namespace eStudentRestaurant_UI.Menus
                     rsp.StatusCode + " : Message - " + rsp.ReasonPhrase);
                 }
             }
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

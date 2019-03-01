@@ -83,8 +83,7 @@ namespace eStudentRestaurant_UI.Students
                 CityComboItem.Text = student.City.Name;
 
 
-                CityComboBox.SelectedIndex = (int)(student.CityID - 1);
-
+                CityComboBox.SelectedIndex = CityComboBox.FindString(student.City.Name);
 
 
 

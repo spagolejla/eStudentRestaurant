@@ -42,7 +42,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(193, 30);
+            this.label1.Location = new System.Drawing.Point(25, 27);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(123, 25);
             this.label1.TabIndex = 41;
@@ -55,7 +55,7 @@
             this.Product,
             this.Quantity,
             this.Price});
-            this.OrderDetailsDataGrid.Location = new System.Drawing.Point(46, 82);
+            this.OrderDetailsDataGrid.Location = new System.Drawing.Point(21, 64);
             this.OrderDetailsDataGrid.Name = "OrderDetailsDataGrid";
             this.OrderDetailsDataGrid.ReadOnly = true;
             this.OrderDetailsDataGrid.Size = new System.Drawing.Size(422, 213);
@@ -91,9 +91,9 @@
             this.ProcessOrderButton.FlatAppearance.BorderSize = 0;
             this.ProcessOrderButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ProcessOrderButton.ForeColor = System.Drawing.Color.White;
-            this.ProcessOrderButton.Location = new System.Drawing.Point(348, 350);
+            this.ProcessOrderButton.Location = new System.Drawing.Point(345, 24);
             this.ProcessOrderButton.Name = "ProcessOrderButton";
-            this.ProcessOrderButton.Size = new System.Drawing.Size(120, 42);
+            this.ProcessOrderButton.Size = new System.Drawing.Size(98, 28);
             this.ProcessOrderButton.TabIndex = 109;
             this.ProcessOrderButton.Text = "Process order";
             this.ProcessOrderButton.UseVisualStyleBackColor = false;
@@ -103,7 +103,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(515, 450);
+            this.ClientSize = new System.Drawing.Size(464, 293);
             this.Controls.Add(this.ProcessOrderButton);
             this.Controls.Add(this.OrderDetailsDataGrid);
             this.Controls.Add(this.label1);

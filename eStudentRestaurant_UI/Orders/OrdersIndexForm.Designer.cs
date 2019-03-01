@@ -56,7 +56,7 @@
             // 
             // OrderDatePicker
             // 
-            this.OrderDatePicker.Location = new System.Drawing.Point(39, 137);
+            this.OrderDatePicker.Location = new System.Drawing.Point(28, 137);
             this.OrderDatePicker.Name = "OrderDatePicker";
             this.OrderDatePicker.Size = new System.Drawing.Size(200, 20);
             this.OrderDatePicker.TabIndex = 41;
@@ -72,10 +72,10 @@
             this.Student,
             this.Employee,
             this.OrderStatus});
-            this.OrdersGridView.Location = new System.Drawing.Point(39, 181);
+            this.OrdersGridView.Location = new System.Drawing.Point(28, 181);
             this.OrdersGridView.Name = "OrdersGridView";
             this.OrdersGridView.ReadOnly = true;
-            this.OrdersGridView.Size = new System.Drawing.Size(556, 280);
+            this.OrdersGridView.Size = new System.Drawing.Size(739, 412);
             this.OrdersGridView.TabIndex = 42;
             // 
             // OrderID
@@ -127,7 +127,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(36, 108);
+            this.label2.Location = new System.Drawing.Point(25, 107);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(104, 17);
             this.label2.TabIndex = 106;
@@ -139,9 +139,9 @@
             this.TodayButton.FlatAppearance.BorderSize = 0;
             this.TodayButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.TodayButton.ForeColor = System.Drawing.Color.White;
-            this.TodayButton.Location = new System.Drawing.Point(270, 134);
+            this.TodayButton.Location = new System.Drawing.Point(270, 127);
             this.TodayButton.Name = "TodayButton";
-            this.TodayButton.Size = new System.Drawing.Size(91, 23);
+            this.TodayButton.Size = new System.Drawing.Size(91, 30);
             this.TodayButton.TabIndex = 107;
             this.TodayButton.Text = "Today";
             this.TodayButton.UseVisualStyleBackColor = false;
@@ -153,9 +153,9 @@
             this.OrderDetailsButton.FlatAppearance.BorderSize = 0;
             this.OrderDetailsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.OrderDetailsButton.ForeColor = System.Drawing.Color.White;
-            this.OrderDetailsButton.Location = new System.Drawing.Point(632, 181);
+            this.OrderDetailsButton.Location = new System.Drawing.Point(676, 127);
             this.OrderDetailsButton.Name = "OrderDetailsButton";
-            this.OrderDetailsButton.Size = new System.Drawing.Size(120, 42);
+            this.OrderDetailsButton.Size = new System.Drawing.Size(91, 30);
             this.OrderDetailsButton.TabIndex = 108;
             this.OrderDetailsButton.Text = "Order details";
             this.OrderDetailsButton.UseVisualStyleBackColor = false;

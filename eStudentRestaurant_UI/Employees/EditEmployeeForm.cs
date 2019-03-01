@@ -81,10 +81,11 @@ namespace eStudentRestaurant_UI.Employees
                 CityComboItem.ID = (int)employee.CityID;
                 CityComboItem.Text = employee.City.Name;
 
-                int CID = (int)(employee.CityID - 1);
-                CityComboBox.SelectedIndex = (int)(employee.CityID-1);
+             
+                CityComboBox.SelectedIndex = CityComboBox.FindString(employee.City.Name);
 
-               
+
+
 
 
             }

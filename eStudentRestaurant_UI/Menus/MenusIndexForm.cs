@@ -35,6 +35,8 @@ namespace eStudentRestaurant_UI.Menus
         private void MenusIndexForm_Load(object sender, EventArgs e)
         {
             MenuItemsGrid.AutoGenerateColumns = false;
+            MenuItemsGrid.Select();
+            MenuItemsGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             GetMenus();
         }
 
@@ -75,7 +77,7 @@ namespace eStudentRestaurant_UI.Menus
             MenuNameLabel.Text = menu.Name_;
             DescriptionRichBox.Text = menu.Description;
             MenuPriceLabel.Text = menu.Price.ToString() + " KM";
-
+            ActiveCheckBox.Checked = (bool)menu.Active;
             BindGrid();
         }
 
@@ -137,12 +139,7 @@ namespace eStudentRestaurant_UI.Menus
             }
             else
             {
-                MenuItemAddForm frm = new MenuItemAddForm(menu.MenuID);
-                if(frm.ShowDialog()== DialogResult.OK)
-                {
-                    BindGrid();
-                }
-
+               
                 BindGrid();
             }
            
@@ -180,6 +177,11 @@ namespace eStudentRestaurant_UI.Menus
                
             }
            
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

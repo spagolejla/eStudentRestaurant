@@ -30,6 +30,7 @@ namespace eStudentRestaurant_API.Models
         public string PaswordHash { get; set; }
         public string PasswordSalt { get; set; }
         public string OrganizationName { get; set; }
+        public Nullable<int> Points { get; set; }
     
         public virtual City City { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

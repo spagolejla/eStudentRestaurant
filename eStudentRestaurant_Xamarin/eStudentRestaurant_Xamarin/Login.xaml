@@ -2,24 +2,56 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="eStudentRestaurant_Xamarin.Login"
-             BackgroundColor="#081b33"
+            
              >
     <ContentPage.Content>
-        <StackLayout VerticalOptions="CenterAndExpand" Padding="30">
-            <Label Text="eStudent Restaurant"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" FontSize="Large" TextColor="White" Margin="20"/>
-            
+        <ScrollView>
+            <StackLayout HorizontalOptions="CenterAndExpand" Padding="70,0">
+                <StackLayout  BackgroundColor="#081b33" Padding="50,0,50,50">
+                    <StackLayout >
+                        <Grid BackgroundColor="#4682b4">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="10"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="10"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="10"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
 
-            <Entry x:Name="usernameInput" Placeholder="Username"></Entry>
-            <Entry x:Name="passwordInput" Placeholder="Password" IsPassword="True"></Entry>
 
-            <StackLayout Orientation="Horizontal" HorizontalOptions="End">
-                <Button x:Name="StudentRegistrationButton" Text="Student registration" Clicked="StudentRegistrationButton_Clicked" BackgroundColor="#081b33" TextColor="White" ></Button>
-                <Button x:Name="ClientRegistrationButton" Text="Client registration" Clicked="ClientRegistrationButton_Clicked" BackgroundColor="#081b33" TextColor="White"></Button>
+                            </Grid.RowDefinitions>
+                            <Label
+                     Text="eStudent Restaurant"
+                     Grid.Column="1"
+                     Grid.Row="1"
+                     TextColor="White"
+                     FontSize="Large"
+                     HorizontalOptions="Center"
+                     Margin="5"
+                     />
 
-                <Button x:Name="SignInButton" Text="Sign in" BackgroundColor="#4682b4" TextColor="White" Clicked="SignInButton_Clicked"></Button>
+
+                        </Grid>
+                    </StackLayout>
+                </StackLayout>
+
+
+                <StackLayout  Margin="0,100,0,0" >
+
+                    <Entry x:Name="usernameInput" Placeholder="Username"></Entry>
+                    <Entry x:Name="passwordInput" Placeholder="Password" IsPassword="True"></Entry>
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal" HorizontalOptions="End">
+                    <Button x:Name="StudentRegistrationButton" Text="Student registration" Clicked="StudentRegistrationButton_Clicked" BackgroundColor="#081b33" TextColor="White" ></Button>
+                    <Button x:Name="ClientRegistrationButton" Text="Client registration" Clicked="ClientRegistrationButton_Clicked" BackgroundColor="#081b33" TextColor="White"></Button>
+
+                    <Button x:Name="SignInButton" Text="Sign in" BackgroundColor="#4682b4" TextColor="White" Clicked="SignInButton_Clicked"></Button>
+                </StackLayout>
             </StackLayout>
-        </StackLayout>
+        </ScrollView>
+      
     </ContentPage.Content>
 </ContentPage>

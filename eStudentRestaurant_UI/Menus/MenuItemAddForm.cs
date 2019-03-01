@@ -21,13 +21,17 @@ namespace eStudentRestaurant_UI.Menus
         WebAPIHelper productsService = new WebAPIHelper(ConfigurationManager.AppSettings["APIAddress"], Global.ProductsRoutes);
         WebAPIHelper menuItemsService = new WebAPIHelper(ConfigurationManager.AppSettings["APIAddress"], Global.MenuItemsRoutes);
 
+        public MenuItemHelper ReturnValue1 { get; set; }
+        
+
         int MenuID { get; set; }
         List<Product> products;
+        MenuItemHelper menuItemHelper = new MenuItemHelper();
         eStudentRestaurant_API.Models.MenuItem menuItem = new eStudentRestaurant_API.Models.MenuItem();
-        public MenuItemAddForm(int menuID)
+        public MenuItemAddForm()
         {
             InitializeComponent();
-            MenuID = menuID;
+           
         }
 
         #region Validation
@@ -70,7 +74,9 @@ namespace eStudentRestaurant_UI.Menus
                     ProductsComboBox.DataSource = products;
                     ProductsComboBox.DisplayMember = "Name_";
                     ProductsComboBox.ValueMember = "ProductID";
-                    
+                    menuItemHelper.Product = products[ProductsComboBox.SelectedIndex];
+                  
+
                 }
             }
 
@@ -82,25 +88,44 @@ namespace eStudentRestaurant_UI.Menus
         {
             if (this.ValidateChildren())
             {
-                menuItem.MenuID = MenuID;
+                //menuItem.MenuID = MenuID;
 
-                menuItem.ProductID = products[ProductsComboBox.SelectedIndex].ProductID;
-                menuItem.Quantity =Convert.ToInt32(QuantityInput.Text);
+                //menuItem.ProductID = products[ProductsComboBox.SelectedIndex].ProductID;
+                //menuItem.Quantity =Convert.ToInt32(QuantityInput.Text);
+
+
+                //HttpResponseMessage httpResponseMessage = menuItemsService.PostResponse(menuItem);
+
+                //if (httpResponseMessage.IsSuccessStatusCode)
+                //{
+                //    MessageBox.Show(Messages.msg_succ, Messages.msg_succ, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //    this.Close();
+                //}
+                //else
+                //{
+                //    MessageBox.Show("Error Code" +
+                //    httpResponseMessage.StatusCode + " : Message - " + httpResponseMessage.ReasonPhrase);
+                //}
+
+                menuItemHelper.Quantity = Convert.ToInt32(QuantityInput.Text);
+                menuItemHelper.ProductName = menuItemHelper.Product.Name_;
+                this.ReturnValue1 = menuItemHelper;
                
-
-                HttpResponseMessage httpResponseMessage = menuItemsService.PostResponse(menuItem);
-
-                if (httpResponseMessage.IsSuccessStatusCode)
-                {
-                    MessageBox.Show(Messages.msg_succ, Messages.msg_succ, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Close();
-                }
-                else
-                {
-                    MessageBox.Show("Error Code" +
-                    httpResponseMessage.StatusCode + " : Message - " + httpResponseMessage.ReasonPhrase);
-                }
+                this.DialogResult = DialogResult.OK;
+                this.Close();
             }
         }
+
+        private void ProductsComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (products.Count()>0)
+            {
+                menuItemHelper.Product = products[ProductsComboBox.SelectedIndex];
+
+            }
+
+        }
+
+       
     }
 }

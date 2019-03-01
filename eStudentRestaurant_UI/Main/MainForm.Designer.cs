@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.MainMenuPanel = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.LogoutButton = new System.Windows.Forms.Button();
             this.ToClientsButton = new System.Windows.Forms.Button();
             this.ToMenusButton = new System.Windows.Forms.Button();
@@ -48,6 +48,7 @@
             // MainMenuPanel
             // 
             this.MainMenuPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(27)))), ((int)(((byte)(51)))));
+            this.MainMenuPanel.Controls.Add(this.button1);
             this.MainMenuPanel.Controls.Add(this.LogoutButton);
             this.MainMenuPanel.Controls.Add(this.ToClientsButton);
             this.MainMenuPanel.Controls.Add(this.ToMenusButton);
@@ -63,13 +64,30 @@
             this.MainMenuPanel.Size = new System.Drawing.Size(240, 611);
             this.MainMenuPanel.TabIndex = 1;
             // 
+            // button1
+            // 
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Image = global::eStudentRestaurant_UI.Properties.Resources.user_3_16;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(4, 166);
+            this.button1.Name = "button1";
+            this.button1.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.button1.Size = new System.Drawing.Size(236, 46);
+            this.button1.TabIndex = 17;
+            this.button1.Text = "    My profile";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // LogoutButton
             // 
             this.LogoutButton.FlatAppearance.BorderSize = 0;
             this.LogoutButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.LogoutButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LogoutButton.ForeColor = System.Drawing.Color.White;
-            this.LogoutButton.Image = ((System.Drawing.Image)(resources.GetObject("LogoutButton.Image")));
+            this.LogoutButton.Image = global::eStudentRestaurant_UI.Properties.Resources.logout_16;
             this.LogoutButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.LogoutButton.Location = new System.Drawing.Point(3, 565);
             this.LogoutButton.Name = "LogoutButton";
@@ -86,9 +104,9 @@
             this.ToClientsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ToClientsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ToClientsButton.ForeColor = System.Drawing.Color.White;
-            this.ToClientsButton.Image = ((System.Drawing.Image)(resources.GetObject("ToClientsButton.Image")));
+            this.ToClientsButton.Image = global::eStudentRestaurant_UI.Properties.Resources.guest_16;
             this.ToClientsButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ToClientsButton.Location = new System.Drawing.Point(1, 422);
+            this.ToClientsButton.Location = new System.Drawing.Point(1, 478);
             this.ToClientsButton.Name = "ToClientsButton";
             this.ToClientsButton.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.ToClientsButton.Size = new System.Drawing.Size(236, 46);
@@ -103,9 +121,9 @@
             this.ToMenusButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ToMenusButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ToMenusButton.ForeColor = System.Drawing.Color.White;
-            this.ToMenusButton.Image = ((System.Drawing.Image)(resources.GetObject("ToMenusButton.Image")));
+            this.ToMenusButton.Image = global::eStudentRestaurant_UI.Properties.Resources.menu_16;
             this.ToMenusButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ToMenusButton.Location = new System.Drawing.Point(0, 370);
+            this.ToMenusButton.Location = new System.Drawing.Point(0, 426);
             this.ToMenusButton.Name = "ToMenusButton";
             this.ToMenusButton.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.ToMenusButton.Size = new System.Drawing.Size(240, 46);
@@ -120,9 +138,9 @@
             this.ToOrdersButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ToOrdersButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ToOrdersButton.ForeColor = System.Drawing.Color.White;
-            this.ToOrdersButton.Image = ((System.Drawing.Image)(resources.GetObject("ToOrdersButton.Image")));
+            this.ToOrdersButton.Image = global::eStudentRestaurant_UI.Properties.Resources.list;
             this.ToOrdersButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ToOrdersButton.Location = new System.Drawing.Point(0, 318);
+            this.ToOrdersButton.Location = new System.Drawing.Point(0, 374);
             this.ToOrdersButton.Name = "ToOrdersButton";
             this.ToOrdersButton.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.ToOrdersButton.Size = new System.Drawing.Size(237, 46);
@@ -137,9 +155,9 @@
             this.ToEmployeesButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ToEmployeesButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ToEmployeesButton.ForeColor = System.Drawing.Color.White;
-            this.ToEmployeesButton.Image = ((System.Drawing.Image)(resources.GetObject("ToEmployeesButton.Image")));
+            this.ToEmployeesButton.Image = global::eStudentRestaurant_UI.Properties.Resources.administrator_2_16;
             this.ToEmployeesButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ToEmployeesButton.Location = new System.Drawing.Point(1, 171);
+            this.ToEmployeesButton.Location = new System.Drawing.Point(3, 218);
             this.ToEmployeesButton.Name = "ToEmployeesButton";
             this.ToEmployeesButton.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.ToEmployeesButton.Size = new System.Drawing.Size(236, 46);
@@ -186,9 +204,9 @@
             this.ToStudentButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ToStudentButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ToStudentButton.ForeColor = System.Drawing.Color.White;
-            this.ToStudentButton.Image = ((System.Drawing.Image)(resources.GetObject("ToStudentButton.Image")));
+            this.ToStudentButton.Image = global::eStudentRestaurant_UI.Properties.Resources.student_16;
             this.ToStudentButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ToStudentButton.Location = new System.Drawing.Point(1, 214);
+            this.ToStudentButton.Location = new System.Drawing.Point(3, 270);
             this.ToStudentButton.Name = "ToStudentButton";
             this.ToStudentButton.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.ToStudentButton.Size = new System.Drawing.Size(236, 46);
@@ -203,9 +221,9 @@
             this.ToHomeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ToHomeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ToHomeButton.ForeColor = System.Drawing.Color.White;
-            this.ToHomeButton.Image = ((System.Drawing.Image)(resources.GetObject("ToHomeButton.Image")));
+            this.ToHomeButton.Image = global::eStudentRestaurant_UI.Properties.Resources.home_5_16;
             this.ToHomeButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ToHomeButton.Location = new System.Drawing.Point(1, 119);
+            this.ToHomeButton.Location = new System.Drawing.Point(0, 114);
             this.ToHomeButton.Name = "ToHomeButton";
             this.ToHomeButton.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.ToHomeButton.Size = new System.Drawing.Size(236, 46);
@@ -220,9 +238,9 @@
             this.ToProductButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ToProductButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ToProductButton.ForeColor = System.Drawing.Color.White;
-            this.ToProductButton.Image = ((System.Drawing.Image)(resources.GetObject("ToProductButton.Image")));
+            this.ToProductButton.Image = global::eStudentRestaurant_UI.Properties.Resources.pizza_16;
             this.ToProductButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ToProductButton.Location = new System.Drawing.Point(1, 266);
+            this.ToProductButton.Location = new System.Drawing.Point(4, 322);
             this.ToProductButton.Name = "ToProductButton";
             this.ToProductButton.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.ToProductButton.Size = new System.Drawing.Size(236, 46);
@@ -264,5 +282,6 @@
         private System.Windows.Forms.Button ToProductButton;
         private System.Windows.Forms.Button ToClientsButton;
         private System.Windows.Forms.Button LogoutButton;
+        private System.Windows.Forms.Button button1;
     }
 }

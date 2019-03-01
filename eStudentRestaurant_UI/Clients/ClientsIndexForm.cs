@@ -19,30 +19,35 @@ namespace eStudentRestaurant_UI.Clients
     {
         private WebAPIHelper clientsService = new WebAPIHelper(ConfigurationManager.AppSettings["APIAddress"], Global.ClientsRoutes);
         private WebAPIHelper reservationsService = new WebAPIHelper(ConfigurationManager.AppSettings["APIAddress"], Global.ReservationsRoutes);
+        private WebAPIHelper citiesServices = new WebAPIHelper(ConfigurationManager.AppSettings["APIAddress"], Global.CitiesRoutes);
 
 
         private Client client;
         List<Client> clients;
+     
         public ClientsIndexForm()
         {
             InitializeComponent();
             this.AutoValidate = AutoValidate.Disable;
-           
+
+
         }
 
         private void ClientsIndexForm_Load(object sender, EventArgs e)
         {
             ReservationGridView.AutoGenerateColumns = false;
-            GetClients(); 
+            ReservationGridView.Select();
+            ReservationGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            GetClients();
         }
 
-        private void BindGrid( int id)
+        private void BindGrid(int id)
         {
             HttpResponseMessage reservationResp = reservationsService.GetActionResponseIdParam("GetReservationByClient", id);
 
             if (reservationResp.IsSuccessStatusCode)
             {
-                List<Reservation_Result> reservations = reservationResp.Content.ReadAsAsync <List<Reservation_Result>>().Result;
+                List<Reservation_Result> reservations = reservationResp.Content.ReadAsAsync<List<Reservation_Result>>().Result;
                 if (reservations.Count != 0)
                 {
                     ReservationGridView.DataSource = reservations;
@@ -75,8 +80,38 @@ namespace eStudentRestaurant_UI.Clients
 
                 ClientsComboBox.DataSource = comboItems;
                 client = clients[0];
+
+                #region GetCities
+                HttpResponseMessage responseCities = citiesServices.GetResponse();
+                List<City> cities = new List<City>();
+                if (responseCities.IsSuccessStatusCode)
+                {
+                    cities = responseCities.Content.ReadAsAsync<List<City>>().Result;
+                }
+                List<ComboItem> comboItems1 = new List<ComboItem>();
+
+                foreach (City item in cities)
+                {
+                    comboItems1.Add(new ComboItem { ID = item.CityID, Text = item.Name });
+                }
+
+                CityComboBox.DataSource = comboItems1;
+                #endregion
+
+                if (responseCities.IsSuccessStatusCode)
+                {
+
+                    ComboItem CityComboItem = new ComboItem();
+                    CityComboItem.ID = (int)client.CityID;
+                    CityComboItem.Text = client.City.Name;
+
+                    CityComboBox.SelectedIndex = CityComboBox.FindString(client.City.Name); //(int)(client.CityID - 1);
+
+
+
+                }
                 FillDetails();
-                
+
             }
             else
             {
@@ -99,6 +134,10 @@ namespace eStudentRestaurant_UI.Clients
 
                 UsernameInput.Text = client.Username;
 
+                PointsInput.Text = client.Points.ToString();
+
+
+
                 BindGrid(client.ClientID);
             }
         }
@@ -107,9 +146,11 @@ namespace eStudentRestaurant_UI.Clients
         {
             if (clients.Count() > 0)
             {
-               
+
 
                 client = clients[ClientsComboBox.SelectedIndex];
+                CityComboBox.SelectedIndex = CityComboBox.FindString(client.City.Name);
+
                 FillDetails();
             }
 
@@ -169,7 +210,7 @@ namespace eStudentRestaurant_UI.Clients
         {
             if (String.IsNullOrEmpty(OrganizationNameInput.Text))
             {
-                errorProvider.SetError(PasswordInput, null); 
+                errorProvider.SetError(PasswordInput, null);
             }
             else if (OrganizationNameInput.TextLength > 50)
             {
@@ -273,10 +314,13 @@ namespace eStudentRestaurant_UI.Clients
 
                     client.OrganizationName = OrganizationNameInput.Text;
                     client.Phone = PhoneInput.Text;
-
+                    client.CityID = Convert.ToInt32(CityComboBox.SelectedValue);
                     client.Active = ActiveCheckBox.Checked;
 
+
+
                     client.Username = UsernameInput.Text;
+
                     if (PasswordInput.Text != String.Empty)
                     {
                         client.PasswordSalt = UIHelper.GenerateSalt();
@@ -297,7 +341,7 @@ namespace eStudentRestaurant_UI.Clients
                         httpResponseMessage.StatusCode + " : Message - " + httpResponseMessage.ReasonPhrase);
                     }
 
-                    
+
                 }
 
 
@@ -331,10 +375,15 @@ namespace eStudentRestaurant_UI.Clients
                     BindGrid(client.ClientID);
                 }
 
-               
+
 
             }
-           
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

@@ -322,5 +322,50 @@ namespace eStudentRestaurant_API.Models
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Client>("esp_ClientSelectByUsername", mergeOption, usernameParameter);
         }
+    
+        public virtual int esp_ClientUpdate(Nullable<int> clientID, string firstName, string lastName, string phone, Nullable<int> cityID, Nullable<bool> active, string username, string passwordHash, string passwordSalt, string organizationName)
+        {
+            var clientIDParameter = clientID.HasValue ?
+                new ObjectParameter("ClientID", clientID) :
+                new ObjectParameter("ClientID", typeof(int));
+    
+            var firstNameParameter = firstName != null ?
+                new ObjectParameter("FirstName", firstName) :
+                new ObjectParameter("FirstName", typeof(string));
+    
+            var lastNameParameter = lastName != null ?
+                new ObjectParameter("LastName", lastName) :
+                new ObjectParameter("LastName", typeof(string));
+    
+            var phoneParameter = phone != null ?
+                new ObjectParameter("Phone", phone) :
+                new ObjectParameter("Phone", typeof(string));
+    
+            var cityIDParameter = cityID.HasValue ?
+                new ObjectParameter("CityID", cityID) :
+                new ObjectParameter("CityID", typeof(int));
+    
+            var activeParameter = active.HasValue ?
+                new ObjectParameter("Active", active) :
+                new ObjectParameter("Active", typeof(bool));
+    
+            var usernameParameter = username != null ?
+                new ObjectParameter("Username", username) :
+                new ObjectParameter("Username", typeof(string));
+    
+            var passwordHashParameter = passwordHash != null ?
+                new ObjectParameter("PasswordHash", passwordHash) :
+                new ObjectParameter("PasswordHash", typeof(string));
+    
+            var passwordSaltParameter = passwordSalt != null ?
+                new ObjectParameter("PasswordSalt", passwordSalt) :
+                new ObjectParameter("PasswordSalt", typeof(string));
+    
+            var organizationNameParameter = organizationName != null ?
+                new ObjectParameter("OrganizationName", organizationName) :
+                new ObjectParameter("OrganizationName", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("esp_ClientUpdate", clientIDParameter, firstNameParameter, lastNameParameter, phoneParameter, cityIDParameter, activeParameter, usernameParameter, passwordHashParameter, passwordSaltParameter, organizationNameParameter);
+        }
     }
 }

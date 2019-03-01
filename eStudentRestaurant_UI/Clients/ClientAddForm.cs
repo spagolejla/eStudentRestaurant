@@ -18,6 +18,8 @@ namespace eStudentRestaurant_UI.Clients
     public partial class ClientAddForm : ChildDialogForm
     {
         private WebAPIHelper clientsService = new WebAPIHelper(ConfigurationManager.AppSettings["APIAddress"], Global.ClientsRoutes);
+        private WebAPIHelper citiesServices = new WebAPIHelper(ConfigurationManager.AppSettings["APIAddress"], Global.CitiesRoutes);
+
 
         public ClientAddForm()
         {
@@ -188,7 +190,8 @@ namespace eStudentRestaurant_UI.Clients
                 client.PasswordSalt = UIHelper.GenerateSalt();
                 client.PaswordHash = UIHelper.GenerateHash(client.PasswordSalt, PasswordInput.Text);
                 client.Active = true;
-
+                client.Points = 0;
+                client.CityID = (int)CityComboBox.SelectedValue;
                 HttpResponseMessage resp = clientsService.PostResponse(client);
 
                 if (resp.IsSuccessStatusCode)
@@ -205,6 +208,26 @@ namespace eStudentRestaurant_UI.Clients
                 }
 
             }
+        }
+
+        private void ClientAddForm_Load(object sender, EventArgs e)
+        {
+            #region GetCities
+            HttpResponseMessage responseCities = citiesServices.GetResponse();
+            List<City> cities = new List<City>();
+            if (responseCities.IsSuccessStatusCode)
+            {
+                cities = responseCities.Content.ReadAsAsync<List<City>>().Result;
+            }
+            List<ComboItem> comboItems = new List<ComboItem>();
+
+            foreach (City item in cities)
+            {
+                comboItems.Add(new ComboItem { ID = item.CityID, Text = item.Name });
+            }
+
+            CityComboBox.DataSource = comboItems;
+            #endregion
         }
     }
 }

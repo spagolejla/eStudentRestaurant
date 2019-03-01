@@ -23,6 +23,8 @@ namespace eStudentRestaurant_UI.Orders
         {
             InitializeComponent();
             OrdersGridView.AutoGenerateColumns = false;
+            OrdersGridView.Select();
+            OrdersGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
 
         private void OrderDatePicker_ValueChanged(object sender, EventArgs e)

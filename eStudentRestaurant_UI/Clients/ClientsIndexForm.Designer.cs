@@ -31,6 +31,10 @@
             this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.PointsInput = new System.Windows.Forms.TextBox();
+            this.CityComboBox = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.OrganizationNameInput = new System.Windows.Forms.TextBox();
             this.ActiveCheckBox = new System.Windows.Forms.CheckBox();
             this.PasswordInput = new System.Windows.Forms.TextBox();
@@ -59,6 +63,8 @@
             this.ReservationDateTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PlacesNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Note = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Discount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Approved = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.label15 = new System.Windows.Forms.Label();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
@@ -83,6 +89,10 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.PointsInput);
+            this.panel1.Controls.Add(this.CityComboBox);
+            this.panel1.Controls.Add(this.label8);
+            this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.OrganizationNameInput);
             this.panel1.Controls.Add(this.ActiveCheckBox);
             this.panel1.Controls.Add(this.PasswordInput);
@@ -99,14 +109,56 @@
             this.panel1.Controls.Add(this.label2);
             this.panel1.Location = new System.Drawing.Point(30, 131);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(740, 149);
+            this.panel1.Size = new System.Drawing.Size(748, 149);
             this.panel1.TabIndex = 46;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // PointsInput
+            // 
+            this.PointsInput.Location = new System.Drawing.Point(641, 84);
+            this.PointsInput.Name = "PointsInput";
+            this.PointsInput.ReadOnly = true;
+            this.PointsInput.Size = new System.Drawing.Size(94, 20);
+            this.PointsInput.TabIndex = 110;
+            // 
+            // CityComboBox
+            // 
+            this.CityComboBox.DisplayMember = "Text";
+            this.CityComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CityComboBox.FormattingEnabled = true;
+            this.CityComboBox.Location = new System.Drawing.Point(641, 51);
+            this.CityComboBox.Name = "CityComboBox";
+            this.CityComboBox.Size = new System.Drawing.Size(94, 21);
+            this.CityComboBox.TabIndex = 109;
+            this.CityComboBox.ValueMember = "ID";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Location = new System.Drawing.Point(579, 84);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(51, 17);
+            this.label8.TabIndex = 108;
+            this.label8.Text = "Points:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(579, 52);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(35, 17);
+            this.label7.TabIndex = 107;
+            this.label7.Text = "City:";
             // 
             // OrganizationNameInput
             // 
-            this.OrganizationNameInput.Location = new System.Drawing.Point(494, 49);
+            this.OrganizationNameInput.Location = new System.Drawing.Point(479, 51);
             this.OrganizationNameInput.Name = "OrganizationNameInput";
-            this.OrganizationNameInput.Size = new System.Drawing.Size(104, 20);
+            this.OrganizationNameInput.Size = new System.Drawing.Size(94, 20);
             this.OrganizationNameInput.TabIndex = 106;
             this.OrganizationNameInput.Validating += new System.ComponentModel.CancelEventHandler(this.OrganizationNameInput_Validating);
             // 
@@ -123,16 +175,16 @@
             // 
             // PasswordInput
             // 
-            this.PasswordInput.Location = new System.Drawing.Point(496, 91);
+            this.PasswordInput.Location = new System.Drawing.Point(479, 81);
             this.PasswordInput.Name = "PasswordInput";
             this.PasswordInput.PasswordChar = '*';
-            this.PasswordInput.Size = new System.Drawing.Size(104, 20);
+            this.PasswordInput.Size = new System.Drawing.Size(94, 20);
             this.PasswordInput.TabIndex = 104;
             this.PasswordInput.Validating += new System.ComponentModel.CancelEventHandler(this.PasswordInput_Validating);
             // 
             // UsernameInput
             // 
-            this.UsernameInput.Location = new System.Drawing.Point(293, 94);
+            this.UsernameInput.Location = new System.Drawing.Point(278, 81);
             this.UsernameInput.Name = "UsernameInput";
             this.UsernameInput.Size = new System.Drawing.Size(95, 20);
             this.UsernameInput.TabIndex = 103;
@@ -140,16 +192,16 @@
             // 
             // PhoneInput
             // 
-            this.PhoneInput.Location = new System.Drawing.Point(97, 94);
+            this.PhoneInput.Location = new System.Drawing.Point(95, 80);
             this.PhoneInput.Mask = "(999) 000-0000";
             this.PhoneInput.Name = "PhoneInput";
-            this.PhoneInput.Size = new System.Drawing.Size(107, 20);
+            this.PhoneInput.Size = new System.Drawing.Size(92, 20);
             this.PhoneInput.TabIndex = 75;
             this.PhoneInput.Validating += new System.ComponentModel.CancelEventHandler(this.PhoneInput_Validating);
             // 
             // LastNameInput
             // 
-            this.LastNameInput.Location = new System.Drawing.Point(292, 50);
+            this.LastNameInput.Location = new System.Drawing.Point(278, 50);
             this.LastNameInput.Name = "LastNameInput";
             this.LastNameInput.Size = new System.Drawing.Size(94, 20);
             this.LastNameInput.TabIndex = 74;
@@ -159,7 +211,7 @@
             // 
             this.FirstNameInput.Location = new System.Drawing.Point(95, 50);
             this.FirstNameInput.Name = "FirstNameInput";
-            this.FirstNameInput.Size = new System.Drawing.Size(107, 20);
+            this.FirstNameInput.Size = new System.Drawing.Size(94, 20);
             this.FirstNameInput.TabIndex = 73;
             this.FirstNameInput.Validating += new System.ComponentModel.CancelEventHandler(this.FirstNameInput_Validating);
             // 
@@ -168,7 +220,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(395, 49);
+            this.label6.Location = new System.Drawing.Point(380, 49);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(93, 17);
             this.label6.TabIndex = 54;
@@ -179,7 +231,7 @@
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.White;
-            this.label13.Location = new System.Drawing.Point(208, 50);
+            this.label13.Location = new System.Drawing.Point(194, 51);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(78, 17);
             this.label13.TabIndex = 52;
@@ -190,7 +242,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(417, 94);
+            this.label9.Location = new System.Drawing.Point(380, 84);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(73, 17);
             this.label9.TabIndex = 48;
@@ -201,7 +253,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(18, 97);
+            this.label5.Location = new System.Drawing.Point(18, 80);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(53, 17);
             this.label5.TabIndex = 44;
@@ -212,7 +264,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(210, 94);
+            this.label4.Location = new System.Drawing.Point(195, 81);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(77, 17);
             this.label4.TabIndex = 43;
@@ -246,9 +298,9 @@
             this.EditClientButton.FlatAppearance.BorderSize = 0;
             this.EditClientButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.EditClientButton.ForeColor = System.Drawing.Color.White;
-            this.EditClientButton.Location = new System.Drawing.Point(33, 286);
+            this.EditClientButton.Location = new System.Drawing.Point(578, 83);
             this.EditClientButton.Name = "EditClientButton";
-            this.EditClientButton.Size = new System.Drawing.Size(92, 24);
+            this.EditClientButton.Size = new System.Drawing.Size(92, 27);
             this.EditClientButton.TabIndex = 53;
             this.EditClientButton.Text = "Edit Client";
             this.EditClientButton.UseVisualStyleBackColor = false;
@@ -260,7 +312,7 @@
             this.AddClientButton.FlatAppearance.BorderSize = 0;
             this.AddClientButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddClientButton.ForeColor = System.Drawing.Color.White;
-            this.AddClientButton.Location = new System.Drawing.Point(356, 76);
+            this.AddClientButton.Location = new System.Drawing.Point(685, 83);
             this.AddClientButton.Name = "AddClientButton";
             this.AddClientButton.Size = new System.Drawing.Size(92, 27);
             this.AddClientButton.TabIndex = 44;
@@ -282,6 +334,7 @@
             // ClientsComboBox
             // 
             this.ClientsComboBox.DisplayMember = "Text";
+            this.ClientsComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ClientsComboBox.FormattingEnabled = true;
             this.ClientsComboBox.Location = new System.Drawing.Point(142, 82);
             this.ClientsComboBox.Name = "ClientsComboBox";
@@ -296,9 +349,9 @@
             this.panel2.Controls.Add(this.ApproveReservationButton);
             this.panel2.Controls.Add(this.flowLayoutPanel1);
             this.panel2.Controls.Add(this.label15);
-            this.panel2.Location = new System.Drawing.Point(30, 330);
+            this.panel2.Location = new System.Drawing.Point(30, 310);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(740, 263);
+            this.panel2.Size = new System.Drawing.Size(747, 283);
             this.panel2.TabIndex = 54;
             // 
             // ApproveReservationButton
@@ -307,11 +360,11 @@
             this.ApproveReservationButton.FlatAppearance.BorderSize = 0;
             this.ApproveReservationButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ApproveReservationButton.ForeColor = System.Drawing.Color.White;
-            this.ApproveReservationButton.Location = new System.Drawing.Point(420, 22);
+            this.ApproveReservationButton.Location = new System.Drawing.Point(641, 18);
             this.ApproveReservationButton.Name = "ApproveReservationButton";
-            this.ApproveReservationButton.Size = new System.Drawing.Size(120, 24);
+            this.ApproveReservationButton.Size = new System.Drawing.Size(92, 28);
             this.ApproveReservationButton.TabIndex = 56;
-            this.ApproveReservationButton.Text = "Approve reservation";
+            this.ApproveReservationButton.Text = "Approve ";
             this.ApproveReservationButton.UseVisualStyleBackColor = false;
             this.ApproveReservationButton.Click += new System.EventHandler(this.ApproveReservationButton_Click);
             // 
@@ -320,7 +373,7 @@
             this.flowLayoutPanel1.Controls.Add(this.ReservationGridView);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 52);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(553, 206);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(743, 226);
             this.flowLayoutPanel1.TabIndex = 55;
             // 
             // ReservationGridView
@@ -334,13 +387,15 @@
             this.ReservationDateTime,
             this.PlacesNumber,
             this.Note,
+            this.Discount,
+            this.Price,
             this.Approved});
             this.ReservationGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(27)))), ((int)(((byte)(51)))));
             this.ReservationGridView.Location = new System.Drawing.Point(3, 3);
             this.ReservationGridView.MultiSelect = false;
             this.ReservationGridView.Name = "ReservationGridView";
             this.ReservationGridView.ReadOnly = true;
-            this.ReservationGridView.Size = new System.Drawing.Size(545, 203);
+            this.ReservationGridView.Size = new System.Drawing.Size(736, 223);
             this.ReservationGridView.TabIndex = 0;
             // 
             // ReservationID
@@ -353,6 +408,7 @@
             // 
             // ClientID
             // 
+            this.ClientID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.ClientID.DataPropertyName = "ClientID";
             this.ClientID.HeaderText = "ClientID";
             this.ClientID.Name = "ClientID";
@@ -382,17 +438,36 @@
             // 
             // Note
             // 
+            this.Note.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Note.DataPropertyName = "Note";
             this.Note.HeaderText = "Note";
             this.Note.Name = "Note";
             this.Note.ReadOnly = true;
             // 
+            // Discount
+            // 
+            this.Discount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Discount.DataPropertyName = "Discount";
+            this.Discount.HeaderText = "Discount";
+            this.Discount.Name = "Discount";
+            this.Discount.ReadOnly = true;
+            // 
+            // Price
+            // 
+            this.Price.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Price.DataPropertyName = "Price";
+            this.Price.HeaderText = "Price";
+            this.Price.Name = "Price";
+            this.Price.ReadOnly = true;
+            // 
             // Approved
             // 
+            this.Approved.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.Approved.DataPropertyName = "Approved";
             this.Approved.HeaderText = "Approved";
             this.Approved.Name = "Approved";
             this.Approved.ReadOnly = true;
+            this.Approved.Width = 59;
             // 
             // label15
             // 
@@ -470,13 +545,19 @@
         private System.Windows.Forms.ErrorProvider errorProvider;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.DataGridView ReservationGridView;
+        private System.Windows.Forms.Button ApproveReservationButton;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox PointsInput;
+        private System.Windows.Forms.ComboBox CityComboBox;
         private System.Windows.Forms.DataGridViewTextBoxColumn ReservationID;
         private System.Windows.Forms.DataGridViewTextBoxColumn ClientID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Name_;
         private System.Windows.Forms.DataGridViewTextBoxColumn ReservationDateTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn PlacesNumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn Note;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Discount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Price;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Approved;
-        private System.Windows.Forms.Button ApproveReservationButton;
     }
 }

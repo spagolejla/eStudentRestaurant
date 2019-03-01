@@ -34,20 +34,18 @@
             this.AddMenuButton = new System.Windows.Forms.Button();
             this.SearchClientsLabel = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.ActiveCheckBox = new System.Windows.Forms.CheckBox();
             this.DescriptionRichBox = new System.Windows.Forms.RichTextBox();
             this.MenuNameLabel = new System.Windows.Forms.Label();
             this.MenuPriceLabel = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.EditMenuButton = new System.Windows.Forms.Button();
-            this.DeleteMenuButton = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.MenuItemsGrid = new System.Windows.Forms.DataGridView();
             this.MenuItemID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MenuID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Product = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AddMenuItemButton = new System.Windows.Forms.Button();
-            this.DeleteMenuItemButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MenuItemsGrid)).BeginInit();
             this.SuspendLayout();
@@ -80,7 +78,7 @@
             this.AddMenuButton.FlatAppearance.BorderSize = 0;
             this.AddMenuButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddMenuButton.ForeColor = System.Drawing.Color.White;
-            this.AddMenuButton.Location = new System.Drawing.Point(462, 94);
+            this.AddMenuButton.Location = new System.Drawing.Point(679, 101);
             this.AddMenuButton.Name = "AddMenuButton";
             this.AddMenuButton.Size = new System.Drawing.Size(92, 27);
             this.AddMenuButton.TabIndex = 49;
@@ -102,13 +100,26 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.ActiveCheckBox);
             this.panel1.Controls.Add(this.DescriptionRichBox);
             this.panel1.Controls.Add(this.MenuNameLabel);
             this.panel1.Controls.Add(this.MenuPriceLabel);
             this.panel1.Location = new System.Drawing.Point(31, 180);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(740, 225);
+            this.panel1.Size = new System.Drawing.Size(740, 158);
             this.panel1.TabIndex = 51;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // ActiveCheckBox
+            // 
+            this.ActiveCheckBox.AutoSize = true;
+            this.ActiveCheckBox.ForeColor = System.Drawing.Color.White;
+            this.ActiveCheckBox.Location = new System.Drawing.Point(543, 25);
+            this.ActiveCheckBox.Name = "ActiveCheckBox";
+            this.ActiveCheckBox.Size = new System.Drawing.Size(56, 17);
+            this.ActiveCheckBox.TabIndex = 77;
+            this.ActiveCheckBox.Text = "Active";
+            this.ActiveCheckBox.UseVisualStyleBackColor = true;
             // 
             // DescriptionRichBox
             // 
@@ -119,7 +130,7 @@
             this.DescriptionRichBox.Location = new System.Drawing.Point(22, 57);
             this.DescriptionRichBox.Name = "DescriptionRichBox";
             this.DescriptionRichBox.ReadOnly = true;
-            this.DescriptionRichBox.Size = new System.Drawing.Size(461, 114);
+            this.DescriptionRichBox.Size = new System.Drawing.Size(688, 96);
             this.DescriptionRichBox.TabIndex = 56;
             this.DescriptionRichBox.Text = resources.GetString("DescriptionRichBox.Text");
             // 
@@ -139,7 +150,7 @@
             this.MenuPriceLabel.AutoSize = true;
             this.MenuPriceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MenuPriceLabel.ForeColor = System.Drawing.Color.White;
-            this.MenuPriceLabel.Location = new System.Drawing.Point(22, 183);
+            this.MenuPriceLabel.Location = new System.Drawing.Point(642, 14);
             this.MenuPriceLabel.Name = "MenuPriceLabel";
             this.MenuPriceLabel.Size = new System.Drawing.Size(68, 29);
             this.MenuPriceLabel.TabIndex = 44;
@@ -162,7 +173,7 @@
             this.EditMenuButton.FlatAppearance.BorderSize = 0;
             this.EditMenuButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.EditMenuButton.ForeColor = System.Drawing.Color.White;
-            this.EditMenuButton.Location = new System.Drawing.Point(572, 94);
+            this.EditMenuButton.Location = new System.Drawing.Point(562, 101);
             this.EditMenuButton.Name = "EditMenuButton";
             this.EditMenuButton.Size = new System.Drawing.Size(92, 27);
             this.EditMenuButton.TabIndex = 52;
@@ -170,26 +181,12 @@
             this.EditMenuButton.UseVisualStyleBackColor = false;
             this.EditMenuButton.Click += new System.EventHandler(this.EditMenuButton_Click);
             // 
-            // DeleteMenuButton
-            // 
-            this.DeleteMenuButton.BackColor = System.Drawing.Color.SteelBlue;
-            this.DeleteMenuButton.FlatAppearance.BorderSize = 0;
-            this.DeleteMenuButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.DeleteMenuButton.ForeColor = System.Drawing.Color.White;
-            this.DeleteMenuButton.Location = new System.Drawing.Point(679, 96);
-            this.DeleteMenuButton.Name = "DeleteMenuButton";
-            this.DeleteMenuButton.Size = new System.Drawing.Size(92, 27);
-            this.DeleteMenuButton.TabIndex = 53;
-            this.DeleteMenuButton.Text = "Delete ";
-            this.DeleteMenuButton.UseVisualStyleBackColor = false;
-            this.DeleteMenuButton.Click += new System.EventHandler(this.DeleteMenuButton_Click);
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(33, 429);
+            this.label3.Location = new System.Drawing.Point(33, 359);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(101, 22);
             this.label3.TabIndex = 54;
@@ -204,11 +201,11 @@
             this.Product,
             this.Quantity});
             this.MenuItemsGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(27)))), ((int)(((byte)(51)))));
-            this.MenuItemsGrid.Location = new System.Drawing.Point(37, 456);
+            this.MenuItemsGrid.Location = new System.Drawing.Point(37, 397);
             this.MenuItemsGrid.MultiSelect = false;
             this.MenuItemsGrid.Name = "MenuItemsGrid";
             this.MenuItemsGrid.ReadOnly = true;
-            this.MenuItemsGrid.Size = new System.Drawing.Size(500, 137);
+            this.MenuItemsGrid.Size = new System.Drawing.Size(734, 196);
             this.MenuItemsGrid.TabIndex = 55;
             // 
             // MenuItemID
@@ -237,50 +234,20 @@
             // 
             // Quantity
             // 
-            this.Quantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Quantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.Quantity.DataPropertyName = "Quantity";
             this.Quantity.HeaderText = "Quantity";
             this.Quantity.Name = "Quantity";
             this.Quantity.ReadOnly = true;
-            // 
-            // AddMenuItemButton
-            // 
-            this.AddMenuItemButton.BackColor = System.Drawing.Color.SteelBlue;
-            this.AddMenuItemButton.FlatAppearance.BorderSize = 0;
-            this.AddMenuItemButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AddMenuItemButton.ForeColor = System.Drawing.Color.White;
-            this.AddMenuItemButton.Location = new System.Drawing.Point(572, 484);
-            this.AddMenuItemButton.Name = "AddMenuItemButton";
-            this.AddMenuItemButton.Size = new System.Drawing.Size(127, 27);
-            this.AddMenuItemButton.TabIndex = 56;
-            this.AddMenuItemButton.Text = "Add Menu Item";
-            this.AddMenuItemButton.UseVisualStyleBackColor = false;
-            this.AddMenuItemButton.Click += new System.EventHandler(this.AddMenuItemButton_Click);
-            // 
-            // DeleteMenuItemButton
-            // 
-            this.DeleteMenuItemButton.BackColor = System.Drawing.Color.SteelBlue;
-            this.DeleteMenuItemButton.FlatAppearance.BorderSize = 0;
-            this.DeleteMenuItemButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.DeleteMenuItemButton.ForeColor = System.Drawing.Color.White;
-            this.DeleteMenuItemButton.Location = new System.Drawing.Point(572, 531);
-            this.DeleteMenuItemButton.Name = "DeleteMenuItemButton";
-            this.DeleteMenuItemButton.Size = new System.Drawing.Size(127, 27);
-            this.DeleteMenuItemButton.TabIndex = 57;
-            this.DeleteMenuItemButton.Text = "Delete Menu Item";
-            this.DeleteMenuItemButton.UseVisualStyleBackColor = false;
-            this.DeleteMenuItemButton.Click += new System.EventHandler(this.DeleteMenuItemButton_Click);
+            this.Quantity.Width = 71;
             // 
             // MenusIndexForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(790, 605);
-            this.Controls.Add(this.DeleteMenuItemButton);
-            this.Controls.Add(this.AddMenuItemButton);
             this.Controls.Add(this.MenuItemsGrid);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.DeleteMenuButton);
             this.Controls.Add(this.EditMenuButton);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.MenusComboBox);
@@ -298,11 +265,8 @@
             this.Controls.SetChildIndex(this.MenusComboBox, 0);
             this.Controls.SetChildIndex(this.panel1, 0);
             this.Controls.SetChildIndex(this.EditMenuButton, 0);
-            this.Controls.SetChildIndex(this.DeleteMenuButton, 0);
             this.Controls.SetChildIndex(this.label3, 0);
             this.Controls.SetChildIndex(this.MenuItemsGrid, 0);
-            this.Controls.SetChildIndex(this.AddMenuItemButton, 0);
-            this.Controls.SetChildIndex(this.DeleteMenuItemButton, 0);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MenuItemsGrid)).EndInit();
@@ -322,15 +286,13 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label MenuNameLabel;
         private System.Windows.Forms.Button EditMenuButton;
-        private System.Windows.Forms.Button DeleteMenuButton;
         private System.Windows.Forms.RichTextBox DescriptionRichBox;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView MenuItemsGrid;
-        private System.Windows.Forms.Button AddMenuItemButton;
-        private System.Windows.Forms.Button DeleteMenuItemButton;
         private System.Windows.Forms.DataGridViewTextBoxColumn MenuItemID;
         private System.Windows.Forms.DataGridViewTextBoxColumn MenuID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Product;
         private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
+        private System.Windows.Forms.CheckBox ActiveCheckBox;
     }
 }

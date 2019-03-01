@@ -211,5 +211,27 @@ namespace eStudentRestaurant_UI.Main
                
             
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if ((Application.OpenForms["MenusIndexForm"] as MyProfileForm) != null)
+            {
+
+            }
+            else
+            {
+
+                foreach (Form fr in this.MdiChildren)
+                {
+
+                    fr.Dispose();
+                    fr.Close();
+
+                }
+                MyProfileForm frm = new MyProfileForm();
+                frm.MdiParent = MainForm.ActiveForm;
+                frm.Show();
+            }
+        }
     }
 }

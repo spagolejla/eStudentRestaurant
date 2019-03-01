@@ -83,6 +83,12 @@
     <Compile Include="Employees\EmployeesIndexForm.Designer.cs">
       <DependentUpon>EmployeesIndexForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Employees\MyProfileForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employees\MyProfileForm.Designer.cs">
+      <DependentUpon>MyProfileForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Employees\PasswordChangeForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -212,6 +218,7 @@
       <DependentUpon>StudentsIndexForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Util\ComboItem.cs" />
+    <Compile Include="Util\MenuItemHelper.cs" />
     <Compile Include="Util\UIHelper.cs" />
     <Compile Include="Util\WebAPIHelper.cs" />
     <EmbeddedResource Include="Clients\ClientAddForm.resx">
@@ -228,6 +235,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Employees\EmployeesIndexForm.resx">
       <DependentUpon>EmployeesIndexForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employees\MyProfileForm.resx">
+      <DependentUpon>MyProfileForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Employees\PasswordChangeForm.resx">
       <DependentUpon>PasswordChangeForm.cs</DependentUpon>
@@ -289,6 +299,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Students\StudentAddForm.resx">
       <DependentUpon>StudentAddForm.cs</DependentUpon>
@@ -319,6 +330,44 @@
       <Name>eStudentRestaurant_API</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\minus-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plus-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user-3-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\home-5-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\administrator-2-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\student-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pizza-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\banknotes-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\list.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menu-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\guest-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logout-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search-3-16.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

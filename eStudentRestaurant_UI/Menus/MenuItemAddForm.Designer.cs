@@ -44,7 +44,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(125, 31);
+            this.label2.Location = new System.Drawing.Point(75, 20);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(129, 22);
             this.label2.TabIndex = 42;
@@ -56,9 +56,9 @@
             this.AddMenuItemButton.FlatAppearance.BorderSize = 0;
             this.AddMenuItemButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddMenuItemButton.ForeColor = System.Drawing.Color.White;
-            this.AddMenuItemButton.Location = new System.Drawing.Point(215, 201);
+            this.AddMenuItemButton.Location = new System.Drawing.Point(153, 96);
             this.AddMenuItemButton.Name = "AddMenuItemButton";
-            this.AddMenuItemButton.Size = new System.Drawing.Size(81, 38);
+            this.AddMenuItemButton.Size = new System.Drawing.Size(81, 20);
             this.AddMenuItemButton.TabIndex = 89;
             this.AddMenuItemButton.Text = "Save";
             this.AddMenuItemButton.UseVisualStyleBackColor = false;
@@ -69,7 +69,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(47, 126);
+            this.label1.Location = new System.Drawing.Point(12, 96);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(65, 17);
             this.label1.TabIndex = 88;
@@ -80,7 +80,7 @@
             this.ProductNameLabel.AutoSize = true;
             this.ProductNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ProductNameLabel.ForeColor = System.Drawing.Color.White;
-            this.ProductNameLabel.Location = new System.Drawing.Point(47, 78);
+            this.ProductNameLabel.Location = new System.Drawing.Point(12, 62);
             this.ProductNameLabel.Name = "ProductNameLabel";
             this.ProductNameLabel.Size = new System.Drawing.Size(61, 17);
             this.ProductNameLabel.TabIndex = 87;
@@ -88,18 +88,21 @@
             // 
             // QuantityInput
             // 
-            this.QuantityInput.Location = new System.Drawing.Point(142, 123);
+            this.QuantityInput.Location = new System.Drawing.Point(83, 96);
             this.QuantityInput.Name = "QuantityInput";
-            this.QuantityInput.Size = new System.Drawing.Size(154, 20);
+            this.QuantityInput.Size = new System.Drawing.Size(46, 20);
             this.QuantityInput.TabIndex = 86;
+            this.QuantityInput.Validating += new System.ComponentModel.CancelEventHandler(this.QuantityInput_Validating);
             // 
             // ProductsComboBox
             // 
+            this.ProductsComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ProductsComboBox.FormattingEnabled = true;
-            this.ProductsComboBox.Location = new System.Drawing.Point(142, 78);
+            this.ProductsComboBox.Location = new System.Drawing.Point(79, 62);
             this.ProductsComboBox.Name = "ProductsComboBox";
-            this.ProductsComboBox.Size = new System.Drawing.Size(154, 21);
+            this.ProductsComboBox.Size = new System.Drawing.Size(155, 21);
             this.ProductsComboBox.TabIndex = 85;
+            this.ProductsComboBox.SelectedIndexChanged += new System.EventHandler(this.ProductsComboBox_SelectedIndexChanged);
             // 
             // errorProvider
             // 
@@ -109,7 +112,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(409, 258);
+            this.ClientSize = new System.Drawing.Size(265, 132);
             this.Controls.Add(this.AddMenuItemButton);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.ProductNameLabel);

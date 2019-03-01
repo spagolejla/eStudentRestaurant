@@ -27,6 +27,7 @@
           <Property Name="PaswordHash" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="PasswordSalt" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="OrganizationName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Points" Type="int" />
         </EntityType>
         <EntityType Name="Employee">
           <Key>
@@ -54,6 +55,7 @@
           <Property Name="Name_" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Description" Type="nvarchar(max)" />
           <Property Name="Price" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Active" Type="bit" />
         </EntityType>
         <EntityType Name="MenuItem">
           <Key>
@@ -133,6 +135,8 @@
           <Property Name="PlacesNamber" Type="int" Nullable="false" />
           <Property Name="Note" Type="nvarchar(max)" />
           <Property Name="Approved" Type="bit" Nullable="false" />
+          <Property Name="Price" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Discount" Type="decimal" Precision="18" Scale="0" />
         </EntityType>
         <EntityType Name="ReservationType">
           <Key>
@@ -372,6 +376,18 @@
         <Function Name="esp_ClientSelectByUsername" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Username" Type="nvarchar" Mode="In" />
         </Function>
+        <Function Name="esp_ClientUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ClientID" Type="int" Mode="In" />
+          <Parameter Name="FirstName" Type="nvarchar" Mode="In" />
+          <Parameter Name="LastName" Type="nvarchar" Mode="In" />
+          <Parameter Name="Phone" Type="nvarchar" Mode="In" />
+          <Parameter Name="CityID" Type="int" Mode="In" />
+          <Parameter Name="Active" Type="bit" Mode="In" />
+          <Parameter Name="Username" Type="nvarchar" Mode="In" />
+          <Parameter Name="PasswordHash" Type="nvarchar" Mode="In" />
+          <Parameter Name="PasswordSalt" Type="nvarchar" Mode="In" />
+          <Parameter Name="OrganizationName" Type="nvarchar" Mode="In" />
+        </Function>
         <Function Name="esp_EmployeeInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="FirstName" Type="nvarchar" Mode="In" />
           <Parameter Name="LastName" Type="nvarchar" Mode="In" />
@@ -558,6 +574,7 @@
           <NavigationProperty Name="City" Relationship="Self.FK_City_Client" FromRole="Client" ToRole="City" />
           <NavigationProperty Name="Reservation" Relationship="Self.FK_Client_Reservation" FromRole="Client" ToRole="Reservation" />
           <Property Name="OrganizationName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Points" Type="Int32" />
         </EntityType>
         <EntityType Name="Employee">
           <Key>
@@ -589,6 +606,7 @@
           <Property Name="Price" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
           <NavigationProperty Name="MenuItem" Relationship="Self.FK_Menu_MenuItem" FromRole="Menu" ToRole="MenuItem" />
           <NavigationProperty Name="OrderMenu" Relationship="Self.FK_Menu_OrderMenu" FromRole="Menu" ToRole="OrderMenu" />
+          <Property Name="Active" Type="Boolean" />
         </EntityType>
         <EntityType Name="MenuItem">
           <Key>
@@ -687,6 +705,8 @@
           <NavigationProperty Name="Client" Relationship="Self.FK_Client_Reservation" FromRole="Reservation" ToRole="Client" />
           <NavigationProperty Name="ReservationType" Relationship="Self.FK_ReservationType_Reservation" FromRole="Reservation" ToRole="ReservationType" />
           <Property Name="Approved" Type="Boolean" Nullable="false" />
+          <Property Name="Price" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Discount" Type="Decimal" Precision="18" Scale="0" />
         </EntityType>
         <EntityType Name="ReservationType">
           <Key>
@@ -1070,7 +1090,19 @@
           <Parameter Name="OrderID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="esp_ClientSelectByUsername" EntitySet="Client" ReturnType="Collection(eStudentRestaurantModel.Client)">
+          <Parameter Name="Username" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="esp_ClientUpdate">
+            <Parameter Name="ClientID" Mode="In" Type="Int32" />
+            <Parameter Name="FirstName" Mode="In" Type="String" />
+            <Parameter Name="LastName" Mode="In" Type="String" />
+            <Parameter Name="Phone" Mode="In" Type="String" />
+            <Parameter Name="CityID" Mode="In" Type="Int32" />
+            <Parameter Name="Active" Mode="In" Type="Boolean" />
             <Parameter Name="Username" Mode="In" Type="String" />
+            <Parameter Name="PasswordHash" Mode="In" Type="String" />
+            <Parameter Name="PasswordSalt" Mode="In" Type="String" />
+            <Parameter Name="OrganizationName" Mode="In" Type="String" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="Employe_Result">
@@ -1101,6 +1133,8 @@
           <Property Type="Int32" Name="PlacesNamber" Nullable="false" />
           <Property Type="String" Name="Note" Nullable="true" />
           <Property Type="Boolean" Name="Approved" Nullable="false" />
+          <Property Type="Decimal" Name="Price" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="Discount" Nullable="true" Precision="18" Scale="0" />
         </ComplexType>
         <ComplexType Name="MenuItem_Result">
           <Property Type="Int32" Name="MenuID" Nullable="false" />
@@ -1151,6 +1185,7 @@
           <EntitySetMapping Name="Client">
             <EntityTypeMapping TypeName="eStudentRestaurantModel.Client">
               <MappingFragment StoreEntitySet="Client">
+                <ScalarProperty Name="Points" ColumnName="Points" />
                 <ScalarProperty Name="OrganizationName" ColumnName="OrganizationName" />
                 <ScalarProperty Name="ClientID" ColumnName="ClientID" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
@@ -1186,6 +1221,7 @@
           <EntitySetMapping Name="Menu">
             <EntityTypeMapping TypeName="eStudentRestaurantModel.Menu">
               <MappingFragment StoreEntitySet="Menu">
+                <ScalarProperty Name="Active" ColumnName="Active" />
                 <ScalarProperty Name="MenuID" ColumnName="MenuID" />
                 <ScalarProperty Name="Name_" ColumnName="Name_" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
@@ -1270,6 +1306,8 @@
           <EntitySetMapping Name="Reservation">
             <EntityTypeMapping TypeName="eStudentRestaurantModel.Reservation">
               <MappingFragment StoreEntitySet="Reservation">
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
                 <ScalarProperty Name="Approved" ColumnName="Approved" />
                 <ScalarProperty Name="ReservationID" ColumnName="ReservationID" />
                 <ScalarProperty Name="ClinetID" ColumnName="ClinetID" />
@@ -1373,6 +1411,8 @@
                 <ScalarProperty Name="PlacesNamber" ColumnName="PlacesNamber" />
                 <ScalarProperty Name="Note" ColumnName="Note" />
                 <ScalarProperty Name="Approved" ColumnName="Approved" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
@@ -1409,6 +1449,7 @@
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="esp_ClientSelectByUsername" FunctionName="eStudentRestaurantModel.Store.esp_ClientSelectByUsername">
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="esp_ClientUpdate" FunctionName="eStudentRestaurantModel.Store.esp_ClientUpdate" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

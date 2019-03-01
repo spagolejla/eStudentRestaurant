@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ChildForm));
             this.LogutButton = new System.Windows.Forms.Button();
             this.LoggeUserLabel = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
@@ -40,7 +39,7 @@
             this.LogutButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.LogutButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LogutButton.ForeColor = System.Drawing.Color.White;
-            this.LogutButton.Image = ((System.Drawing.Image)(resources.GetObject("LogutButton.Image")));
+            this.LogutButton.Image = global::eStudentRestaurant_UI.Properties.Resources.logout_16;
             this.LogutButton.Location = new System.Drawing.Point(728, 22);
             this.LogutButton.Name = "LogutButton";
             this.LogutButton.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);

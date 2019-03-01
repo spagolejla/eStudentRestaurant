@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StudentsIndexForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.StudentsDataGrid = new System.Windows.Forms.DataGridView();
             this.StudentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -169,7 +168,7 @@
             // 
             this.SearchStudentsButton.FlatAppearance.BorderSize = 0;
             this.SearchStudentsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SearchStudentsButton.Image = ((System.Drawing.Image)(resources.GetObject("SearchStudentsButton.Image")));
+            this.SearchStudentsButton.Image = global::eStudentRestaurant_UI.Properties.Resources.search_3_16;
             this.SearchStudentsButton.Location = new System.Drawing.Point(341, 86);
             this.SearchStudentsButton.Name = "SearchStudentsButton";
             this.SearchStudentsButton.Size = new System.Drawing.Size(30, 21);
@@ -219,11 +218,16 @@
             this.Controls.Add(this.SearchStudentsButton);
             this.Controls.Add(this.SearchStudentsInput);
             this.Controls.Add(this.SearchStudentsLabel);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "StudentsIndexForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "StudentsIndexForm";
             this.Load += new System.EventHandler(this.StudentsIndexForm_Load);
+            this.Controls.SetChildIndex(this.SearchStudentsLabel, 0);
+            this.Controls.SetChildIndex(this.SearchStudentsInput, 0);
+            this.Controls.SetChildIndex(this.SearchStudentsButton, 0);
+            this.Controls.SetChildIndex(this.AddStudentButton, 0);
+            this.Controls.SetChildIndex(this.EditStudentButton, 0);
+            this.Controls.SetChildIndex(this.panel1, 0);
+            this.Controls.SetChildIndex(this.label1, 0);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.StudentsDataGrid)).EndInit();
             this.ResumeLayout(false);

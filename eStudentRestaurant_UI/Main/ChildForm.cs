@@ -32,7 +32,7 @@ namespace eStudentRestaurant_UI.Main
         {
             if (Global.LoggedUser != null)
             {
-                LoggeUserLabel.Text = Global.LoggedUser.FirstName + " " + Global.LoggedUser.LastName;
+              //  LoggeUserLabel.Text = Global.LoggedUser.FirstName + " " + Global.LoggedUser.LastName;
 
             }
         }

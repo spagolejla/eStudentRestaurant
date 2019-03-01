@@ -23,6 +23,8 @@ namespace eStudentRestaurant_UI.Employees
         {
             InitializeComponent();
             EmployeesDataGrid.AutoGenerateColumns = false;
+            EmployeesDataGrid.Select();
+            EmployeesDataGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
         }
 
@@ -30,18 +32,25 @@ namespace eStudentRestaurant_UI.Employees
 
         private void BindGrid()
         {
-            HttpResponseMessage response = employeesServices.GetActionResponse("GetEmployeesByName", SearchEmpoyeesInput.Text.Trim());
-
-            if (response.IsSuccessStatusCode)
+            if (SearchEmpoyeesInput.Text.Length > 50)
             {
-                List<Employe_Result> employees = response.Content.ReadAsAsync<List<Employe_Result>>().Result;
-                EmployeesDataGrid.DataSource = employees;
-                EmployeesDataGrid.ClearSelection();
+                MessageBox.Show("Error! To much characters!");
             }
             else
             {
-                MessageBox.Show("Error Code" +
-                response.StatusCode + " : Message - " + response.ReasonPhrase);
+                HttpResponseMessage response = employeesServices.GetActionResponse("GetEmployeesByName", SearchEmpoyeesInput.Text.Trim());
+
+                if (response.IsSuccessStatusCode)
+                {
+                    List<Employe_Result> employees = response.Content.ReadAsAsync<List<Employe_Result>>().Result;
+                    EmployeesDataGrid.DataSource = employees;
+                    EmployeesDataGrid.ClearSelection();
+                }
+                else
+                {
+                    MessageBox.Show("Error Code" +
+                    response.StatusCode + " : Message - " + response.ReasonPhrase);
+                }
             }
         }
 
@@ -68,11 +77,7 @@ namespace eStudentRestaurant_UI.Employees
             {
                 MessageBox.Show("Error! You didnt select an employee to edit!");
             }
-            else if (Convert.ToInt32(EmployeesDataGrid.SelectedRows[0].Cells[0].Value) == Global.LoggedUser.EmployeeID)
-            {
-                MessageBox.Show("Sorry! But you can't edit yourself!");
 
-            }
             else
             {
                 EditEmployeeForm frm = new EditEmployeeForm(Convert.ToInt32(EmployeesDataGrid.SelectedRows[0].Cells[0].Value));

@@ -24,22 +24,31 @@ namespace eStudentRestaurant_UI.Students
         {
             InitializeComponent();
             StudentsDataGrid.AutoGenerateColumns = false;
+            StudentsDataGrid.Select();
+            StudentsDataGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
 
         private void BindGrid()
         {
-            HttpResponseMessage response = studentsServices.GetActionResponse("GetStudentsByName", SearchStudentsInput.Text.Trim());
-
-            if (response.IsSuccessStatusCode)
+            if (SearchStudentsInput.Text.Length > 50)
             {
-                List<Student_Result> employees = response.Content.ReadAsAsync<List<Student_Result>>().Result;
-                StudentsDataGrid.DataSource = employees;
-                StudentsDataGrid.ClearSelection();
+                MessageBox.Show("Error! To much characters!");
             }
             else
             {
-                MessageBox.Show("Error Code" +
-                response.StatusCode + " : Message - " + response.ReasonPhrase);
+                HttpResponseMessage response = studentsServices.GetActionResponse("GetStudentsByName", SearchStudentsInput.Text.Trim());
+
+                if (response.IsSuccessStatusCode)
+                {
+                    List<Student_Result> employees = response.Content.ReadAsAsync<List<Student_Result>>().Result;
+                    StudentsDataGrid.DataSource = employees;
+                    StudentsDataGrid.ClearSelection();
+                }
+                else
+                {
+                    MessageBox.Show("Error Code" +
+                    response.StatusCode + " : Message - " + response.ReasonPhrase);
+                }
             }
         }
 

@@ -135,16 +135,4 @@
   <metadata name="Status.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="SearchProductsButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EwAACxMBAJqcGAAAAUFJREFUOE/tkr1KA0EUhVdsRFRECyFdSn2AhDxBHiCkyCNtsewvga22SrNtGhub
-        VKmSB7BJL6SUFML6HbkRdXfzp1jlg2Fmz5175s7dcY58I0mSC9/323Ecd5ivTd6fMAyvoigaMlaMQiMI
-        gjf0EfOdbdsNM5szP1NZz3XdyzRNz1l30WcYLlg3bPt2SBqa2a1Jn8iY+JT42KTNqGckrFSZSSWItxhq
-        Q9OkevQDtFnXNKlEURQnXHvJoX2T6mFTR4a6mkmVsOeFMbDPevQ09Dcx7ppUgv496FD23pu0GRJGJMyq
-        qszz/JT4I4dOTNqO3pmeBqZTRks9k67KZKbqiD9lWXb2kbALXLlB8tiSl8zqmdYTmWkt871MBYlN/U3m
-        wbpnMllXepBpFT9N1VsLHc4X01fP825M/h2q7M/M/gnHeQdI4tozpPVZaAAAAABJRU5ErkJggg==
-</value>
-  </data>
 </root>

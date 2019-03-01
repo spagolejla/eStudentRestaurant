@@ -45,6 +45,8 @@ namespace eStudentRestaurant_API.Controllers
             return menuItems;
         }
 
+
+
         // name exist
         [HttpGet]
         [ResponseType(typeof(Menu))]
@@ -100,38 +102,31 @@ namespace eStudentRestaurant_API.Controllers
         [ResponseType(typeof(Menu))]
         public IHttpActionResult PostMenu(Menu menu)
         {
+            Menu newMenu = new Menu()
+            {
+                Name_ = menu.Name_,
+                Active = true,
+                Description = menu.Description,
+                Price = menu.Price
+            };
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.Menu.Add(menu);
+            db.Menu.Add(newMenu);
             db.SaveChanges();
 
+            foreach (var item in menu.MenuItem)
+            {
+                item.MenuID = newMenu.MenuID;
+                db.MenuItem.Add(item);
+            }
+            db.SaveChanges();
             return CreatedAtRoute("DefaultApi", new { id = menu.MenuID }, menu);
         }
 
-        // DELETE: api/Menus/5
-        [ResponseType(typeof(Menu))]
-        public IHttpActionResult DeleteMenu(int id)
-        {
-            Menu menu = db.Menu.Find(id);
-            if (menu == null)
-            {
-                return NotFound();
-            }
-
-            List<MenuItem> menuItems = db.MenuItem.Where(x => x.MenuID == id).ToList();
-            if (menuItems.Count()>0)
-            {
-                db.MenuItem.RemoveRange(menuItems);
-                db.SaveChanges();
-            }
-            db.Menu.Remove(menu);
-            db.SaveChanges();
-
-            return Ok(menu);
-        }
+       
 
         protected override void Dispose(bool disposing)
         {

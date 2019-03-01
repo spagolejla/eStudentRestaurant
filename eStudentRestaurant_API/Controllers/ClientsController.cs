@@ -19,14 +19,14 @@ namespace eStudentRestaurant_API.Controllers
         // GET: api/Clients
         public IQueryable<Client> GetClient()
         {
-            return db.Client;
+            return db.Client.Include(c=>c.City);
         }
 
         // GET: api/Clients/5
         [ResponseType(typeof(Client))]
         public IHttpActionResult GetClient(int id)
         {
-            Client client = db.Client.Find(id);
+            Client client = db.Client.Where(x=>x.ClientID == id).Include(c=>c.City).FirstOrDefault();
             if (client == null)
             {
                 return NotFound();
@@ -36,7 +36,7 @@ namespace eStudentRestaurant_API.Controllers
         }
 
         [HttpGet]
-        [ResponseType(typeof(Student))]
+        [ResponseType(typeof(Client))]
         [Route("api/Clients/GetClientByUsername/{username?}")]
         public IHttpActionResult GetClientByUsername(string username)
         {
@@ -81,23 +81,8 @@ namespace eStudentRestaurant_API.Controllers
                 return BadRequest();
             }
 
-            db.Entry(client).State = EntityState.Modified;
-
-            try
-            {
-                db.SaveChanges();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!ClientExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+            db.esp_ClientUpdate(client.ClientID, client.FirstName, client.LastName,
+                client.Phone, client.CityID, client.Active, client.Username, client.PaswordHash, client.PasswordSalt, client.OrganizationName);
 
             return StatusCode(HttpStatusCode.NoContent);
         }

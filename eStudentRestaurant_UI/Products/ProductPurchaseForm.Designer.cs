@@ -52,6 +52,7 @@
             // 
             // ProductsComboBox
             // 
+            this.ProductsComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ProductsComboBox.FormattingEnabled = true;
             this.ProductsComboBox.Location = new System.Drawing.Point(134, 75);
             this.ProductsComboBox.Name = "ProductsComboBox";

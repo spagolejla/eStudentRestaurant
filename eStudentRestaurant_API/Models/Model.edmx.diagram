@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="d97746b0c4914e3a81aa5debf654e270" Name="Diagram1" ZoomLevel="10">
+      <Diagram DiagramId="d97746b0c4914e3a81aa5debf654e270" Name="Diagram1" ZoomLevel="82">
         <EntityTypeShape EntityType="eStudentRestaurantModel.City" Width="1.5" PointX="3" PointY="8.375" IsExpanded="true" />
         <EntityTypeShape EntityType="eStudentRestaurantModel.Client" Width="1.5" PointX="5.25" PointY="3.125" IsExpanded="true" />
         <EntityTypeShape EntityType="eStudentRestaurantModel.Employee" Width="1.5" PointX="5.25" PointY="7.5" IsExpanded="true" />
@@ -16,7 +16,6 @@
         <EntityTypeShape EntityType="eStudentRestaurantModel.OrderStatus" Width="1.5" PointX="5.25" PointY="20" IsExpanded="true" />
         <EntityTypeShape EntityType="eStudentRestaurantModel.Product" Width="1.5" PointX="7.5" PointY="18.25" IsExpanded="true" />
         <EntityTypeShape EntityType="eStudentRestaurantModel.Rating" Width="1.5" PointX="7.5" PointY="15.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="eStudentRestaurantModel.Reservation" Width="1.5" PointX="7.5" PointY="3.625" IsExpanded="true" />
         <EntityTypeShape EntityType="eStudentRestaurantModel.ReservationType" Width="1.5" PointX="5.25" PointY="17.125" IsExpanded="true" />
         <EntityTypeShape EntityType="eStudentRestaurantModel.State" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
         <EntityTypeShape EntityType="eStudentRestaurantModel.Student" Width="1.5" PointX="5.25" PointY="12.25" IsExpanded="true" />
@@ -24,7 +23,6 @@
         <AssociationConnector Association="eStudentRestaurantModel.FK_City_Employee" ManuallyRouted="false" />
         <AssociationConnector Association="eStudentRestaurantModel.FK_City_Student" ManuallyRouted="false" />
         <AssociationConnector Association="eStudentRestaurantModel.FK_State_City" ManuallyRouted="false" />
-        <AssociationConnector Association="eStudentRestaurantModel.FK_Client_Reservation" ManuallyRouted="false" />
         <AssociationConnector Association="eStudentRestaurantModel.FK_Menu_MenuItem" ManuallyRouted="false" />
         <AssociationConnector Association="eStudentRestaurantModel.FK_Menu_OrderMenu" ManuallyRouted="false" />
         <AssociationConnector Association="eStudentRestaurantModel.FK_Product_MenuItem" ManuallyRouted="false" />
@@ -35,8 +33,12 @@
         <AssociationConnector Association="eStudentRestaurantModel.FK_Product_OrderItem" ManuallyRouted="false" />
         <AssociationConnector Association="eStudentRestaurantModel.FK_Product_Rating" ManuallyRouted="false" />
         <AssociationConnector Association="eStudentRestaurantModel.FK_Student_Rating" ManuallyRouted="false" />
-        <AssociationConnector Association="eStudentRestaurantModel.FK_ReservationType_Reservation" ManuallyRouted="false" />
         <AssociationConnector Association="eStudentRestaurantModel.FK_Employee_Order" />
+        <EntityTypeShape EntityType="eStudentRestaurantModel.Reservation" Width="1.5" PointX="10.5" PointY="14.5" />
+        <AssociationConnector Association="eStudentRestaurantModel.FK_Client_Reservation1" />
+        <AssociationConnector Association="eStudentRestaurantModel.FK_ReservationType_Reservation1" />
+        <EntityTypeShape EntityType="eStudentRestaurantModel.ReservationStatus" Width="1.5" PointX="0.75" PointY="0.875" />
+        <AssociationConnector Association="eStudentRestaurantModel.FK_ReservationStatus_Reservation" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

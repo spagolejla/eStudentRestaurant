@@ -21,7 +21,7 @@ namespace eStudentRestaurant_API.Controllers
         [ResponseType(typeof(Reservation))]
         public IHttpActionResult GetReservation(int id)
         {
-            Reservation reservation = db.Reservation.Where(x=>x.ReservationID == id).Include(rt=>rt.ReservationType).FirstOrDefault();
+            Reservation reservation = db.ReservationSet.Where(x=>x.ReservationID == id).Include(rt=>rt.ReservationType).Include(rs=>rs.ReservationStatus).FirstOrDefault();
             if (reservation == null)
             {
                 return NotFound();
@@ -45,20 +45,29 @@ namespace eStudentRestaurant_API.Controllers
         public IHttpActionResult ApprovedReservationExist(int id)
         {
             
-            Reservation res = db.Reservation.Find(id);
+            Reservation res = db.ReservationSet.Find(id);
 
-            Reservation resApproved = db.Reservation.Where(x => x.Approved == true).Where(d => d.ReservationDateTime.Day ==
+            Reservation resApproved = db.ReservationSet.Where(x => x.ReservationStatusID == 2).Where(d => d.ReservationDateTime.Day ==
             res.ReservationDateTime.Day && d.ReservationDateTime.Month == res.ReservationDateTime.Month
             && d.ReservationDateTime.Year == res.ReservationDateTime.Year).FirstOrDefault();
 
             if (resApproved == null)
             {
-                res.Approved = true;
+                res.ReservationStatusID = 2;
+                Client client = db.Client.Where(x => x.ClientID == res.ClinetID).FirstOrDefault();
+                client.Points += 1;
+                
                 db.SaveChanges();
                 return NotFound();
             }
+            else
+            {
+                res.ReservationStatusID = 3;
+                db.SaveChanges();
+                return Ok(resApproved);
+            }
 
-            return Ok(resApproved);
+             
 
 
 
@@ -111,7 +120,7 @@ namespace eStudentRestaurant_API.Controllers
                 return BadRequest(ModelState);
             }
 
-            db.Reservation.Add(reservation);
+            db.ReservationSet.Add(reservation);
             db.SaveChanges();
 
             return CreatedAtRoute("DefaultApi", new { id = reservation.ReservationID }, reservation);
@@ -121,13 +130,13 @@ namespace eStudentRestaurant_API.Controllers
         [ResponseType(typeof(Reservation))]
         public IHttpActionResult DeleteReservation(int id)
         {
-            Reservation reservation = db.Reservation.Find(id);
+            Reservation reservation = db.ReservationSet.Find(id);
             if (reservation == null)
             {
                 return NotFound();
             }
 
-            db.Reservation.Remove(reservation);
+            db.ReservationSet.Remove(reservation);
             db.SaveChanges();
 
             return Ok(reservation);
@@ -144,7 +153,7 @@ namespace eStudentRestaurant_API.Controllers
 
         private bool ReservationExists(int id)
         {
-            return db.Reservation.Count(e => e.ReservationID == id) > 0;
+            return db.ReservationSet.Count(e => e.ReservationID == id) > 0;
         }
     }
 }

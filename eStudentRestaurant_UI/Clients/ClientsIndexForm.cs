@@ -361,6 +361,11 @@ namespace eStudentRestaurant_UI.Clients
             {
                 MessageBox.Show("Error! You didnt select reservation to edit!");
             }
+            else if(ReservationGridView.SelectedRows[0].Cells[8].Value.ToString() != "On wait")
+            {
+                MessageBox.Show("Error! This reservation request is alrady proccessed!");
+
+            }
             else
             {
                 HttpResponseMessage resApproveResp = reservationsService.GetActionResponseIdParam("ApprovedReservationExist", Convert.ToInt32(ReservationGridView.SelectedRows[0].Cells[0].Value));

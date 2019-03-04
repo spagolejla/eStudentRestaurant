@@ -18,6 +18,7 @@ namespace eStudentRestaurant_PCL.Model
         public string PaswordHash { get; set; }
         public string PasswordSalt { get; set; }
         public string OrganizationName { get; set; }
+        public int Points { get; set; }
 
         public virtual City City { get; set; }
     }

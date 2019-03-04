@@ -23,15 +23,7 @@ namespace eStudentRestaurant_Xamarin
         {
             InitializeComponent();
         }
-        private void StudentRegistrationButton_Clicked(object sender, EventArgs e)
-        {
-            this.Navigation.PushAsync(new StudentRegistration());
-        }
-
-        private void ClientRegistrationButton_Clicked(object sender, EventArgs e)
-        {
-            this.Navigation.PushAsync(new ClientRegistration());
-        }
+      
 
         private void SignInButton_Clicked(object sender, EventArgs e)
         {
@@ -94,5 +86,9 @@ namespace eStudentRestaurant_Xamarin
 
         }
 
+        private void RegistrationButton_Clicked(object sender, EventArgs e)
+        {
+            this.Navigation.PushAsync(new RegistrationPage());
+        }
     }
 }

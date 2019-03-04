@@ -20,11 +20,12 @@ namespace eStudentRestaurant_API.Models
         public System.DateTime ReservationDateTime { get; set; }
         public int PlacesNamber { get; set; }
         public string Note { get; set; }
-        public bool Approved { get; set; }
         public Nullable<decimal> Price { get; set; }
         public Nullable<decimal> Discount { get; set; }
+        public Nullable<int> ReservationStatusID { get; set; }
     
         public virtual Client Client { get; set; }
         public virtual ReservationType ReservationType { get; set; }
+        public virtual ReservationStatus ReservationStatus { get; set; }
     }
 }

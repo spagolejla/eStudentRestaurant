@@ -68,8 +68,9 @@ namespace eStudentRestaurant_API.Controllers
         public IHttpActionResult UsernameExist(string username)
         {
             Student student = db.Student.Where(x => x.Username == username).FirstOrDefault();
+            Client client = db.Client.Where(x => x.Username == username).FirstOrDefault();
 
-            if (student == null)
+            if (student == null && client == null)
             {
                 return NotFound();
             }

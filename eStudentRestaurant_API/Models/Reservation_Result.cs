@@ -19,8 +19,8 @@ namespace eStudentRestaurant_API.Models
         public System.DateTime ReservationDateTime { get; set; }
         public int PlacesNamber { get; set; }
         public string Note { get; set; }
-        public bool Approved { get; set; }
         public Nullable<decimal> Price { get; set; }
         public Nullable<decimal> Discount { get; set; }
+        public string Status { get; set; }
     }
 }

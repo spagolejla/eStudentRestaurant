@@ -134,9 +134,16 @@
           <Property Name="ReservationDateTime" Type="datetime" Nullable="false" />
           <Property Name="PlacesNamber" Type="int" Nullable="false" />
           <Property Name="Note" Type="nvarchar(max)" />
-          <Property Name="Approved" Type="bit" Nullable="false" />
           <Property Name="Price" Type="decimal" Precision="18" Scale="0" />
           <Property Name="Discount" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="ReservationStatusID" Type="int" />
+        </EntityType>
+        <EntityType Name="ReservationStatus">
+          <Key>
+            <PropertyRef Name="ReservationStatusID" />
+          </Key>
+          <Property Name="ReservationStatusID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Status" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="ReservationType">
           <Key>
@@ -325,6 +332,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_ReservationStatus_Reservation">
+          <End Role="ReservationStatus" Type="Self.ReservationStatus" Multiplicity="0..1" />
+          <End Role="Reservation" Type="Self.Reservation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ReservationStatus">
+              <PropertyRef Name="ReservationStatusID" />
+            </Principal>
+            <Dependent Role="Reservation">
+              <PropertyRef Name="ReservationStatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_ReservationType_Reservation">
           <End Role="ReservationType" Type="Self.ReservationType" Multiplicity="0..1" />
           <End Role="Reservation" Type="Self.Reservation" Multiplicity="*" />
@@ -470,6 +489,7 @@
           <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Rating" EntityType="Self.Rating" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Reservation" EntityType="Self.Reservation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ReservationStatus" EntityType="Self.ReservationStatus" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ReservationType" EntityType="Self.ReservationType" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="State" EntityType="Self.State" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
@@ -525,6 +545,10 @@
             <End Role="Product" EntitySet="Product" />
             <End Role="Rating" EntitySet="Rating" />
           </AssociationSet>
+          <AssociationSet Name="FK_ReservationStatus_Reservation" Association="Self.FK_ReservationStatus_Reservation">
+            <End Role="ReservationStatus" EntitySet="ReservationStatus" />
+            <End Role="Reservation" EntitySet="Reservation" />
+          </AssociationSet>
           <AssociationSet Name="FK_ReservationType_Reservation" Association="Self.FK_ReservationType_Reservation">
             <End Role="ReservationType" EntitySet="ReservationType" />
             <End Role="Reservation" EntitySet="Reservation" />
@@ -572,9 +596,9 @@
           <Property Name="PaswordHash" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="PasswordSalt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="City" Relationship="Self.FK_City_Client" FromRole="Client" ToRole="City" />
-          <NavigationProperty Name="Reservation" Relationship="Self.FK_Client_Reservation" FromRole="Client" ToRole="Reservation" />
           <Property Name="OrganizationName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Points" Type="Int32" />
+          <NavigationProperty Name="Reservation1" Relationship="eStudentRestaurantModel.FK_Client_Reservation1" FromRole="Client" ToRole="Reservation1" />
         </EntityType>
         <EntityType Name="Employee">
           <Key>
@@ -692,29 +716,13 @@
           <NavigationProperty Name="Product" Relationship="Self.FK_Product_Rating" FromRole="Rating" ToRole="Product" />
           <NavigationProperty Name="Student" Relationship="Self.FK_Student_Rating" FromRole="Rating" ToRole="Student" />
         </EntityType>
-        <EntityType Name="Reservation">
-          <Key>
-            <PropertyRef Name="ReservationID" />
-          </Key>
-          <Property Name="ReservationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ClinetID" Type="Int32" Nullable="false" />
-          <Property Name="ReservationTypeID" Type="Int32" />
-          <Property Name="ReservationDateTime" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="PlacesNamber" Type="Int32" Nullable="false" />
-          <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Client" Relationship="Self.FK_Client_Reservation" FromRole="Reservation" ToRole="Client" />
-          <NavigationProperty Name="ReservationType" Relationship="Self.FK_ReservationType_Reservation" FromRole="Reservation" ToRole="ReservationType" />
-          <Property Name="Approved" Type="Boolean" Nullable="false" />
-          <Property Name="Price" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="Discount" Type="Decimal" Precision="18" Scale="0" />
-        </EntityType>
         <EntityType Name="ReservationType">
           <Key>
             <PropertyRef Name="ReservationTypeID" />
           </Key>
           <Property Name="ReservationTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name_" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Reservation" Relationship="Self.FK_ReservationType_Reservation" FromRole="ReservationType" ToRole="Reservation" />
+          <NavigationProperty Name="Reservation1" Relationship="eStudentRestaurantModel.FK_ReservationType_Reservation1" FromRole="ReservationType" ToRole="Reservation1" />
         </EntityType>
         <EntityType Name="State">
           <Key>
@@ -789,18 +797,6 @@
             </Principal>
             <Dependent Role="City">
               <PropertyRef Name="StateID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Client_Reservation">
-          <End Role="Client" Type="Self.Client" Multiplicity="1" />
-          <End Role="Reservation" Type="Self.Reservation" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Client">
-              <PropertyRef Name="ClientID" />
-            </Principal>
-            <Dependent Role="Reservation">
-              <PropertyRef Name="ClinetID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -924,18 +920,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ReservationType_Reservation">
-          <End Role="ReservationType" Type="Self.ReservationType" Multiplicity="0..1" />
-          <End Role="Reservation" Type="Self.Reservation" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ReservationType">
-              <PropertyRef Name="ReservationTypeID" />
-            </Principal>
-            <Dependent Role="Reservation">
-              <PropertyRef Name="ReservationTypeID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="eStudentRestaurantEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="City" EntityType="Self.City" />
           <EntitySet Name="Client" EntityType="Self.Client" />
@@ -948,7 +932,6 @@
           <EntitySet Name="OrderStatus" EntityType="Self.OrderStatus" />
           <EntitySet Name="Product" EntityType="Self.Product" />
           <EntitySet Name="Rating" EntityType="Self.Rating" />
-          <EntitySet Name="Reservation" EntityType="Self.Reservation" />
           <EntitySet Name="ReservationType" EntityType="Self.ReservationType" />
           <EntitySet Name="State" EntityType="Self.State" />
           <EntitySet Name="Student" EntityType="Self.Student" />
@@ -967,10 +950,6 @@
           <AssociationSet Name="FK_State_City" Association="Self.FK_State_City">
             <End Role="State" EntitySet="State" />
             <End Role="City" EntitySet="City" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Client_Reservation" Association="Self.FK_Client_Reservation">
-            <End Role="Client" EntitySet="Client" />
-            <End Role="Reservation" EntitySet="Reservation" />
           </AssociationSet>
           <AssociationSet Name="FK_Menu_MenuItem" Association="Self.FK_Menu_MenuItem">
             <End Role="Menu" EntitySet="Menu" />
@@ -1011,10 +990,6 @@
           <AssociationSet Name="FK_Student_Rating" Association="Self.FK_Student_Rating">
             <End Role="Student" EntitySet="Student" />
             <End Role="Rating" EntitySet="Rating" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ReservationType_Reservation" Association="Self.FK_ReservationType_Reservation">
-            <End Role="ReservationType" EntitySet="ReservationType" />
-            <End Role="Reservation" EntitySet="Reservation" />
           </AssociationSet>
           <FunctionImport Name="esp_EmployeSelectALL" ReturnType="Collection(eStudentRestaurantModel.Employe_Result)" />
           <FunctionImport Name="esp_EmployeeInsert" ReturnType="Collection(Decimal)">
@@ -1104,6 +1079,20 @@
             <Parameter Name="PasswordSalt" Mode="In" Type="String" />
             <Parameter Name="OrganizationName" Mode="In" Type="String" />
           </FunctionImport>
+          <EntitySet Name="ReservationSet" EntityType="eStudentRestaurantModel.Reservation" />
+          <AssociationSet Name="FK_Client_Reservation1" Association="eStudentRestaurantModel.FK_Client_Reservation1">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="Reservation1" EntitySet="ReservationSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReservationType_Reservation1" Association="eStudentRestaurantModel.FK_ReservationType_Reservation1">
+            <End Role="ReservationType" EntitySet="ReservationType" />
+            <End Role="Reservation1" EntitySet="ReservationSet" />
+          </AssociationSet>
+          <EntitySet Name="ReservationStatus" EntityType="eStudentRestaurantModel.ReservationStatus" />
+          <AssociationSet Name="FK_ReservationStatus_Reservation" Association="eStudentRestaurantModel.FK_ReservationStatus_Reservation">
+            <End Role="ReservationStatus" EntitySet="ReservationStatus" />
+            <End Role="Reservation" EntitySet="ReservationSet" />
+          </AssociationSet>
         </EntityContainer>
         <ComplexType Name="Employe_Result">
           <Property Type="Int32" Name="EmployeeID" Nullable="false" />
@@ -1132,9 +1121,9 @@
           <Property Type="DateTime" Name="ReservationDateTime" Nullable="false" Precision="23" />
           <Property Type="Int32" Name="PlacesNamber" Nullable="false" />
           <Property Type="String" Name="Note" Nullable="true" />
-          <Property Type="Boolean" Name="Approved" Nullable="false" />
           <Property Type="Decimal" Name="Price" Nullable="true" Precision="18" Scale="0" />
           <Property Type="Decimal" Name="Discount" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="String" Name="Status" Nullable="false" MaxLength="50" />
         </ComplexType>
         <ComplexType Name="MenuItem_Result">
           <Property Type="Int32" Name="MenuID" Nullable="false" />
@@ -1167,6 +1156,67 @@
           <Property Type="Int32" Name="Quantity" Nullable="false" />
           <Property Type="Decimal" Name="Price" Nullable="false" Precision="18" Scale="0" />
         </ComplexType>
+        <EntityType Name="Reservation">
+          <Key>
+            <PropertyRef Name="ReservationID" />
+          </Key>
+          <Property Name="ReservationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ClinetID" Type="Int32" Nullable="false" />
+          <Property Name="ReservationTypeID" Type="Int32" />
+          <Property Name="ReservationDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="PlacesNamber" Type="Int32" Nullable="false" />
+          <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Discount" Type="Decimal" Precision="18" Scale="0" />
+          <NavigationProperty Name="Client" Relationship="eStudentRestaurantModel.FK_Client_Reservation1" FromRole="Reservation1" ToRole="Client" />
+          <NavigationProperty Name="ReservationType" Relationship="eStudentRestaurantModel.FK_ReservationType_Reservation1" FromRole="Reservation1" ToRole="ReservationType" />
+          <Property Name="ReservationStatusID" Type="Int32" />
+          <NavigationProperty Name="ReservationStatus" Relationship="eStudentRestaurantModel.FK_ReservationStatus_Reservation" FromRole="Reservation" ToRole="ReservationStatus" />
+        </EntityType>
+        <Association Name="FK_Client_Reservation1">
+          <End Type="eStudentRestaurantModel.Client" Role="Client" Multiplicity="1" />
+          <End Type="eStudentRestaurantModel.Reservation" Role="Reservation1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="ClientID" />
+            </Principal>
+            <Dependent Role="Reservation1">
+              <PropertyRef Name="ClinetID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReservationType_Reservation1">
+          <End Type="eStudentRestaurantModel.ReservationType" Role="ReservationType" Multiplicity="0..1" />
+          <End Type="eStudentRestaurantModel.Reservation" Role="Reservation1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ReservationType">
+              <PropertyRef Name="ReservationTypeID" />
+            </Principal>
+            <Dependent Role="Reservation1">
+              <PropertyRef Name="ReservationTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="ReservationStatus">
+          <Key>
+            <PropertyRef Name="ReservationStatusID" />
+          </Key>
+          <Property Name="ReservationStatusID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Status" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Reservation" Relationship="eStudentRestaurantModel.FK_ReservationStatus_Reservation" FromRole="ReservationStatus" ToRole="Reservation" />
+        </EntityType>
+        <Association Name="FK_ReservationStatus_Reservation">
+          <End Type="eStudentRestaurantModel.ReservationStatus" Role="ReservationStatus" Multiplicity="0..1" />
+          <End Type="eStudentRestaurantModel.Reservation" Role="Reservation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ReservationStatus">
+              <PropertyRef Name="ReservationStatusID" />
+            </Principal>
+            <Dependent Role="Reservation">
+              <PropertyRef Name="ReservationStatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1303,21 +1353,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Reservation">
-            <EntityTypeMapping TypeName="eStudentRestaurantModel.Reservation">
-              <MappingFragment StoreEntitySet="Reservation">
-                <ScalarProperty Name="Discount" ColumnName="Discount" />
-                <ScalarProperty Name="Price" ColumnName="Price" />
-                <ScalarProperty Name="Approved" ColumnName="Approved" />
-                <ScalarProperty Name="ReservationID" ColumnName="ReservationID" />
-                <ScalarProperty Name="ClinetID" ColumnName="ClinetID" />
-                <ScalarProperty Name="ReservationTypeID" ColumnName="ReservationTypeID" />
-                <ScalarProperty Name="ReservationDateTime" ColumnName="ReservationDateTime" />
-                <ScalarProperty Name="PlacesNamber" ColumnName="PlacesNamber" />
-                <ScalarProperty Name="Note" ColumnName="Note" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="ReservationType">
             <EntityTypeMapping TypeName="eStudentRestaurantModel.ReservationType">
               <MappingFragment StoreEntitySet="ReservationType">
@@ -1410,9 +1445,9 @@
                 <ScalarProperty Name="ReservationDateTime" ColumnName="ReservationDateTime" />
                 <ScalarProperty Name="PlacesNamber" ColumnName="PlacesNamber" />
                 <ScalarProperty Name="Note" ColumnName="Note" />
-                <ScalarProperty Name="Approved" ColumnName="Approved" />
                 <ScalarProperty Name="Price" ColumnName="Price" />
                 <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
@@ -1450,6 +1485,29 @@
           <FunctionImportMapping FunctionImportName="esp_ClientSelectByUsername" FunctionName="eStudentRestaurantModel.Store.esp_ClientSelectByUsername">
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="esp_ClientUpdate" FunctionName="eStudentRestaurantModel.Store.esp_ClientUpdate" />
+          <EntitySetMapping Name="ReservationSet">
+            <EntityTypeMapping TypeName="eStudentRestaurantModel.Reservation">
+              <MappingFragment StoreEntitySet="Reservation">
+                <ScalarProperty Name="ReservationStatusID" ColumnName="ReservationStatusID" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="PlacesNamber" ColumnName="PlacesNamber" />
+                <ScalarProperty Name="ReservationDateTime" ColumnName="ReservationDateTime" />
+                <ScalarProperty Name="ReservationTypeID" ColumnName="ReservationTypeID" />
+                <ScalarProperty Name="ClinetID" ColumnName="ClinetID" />
+                <ScalarProperty Name="ReservationID" ColumnName="ReservationID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ReservationStatus">
+            <EntityTypeMapping TypeName="eStudentRestaurantModel.ReservationStatus">
+              <MappingFragment StoreEntitySet="ReservationStatus">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="ReservationStatusID" ColumnName="ReservationStatusID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

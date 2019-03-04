@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="eStudentRestaurant_Xamarin.Clients.ClientEditPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout VerticalOptions="CenterAndExpand"
+                     Margin="10" >
+
+                <Grid>
+                    <Grid.RowDefinitions>
+
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+
+                        <RowDefinition Height="*"></RowDefinition>
+
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition  Width="Auto"></ColumnDefinition>
+                        <ColumnDefinition  Width="*"></ColumnDefinition>
+
+                    </Grid.ColumnDefinitions>
+
+                    <Label Text="Edit client" FontSize="25" HorizontalTextAlignment="Center" Grid.ColumnSpan="2"  Margin="20"/>
+
+                    <Label Text="Phone:" FontSize="18" Grid.Row="1"  VerticalTextAlignment="Center" />
+                    <Entry x:Name="phoneInput" Grid.Row="1" Grid.Column="1" WidthRequest="100"></Entry>
+
+                    <Label Text="Old password:" FontSize="18" Grid.Row="2"  VerticalTextAlignment="Center" />
+                    <Entry x:Name="passwordInputOld"  Grid.Row="2"  Grid.Column="1" IsPassword ="True" WidthRequest="100"  ></Entry>
+
+                    <Label Text="New password:" FontSize="18" Grid.Row="3"  VerticalTextAlignment="Center" />
+                    <Entry x:Name="passwordInputNew"  Grid.Row="3"  Grid.Column="1" IsPassword ="True" WidthRequest="100"  ></Entry>
+                    <Button x:Name="ClientEditButton" Text="Edit" BackgroundColor="#4682b4"  Grid.Row="4" Grid.Column="1"  Clicked="ClientEditButton_Clicked" WidthRequest="100"></Button>
+
+                </Grid>
+
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

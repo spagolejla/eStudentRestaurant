@@ -57,6 +57,8 @@
             this.ApproveReservationButton = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.ReservationGridView = new System.Windows.Forms.DataGridView();
+            this.label15 = new System.Windows.Forms.Label();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.ReservationID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ClientID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Name_ = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -65,9 +67,7 @@
             this.Note = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Discount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Approved = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.label15 = new System.Windows.Forms.Label();
-            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -389,7 +389,7 @@
             this.Note,
             this.Discount,
             this.Price,
-            this.Approved});
+            this.Status});
             this.ReservationGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(27)))), ((int)(((byte)(51)))));
             this.ReservationGridView.Location = new System.Drawing.Point(3, 3);
             this.ReservationGridView.MultiSelect = false;
@@ -397,6 +397,21 @@
             this.ReservationGridView.ReadOnly = true;
             this.ReservationGridView.Size = new System.Drawing.Size(736, 223);
             this.ReservationGridView.TabIndex = 0;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.White;
+            this.label15.Location = new System.Drawing.Point(15, 10);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(159, 22);
+            this.label15.TabIndex = 41;
+            this.label15.Text = "Clients reservation";
+            // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
             // 
             // ReservationID
             // 
@@ -460,29 +475,12 @@
             this.Price.Name = "Price";
             this.Price.ReadOnly = true;
             // 
-            // Approved
+            // Status
             // 
-            this.Approved.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.Approved.DataPropertyName = "Approved";
-            this.Approved.HeaderText = "Approved";
-            this.Approved.Name = "Approved";
-            this.Approved.ReadOnly = true;
-            this.Approved.Width = 59;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.White;
-            this.label15.Location = new System.Drawing.Point(15, 10);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(159, 22);
-            this.label15.TabIndex = 41;
-            this.label15.Text = "Clients reservation";
-            // 
-            // errorProvider
-            // 
-            this.errorProvider.ContainerControl = this;
+            this.Status.DataPropertyName = "Status";
+            this.Status.HeaderText = "Status";
+            this.Status.Name = "Status";
+            this.Status.ReadOnly = true;
             // 
             // ClientsIndexForm
             // 
@@ -558,6 +556,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Note;
         private System.Windows.Forms.DataGridViewTextBoxColumn Discount;
         private System.Windows.Forms.DataGridViewTextBoxColumn Price;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Approved;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Status;
     }
 }

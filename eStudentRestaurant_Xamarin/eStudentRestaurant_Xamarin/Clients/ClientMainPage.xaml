@@ -49,6 +49,7 @@
                 Style="{StaticResource RegularButtonStyle}" 
                 Padding="10" 
                 Margin="100"
+                    Clicked="Button_Clicked"
                 ></Button>
             </StackLayout>
         </StackLayout>

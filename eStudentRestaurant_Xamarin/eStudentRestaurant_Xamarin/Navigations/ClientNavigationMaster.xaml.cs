@@ -36,7 +36,7 @@ namespace eStudentRestaurant_Xamarin.Navigations
                 {
                     new ClientNavigationMenuItem {Title = "Home" , Icon = "home-5-16.png", TargetType = typeof(Clients.ClientMainPage)},
                     new ClientNavigationMenuItem {Title = "Reservations" , Icon = "list.png", TargetType = typeof(Clients.ReservationsListPage)},
-                    new ClientNavigationMenuItem {Title = "Make reservation" , Icon = "plus-16.png", TargetType = typeof(MainPage)},
+                    new ClientNavigationMenuItem {Title = "Make reservation" , Icon = "plus-16.png", TargetType = typeof(Clients.ReservationAddPage)},
                     new ClientNavigationMenuItem {Title = "Profile" , Icon = "guest-16.png", TargetType = typeof(Clients.ClientProfilePage)},
                     new ClientNavigationMenuItem {Title = "Logut" , Icon = "logout-16.png", TargetType = typeof(LogoutActivity)},
                 });

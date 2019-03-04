@@ -10,10 +10,12 @@ namespace eStudentRestaurant_PCL.Model
     {
         public int ReservationID { get; set; }
         public int ClinetID { get; set; }
-        public string Name_ { get; set; }
+        public Nullable<int> ReservationTypeID { get; set; }
         public System.DateTime ReservationDateTime { get; set; }
         public int PlacesNamber { get; set; }
         public string Note { get; set; }
-        public bool Approved { get; set; }
+        public Nullable<decimal> Price { get; set; }
+        public Nullable<decimal> Discount { get; set; }
+        public Nullable<int> ReservationStatusID { get; set; }
     }
 }

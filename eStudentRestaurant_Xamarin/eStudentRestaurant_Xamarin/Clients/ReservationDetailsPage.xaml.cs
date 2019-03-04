@@ -34,11 +34,12 @@ namespace eStudentRestaurant_Xamarin.Clients
                 var jsonObject = response.Content.ReadAsStringAsync();
                 reservation = JsonConvert.DeserializeObject<Reservation_Result>(jsonObject.Result);
 
-                ReservationNameLabel.Text = reservation.ReservationType.Name_;
+                ReservationNameLabel.Text = reservation.Name_;
                 ReservationNoteLabel.Text = "Description: " + reservation.Note;
                 PlacesNumberLabel.Text = "Number of places: " + reservation.PlacesNamber.ToString();
                 DateLabel.Text = "Date: " + reservation.ReservationDateTime.ToString("MM/dd/yyyy");
-                AprovedLabel.Text = reservation.Approved ? "Status: Approved" : "Status: Declined";
+
+                AprovedLabel.Text = reservation.Status;
 
             }
             else

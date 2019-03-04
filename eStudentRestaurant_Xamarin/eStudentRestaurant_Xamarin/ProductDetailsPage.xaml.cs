@@ -88,10 +88,15 @@ namespace eStudentRestaurant_Xamarin
 
 
                 DisplayAlert("Success!", "Product added to your basket!", "Done");
-                this.Navigation.PushAsync(new Orders.ActiveOrder());
 
-               
-            }
+              
+            Page page = this.Navigation.NavigationStack.FirstOrDefault();
+
+            this.Navigation.PushAsync(new Orders.ActiveOrder());
+
+            this.Navigation.RemovePage(page);
+
+        }
           
         }
     }

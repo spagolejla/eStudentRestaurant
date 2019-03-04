@@ -53,43 +53,55 @@ Margin="10"
             </Grid.ColumnDefinitions>
           </Grid>
           <StackLayout Orientation="Horizontal">
-            <Label Text="First name:" FontSize="18"  Grid.Row="0" VerticalTextAlignment="Center"  FontAttributes="Bold"/>
+                        <Label Text="First name:" FontSize="18"  Grid.Row="0" VerticalTextAlignment="Center"  FontAttributes="Bold" WidthRequest="150"/>
             <Label x:Name="FirstNameLabel" FontSize="18" Grid.Row="0"  Grid.Column="1"></Label>
           </StackLayout>
 
           <StackLayout Orientation="Horizontal">
-            <Label Text="Last name:   "  FontSize="18" Grid.Row="1"  VerticalTextAlignment="Center" FontAttributes="Bold" />
+            <Label Text="Last name:   "  FontSize="18" Grid.Row="1"  VerticalTextAlignment="Center" FontAttributes="Bold" WidthRequest="150" />
             <Label x:Name="LastNameLabel" FontSize="18" Grid.Row="1" Grid.Column="1" ></Label>
           </StackLayout>
           <StackLayout Orientation="Horizontal">
-            <Label Text="Jmbg:   " FontSize="18" Grid.Row="2"  VerticalTextAlignment="Center" FontAttributes="Bold" />
+                        <Label Text="Jmbg:   " FontSize="18" Grid.Row="2"  VerticalTextAlignment="Center" FontAttributes="Bold" WidthRequest="150"/>
             <Label x:Name="JmbgLabel" FontSize="18" Grid.Row="2" Grid.Column="1"></Label>
           </StackLayout>
           <StackLayout Orientation="Horizontal">
-            <Label Text="Birthday:   " FontSize="18" Grid.Row="3"  VerticalTextAlignment="Center" FontAttributes="Bold"/>
+            <Label Text="Birthday:   " FontSize="18" Grid.Row="3"  VerticalTextAlignment="Center" FontAttributes="Bold" WidthRequest="150"/>
             <Label x:Name="BirthdayLabel" FontSize="18" Grid.Row="3" Grid.Column="1"></Label>
           </StackLayout>
           <StackLayout Orientation="Horizontal">
-            <Label Text="Address:   " FontSize="18" Grid.Row="4"  VerticalTextAlignment="Center" FontAttributes="Bold"/>
+                        <Label Text="Address:   " FontSize="18" Grid.Row="4"  VerticalTextAlignment="Center" FontAttributes="Bold" WidthRequest="150"/>
             <Label x:Name="AddrressLabel" FontSize="18" Grid.Row="4" Grid.Column="1"></Label>
           </StackLayout>
           <StackLayout Orientation="Horizontal">
-            <Label Text="Phone:   " FontSize="18" Grid.Row="5"  VerticalTextAlignment="Center" FontAttributes="Bold" />
+            <Label Text="Phone:   " FontSize="18" Grid.Row="5"  VerticalTextAlignment="Center" FontAttributes="Bold" WidthRequest="150" />
             <Label x:Name="PhoneLabel" FontSize="18" Grid.Row="5" Grid.Column="1"></Label>
           </StackLayout>
           <StackLayout Orientation="Horizontal">
-            <Label Text="City:   " FontSize="18" Grid.Row="6"  VerticalTextAlignment="Center" FontAttributes="Bold" />
+                        <Label Text="City:   " FontSize="18" Grid.Row="6"  VerticalTextAlignment="Center" FontAttributes="Bold" WidthRequest="150" />
             <Label x:Name="CityNameLabel" FontSize="18" Grid.Row="6" Grid.Column="1"></Label>
           </StackLayout>
           <StackLayout Orientation="Horizontal">
-            <Label Text="Username:   " FontSize="18" Grid.Row="7"  VerticalTextAlignment="Center" FontAttributes="Bold"/>
+            <Label Text="Username:   " FontSize="18" Grid.Row="7"  VerticalTextAlignment="Center" FontAttributes="Bold" WidthRequest="150"/>
             <Label x:Name="UsernameLabel" FontSize="18" Grid.Row="7" Grid.Column="1"></Label>
           </StackLayout>
           <StackLayout Orientation="Horizontal">
-            <Label Text="Password:   " FontSize="18" Grid.Row="8"  VerticalTextAlignment="Center" FontAttributes="Bold" />
+            <Label Text="Password:   " FontSize="18" Grid.Row="8"  VerticalTextAlignment="Center" FontAttributes="Bold" WidthRequest="150"/>
             <Label x:Name="PasswordLabel" FontSize="18" Grid.Row="8"  Grid.Column="1" Text="********" ></Label>
           </StackLayout>
-        </StackLayout>
+                    <Button  HorizontalOptions="Center" 
+                 x:Name="EditProfileButton"
+                Text="Edit profile" 
+                Style="{StaticResource RegularButtonStyle}" 
+                Padding="10" 
+                Grid.Row="9"
+                Grid.ColumnSpan="2"
+                WidthRequest="150"
+                Margin="20"
+                Clicked="EditProfileButton_Clicked">
+
+                    </Button>
+                </StackLayout>
 
       </ScrollView>
     </StackLayout>

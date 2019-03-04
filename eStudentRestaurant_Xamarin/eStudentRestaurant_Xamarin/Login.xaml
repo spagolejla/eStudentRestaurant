@@ -45,8 +45,7 @@
                 </StackLayout>
 
                 <StackLayout Orientation="Horizontal" HorizontalOptions="End">
-                    <Button x:Name="StudentRegistrationButton" Text="Student registration" Clicked="StudentRegistrationButton_Clicked" BackgroundColor="#081b33" TextColor="White" ></Button>
-                    <Button x:Name="ClientRegistrationButton" Text="Client registration" Clicked="ClientRegistrationButton_Clicked" BackgroundColor="#081b33" TextColor="White"></Button>
+                    <Button x:Name="RegistrationButton" Text="Registration" Clicked="RegistrationButton_Clicked" BackgroundColor="#081b33" TextColor="White" ></Button>
 
                     <Button x:Name="SignInButton" Text="Sign in" BackgroundColor="#4682b4" TextColor="White" Clicked="SignInButton_Clicked"></Button>
                 </StackLayout>

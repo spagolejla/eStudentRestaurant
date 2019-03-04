@@ -32,5 +32,10 @@ namespace eStudentRestaurant_Xamarin
 
             base.OnAppearing();
         }
+
+        private void EditProfileButton_Clicked(object sender, EventArgs e)
+        {
+            this.Navigation.PushAsync(new StudentEditPage());
+        }
     }
 }

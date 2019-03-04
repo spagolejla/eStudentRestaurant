@@ -12,28 +12,18 @@ namespace eStudentRestaurant_API.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Client
+    public partial class ReservationStatus
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Client()
+        public ReservationStatus()
         {
-            this.Reservation1 = new HashSet<Reservation>();
+            this.Reservation = new HashSet<Reservation>();
         }
     
-        public int ClientID { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string Phone { get; set; }
-        public Nullable<int> CityID { get; set; }
-        public bool Active { get; set; }
-        public string Username { get; set; }
-        public string PaswordHash { get; set; }
-        public string PasswordSalt { get; set; }
-        public string OrganizationName { get; set; }
-        public Nullable<int> Points { get; set; }
+        public int ReservationStatusID { get; set; }
+        public string Status { get; set; }
     
-        public virtual City City { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Reservation> Reservation1 { get; set; }
+        public virtual ICollection<Reservation> Reservation { get; set; }
     }
 }

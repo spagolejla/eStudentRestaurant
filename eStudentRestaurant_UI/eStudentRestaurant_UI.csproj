@@ -89,12 +89,6 @@
     <Compile Include="Employees\MyProfileForm.Designer.cs">
       <DependentUpon>MyProfileForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Employees\PasswordChangeForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Employees\PasswordChangeForm.Designer.cs">
-      <DependentUpon>PasswordChangeForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -238,9 +232,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Employees\MyProfileForm.resx">
       <DependentUpon>MyProfileForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Employees\PasswordChangeForm.resx">
-      <DependentUpon>PasswordChangeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Home\HomeForm.resx">
       <DependentUpon>HomeForm.cs</DependentUpon>

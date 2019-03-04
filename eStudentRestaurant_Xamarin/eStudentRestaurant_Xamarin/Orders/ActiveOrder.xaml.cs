@@ -79,8 +79,11 @@ namespace eStudentRestaurant_Xamarin.Orders
         {
             Global.ActiveOrder = null;
             DisplayAlert("Info", "Order has been canceled!", "OK");
-            this.Navigation.PushAsync(new StudentMainPage());
+            Page page = this.Navigation.NavigationStack.FirstOrDefault();
 
+            this.Navigation.PushAsync(new Orders.OrdersListPage());
+
+            this.Navigation.RemovePage(page);
         }
 
         private void AddOrderButton_Clicked(object sender, EventArgs e)

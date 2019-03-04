@@ -17,13 +17,13 @@ namespace eStudentRestaurant_API.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public ReservationType()
         {
-            this.Reservation = new HashSet<Reservation>();
+            this.Reservation1 = new HashSet<Reservation>();
         }
     
         public int ReservationTypeID { get; set; }
         public string Name_ { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Reservation> Reservation { get; set; }
+        public virtual ICollection<Reservation> Reservation1 { get; set; }
     }
 }

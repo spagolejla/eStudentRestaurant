@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="eStudentRestaurant_Xamarin.RegistrationPage">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout VerticalOptions="CenterAndExpand"
+                     Margin="10" >
+                <Label x:Name="PageTitleLabel" Text="Student Registration" Style="{StaticResource TitleLabelStyle}"></Label>
+
+                <StackLayout Orientation="Horizontal" HorizontalOptions="End" Margin="20">
+                    <Button x:Name="StudentRegBtn" Text="Student" BackgroundColor="#4682b4"  TextColor="White" Grid.Row="10" Grid.Column="1" Clicked="StudentRegBtn_Clicked" WidthRequest="200" IsEnabled="False"></Button>
+                    <Button x:Name="ClientRegBtn" Text="Client" BackgroundColor="#4682b4"  TextColor="White" Grid.Row="10" Grid.Column="1" Clicked="ClientRegBtn_Clicked" WidthRequest="200"  IsEnabled="True"></Button>
+
+                </StackLayout>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition  Width="Auto"></ColumnDefinition>
+                        <ColumnDefinition  Width="*"></ColumnDefinition>
+
+                    </Grid.ColumnDefinitions>
+
+                  
+
+                    <Label Text="First name:" FontSize="18" Grid.Row="1" VerticalTextAlignment="Center" />
+                    <Entry x:Name="firstNameInput" Grid.Row="1"  Grid.Column="1"></Entry>
+
+                    <Label Text="Last name::"  FontSize="18" Grid.Row="2"  VerticalTextAlignment="Center" />
+                    <Entry x:Name="lastNameInput" Grid.Row="2" Grid.Column="1" ></Entry>
+
+                    <Label Text="Phone:" FontSize="18" Grid.Row="6"  VerticalTextAlignment="Center"/>
+                    <Entry x:Name="phoneInput" Grid.Row="6" Grid.Column="1"></Entry>
+
+                    <Label Text="City:" FontSize="18" Grid.Row="7"  VerticalTextAlignment="Center" />
+                    <Picker x:Name="CityPicker" Grid.Row="7" Grid.Column="1"></Picker>
+
+                    <Label Text="Username:" FontSize="18" Grid.Row="8"  VerticalTextAlignment="Center" />
+                    <Entry x:Name="usernameInput" Grid.Row="8" Grid.Column="1"></Entry>
+
+                    <Label Text="Password:" FontSize="18" Grid.Row="9"  VerticalTextAlignment="Center"/>
+                    <Entry x:Name="passwordInput"  Grid.Row="9"  Grid.Column="1" IsPassword ="True" ></Entry>
+
+                  
+
+
+                </Grid>
+                <StackLayout x:Name="StudentView"  IsVisible="True" >
+                    <Label Text="Jmbg:" FontSize="18"   VerticalTextAlignment="Center" />
+                    <Entry x:Name="jmbgInput" ></Entry>
+
+                    <Label Text="Birthday:" FontSize="18"  VerticalTextAlignment="Center" />
+                    <DatePicker x:Name="BirthdayPicker" ></DatePicker>
+
+                    <Label Text="Address:" FontSize="18"   VerticalTextAlignment="Center" />
+                    <Entry x:Name="addressInput" ></Entry>
+                </StackLayout>
+                <StackLayout x:Name="ClientView"  IsVisible="False" >
+                    <Label Text="Orgnization name:" FontSize="18"   VerticalTextAlignment="Center" />
+                    <Entry x:Name="organizationNameInput" ></Entry>
+
+                    
+                </StackLayout>
+                <Button x:Name="Register" Text="Register" BackgroundColor="#4682b4"  TextColor="White" Grid.Row="10" Grid.Column="1" Clicked="Register_Clicked" WidthRequest="200" ></Button>
+
+            </StackLayout>
+            
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

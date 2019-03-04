@@ -30,7 +30,7 @@ namespace eStudentRestaurant_Xamarin.Clients
             if (response.IsSuccessStatusCode)
             {
                 var jsonObject = response.Content.ReadAsStringAsync();
-                List<Reservation> reservations = JsonConvert.DeserializeObject<List<Reservation>>(jsonObject.Result);
+                List<Reservation_Result> reservations = JsonConvert.DeserializeObject<List<Reservation_Result>>(jsonObject.Result);
 
                 ReservationsList.ItemsSource = reservations;
 
@@ -48,7 +48,7 @@ namespace eStudentRestaurant_Xamarin.Clients
         {
             if (e.Item != null)
             {
-                this.Navigation.PushAsync(new Clients.ReservationDetailsPage((e.Item as Reservation).ReservationID));
+                this.Navigation.PushAsync(new Clients.ReservationDetailsPage((e.Item as Reservation_Result).ReservationID));
             }
         }
     }

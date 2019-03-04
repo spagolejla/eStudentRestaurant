@@ -38,10 +38,11 @@ namespace eStudentRestaurant_API.Models
         public virtual DbSet<OrderStatus> OrderStatus { get; set; }
         public virtual DbSet<Product> Product { get; set; }
         public virtual DbSet<Rating> Rating { get; set; }
-        public virtual DbSet<Reservation> Reservation { get; set; }
         public virtual DbSet<ReservationType> ReservationType { get; set; }
         public virtual DbSet<State> State { get; set; }
         public virtual DbSet<Student> Student { get; set; }
+        public virtual DbSet<Reservation> ReservationSet { get; set; }
+        public virtual DbSet<ReservationStatus> ReservationStatus { get; set; }
     
         public virtual ObjectResult<Employe_Result> esp_EmployeSelectALL()
         {

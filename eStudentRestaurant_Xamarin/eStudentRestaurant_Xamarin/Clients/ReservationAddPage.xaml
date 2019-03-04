@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="eStudentRestaurant_Xamarin.Clients.ReservationAddPage">
+    <ContentPage.Content>
+        <StackLayout Padding="50">
+            <DatePicker x:Name="ResrvationDatePicker" />
+            <Picker x:Name="ReservationTypesPicker" Title="Reservation type" SelectedIndexChanged="ReservationTypesPicker_SelectedIndexChanged" />
+          <Entry x:Name="NumberOfGuests" Placeholder="Number of guests" TextChanged="NumberOfGuests_TextChanged" />
+            <Entry  x:Name="Note" Placeholder="Note"  />
+            <StackLayout Orientation="Horizontal">
+                <Button   
+                 x:Name="AddReservationButton"
+                Text="Add" 
+                Style="{StaticResource RegularButtonStyle}" 
+                Padding="10" 
+                 IsEnabled="False"
+                Clicked="AddReservationButton_Clicked"
+                    WidthRequest="150"
+                ></Button>
+                <Button   
+                 x:Name="CancelButton"
+                Text="Cancel" 
+                Style="{StaticResource RegularButtonStyle}" 
+                BackgroundColor="Red"
+                Padding="10" 
+                Clicked="CancelButton_Clicked"
+                    WidthRequest="150"
+                ></Button>
+                <Button   
+                 x:Name="CheckPriceButton"
+                Text="Check price" 
+                Style="{StaticResource RegularButtonStyle}" 
+                Padding="10" 
+              WidthRequest="150"
+                BackgroundColor="Green"
+                    Clicked="CheckPriceButton_Clicked"
+                ></Button>
+
+            </StackLayout>
+
+            <StackLayout x:Name="PriceView" Orientation="Horizontal" IsVisible="False">
+
+                <Label x:Name="PriceLabel" Text="0"></Label>
+                <Button   
+                 x:Name="UseDiscountButton"
+                Text="Use discount" 
+                Style="{StaticResource RegularButtonStyle}" 
+                Padding="10" 
+                Margin="100"
+                BackgroundColor="Gray"
+                IsEnabled="False"
+                Clicked="UseDiscountButton_Clicked"
+                    WidthRequest="150"
+                ></Button>
+            </StackLayout>
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

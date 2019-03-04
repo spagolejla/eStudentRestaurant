@@ -55,10 +55,11 @@ namespace eStudentRestaurant_PCL.Util
         //    return Client.PostAsJsonAsync(Route + "/" + action, newObject).Result;
         //}
 
-        //public HttpResponseMessage PutResponse(int id, Object existingObject)
-        //{
-        //    return Client.PutAsJsonAsync(Route + "/" + id, existingObject).Result;
-        //}
+        public HttpResponseMessage PutResponse(int id, Object existingObject)
+        {
+            var jsonResult = new StringContent(JsonConvert.SerializeObject(existingObject), Encoding.UTF8, "application/json");
+            return Client.PutAsync(Route + "/" + id, jsonResult).Result;
+        }
 
         public HttpResponseMessage DeleteResponse(int id)
         {

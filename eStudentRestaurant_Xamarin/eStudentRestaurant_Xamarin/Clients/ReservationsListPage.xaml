@@ -19,19 +19,26 @@
                                 <StackLayout Grid.Column="1" Padding="5" Orientation="Horizontal">
                                     <Label Text="{Binding Name_}" FontAttributes="Bold" Margin="30" WidthRequest="200"></Label>
                                     <Label Text="{Binding ReservationDateTime, StringFormat='\{0:MM/dd/yy}'}"  Margin="30"></Label>
-                                    <Label  Margin="30">
-                                        <Label.Triggers>
-                                            <DataTrigger TargetType="Label" Binding="{Binding Approved}" Value="false">
+                                    <Label  Margin="30" Text="">
+                                        <Label.Triggers >
+                                            <DataTrigger TargetType="Label" Binding="{Binding Status}" Value="Declined">
                                                 <Setter Property="Text" Value="Declined" />
                                                 <Setter Property="TextColor" Value="Red" />
                                             </DataTrigger>
-                                            <DataTrigger TargetType="Label" Binding="{Binding Approved}" Value="true">
+                                            <DataTrigger TargetType="Label" Binding="{Binding Status}" Value="On wait">
+                                                <Setter Property="Text" Value="On wait" />
+
+                                                <Setter Property="TextColor" Value="Blue" />
+                                            </DataTrigger>
+
+                                            <DataTrigger TargetType="Label" Binding="{Binding Status}" Value="Approved">
                                                 <Setter Property="Text" Value="Approved" />
+
                                                 <Setter Property="TextColor" Value="Green" />
                                             </DataTrigger>
                                         </Label.Triggers>
                                     </Label>
-                                   
+
 
                                 </StackLayout>
                             </Grid>

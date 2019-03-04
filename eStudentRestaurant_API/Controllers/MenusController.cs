@@ -19,7 +19,7 @@ namespace eStudentRestaurant_API.Controllers
         // GET: api/Menus
         public List<Menu> GetMenu()
         {
-            return db.Menu.ToList();
+            return db.Menu.Where(x=>x.Active == true).ToList();
         }
 
         // GET: api/Menus/5

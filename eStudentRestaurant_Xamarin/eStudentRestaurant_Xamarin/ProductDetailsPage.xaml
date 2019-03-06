@@ -12,6 +12,8 @@
                     <RowDefinition Height="50"></RowDefinition>
                     <RowDefinition Height="50"></RowDefinition>
                     <RowDefinition Height="50"></RowDefinition>
+                    <RowDefinition Height="50"></RowDefinition>
+
 
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
@@ -36,7 +38,7 @@
                 <Label x:Name="PriceLabel" 
                FontAttributes="Bold" 
                Grid.Row="2"></Label>
-                <Label x:Name="InStockLabel" 
+                <Label x:Name="YourRatingLabel" 
                Grid.Row="2" 
                Grid.Column="1" HorizontalOptions="End"></Label>
                 <Label x:Name="RatingLabel" 
@@ -57,8 +59,20 @@
                 Grid.Row="5" 
                 Grid.ColumnSpan="2" ></Button>
 
+                <StackLayout  x:Name="RatingLayout" Grid.Row="6"   Grid.ColumnSpan="2" Orientation="Horizontal" VerticalOptions="Center" IsVisible="False">
+                    <Label x:Name="Rate"  Text="Rate: "
+                Style="{StaticResource SmallLabelStyle}" 
+                ></Label>
+                    <Entry x:Name="RateInput" Text="1" HorizontalOptions="Start" VerticalOptions="Center" />
+                    <Button x:Name="RateButton" 
+               Clicked="RateButton_Clicked" 
+                Text="Rate" 
+                Style="{StaticResource RegularButtonStyle}" 
+                 
+                ></Button>
+                </StackLayout>
             </Grid>
-
+        
         </StackLayout>
 
     </ContentPage.Content>

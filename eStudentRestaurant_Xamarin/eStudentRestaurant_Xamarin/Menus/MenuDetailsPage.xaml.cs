@@ -44,45 +44,82 @@ namespace eStudentRestaurant_Xamarin.Menus
 
         private void AddToBasketButton_Clicked(object sender, EventArgs e)
         {
-            if (Global.ActiveOrder == null)
+
+            #region Validating
+            bool isValidate = false;
+            if (QuantityInput.Text == null)
             {
-                Global.ActiveOrder = new Order();
-                Global.ActiveOrder.OrderDate = DateTime.Now;
-                Global.ActiveOrder.OrderStatusID = 1;
-                Global.ActiveOrder.StudentID = Global.loggedStudent.StudentID;
-                Global.ActiveOrder.EmployeeID = 1;
+                DisplayAlert("Error!", "Quantity is required!", "OK");
 
             }
-            bool exists = false;
-            foreach (var item in Global.ActiveOrder.OrderMenu)
+            else if (!QuantityInput.Text.Any(char.IsDigit))
             {
-                if (item.MenuID == menu.MenuID)
+                DisplayAlert("Error!", "Quantity input - Only digit are allowed!", "OK");
+
+
+            }
+            else if (QuantityInput.Text.Length > 2)
+            {
+                DisplayAlert("Error!", "Max length is 2!", "OK");
+
+
+            }
+            else if (Convert.ToInt32(QuantityInput.Text) <= 0 || Convert.ToInt32(QuantityInput.Text) > 10)
+            {
+                DisplayAlert("Error!", "Min quantity is 1 and max is 10", "OK");
+
+            }
+            else
+            {
+
+                isValidate = true;
+
+            }
+            #endregion
+
+            if (isValidate)
+            {
+                if (Global.ActiveOrder == null)
                 {
-                    item.Quantity += Convert.ToInt32(QuantityInput.Text);
-                    Global.ActiveOrder.TotalPrice += menu.Price * Convert.ToInt32(QuantityInput.Text);
-                    exists = true;
-                    break;
+                    Global.ActiveOrder = new Order();
+                    Global.ActiveOrder.OrderDate = DateTime.Now;
+                    Global.ActiveOrder.OrderStatusID = 1;
+                    Global.ActiveOrder.StudentID = Global.loggedStudent.StudentID;
+                    Global.ActiveOrder.EmployeeID = 1;
+
                 }
+                bool exists = false;
+                foreach (var item in Global.ActiveOrder.OrderMenu)
+                {
+                    if (item.MenuID == menu.MenuID)
+                    {
+                        item.Quantity += Convert.ToInt32(QuantityInput.Text);
+                        Global.ActiveOrder.TotalPrice += menu.Price * Convert.ToInt32(QuantityInput.Text);
+                        exists = true;
+                        break;
+                    }
+                }
+
+                if (!exists)
+                {
+                    OrderMenu item = new OrderMenu();
+                    item.MenuID = menu.MenuID;
+                    item.Quantity = Convert.ToInt32(QuantityInput.Text);
+                    item.Menu = menu;
+
+                    Global.ActiveOrder.TotalPrice += menu.Price * Convert.ToInt32(QuantityInput.Text);
+
+                    Global.ActiveOrder.OrderMenu.Add(item);
+
+                }
+
+
+                DisplayAlert("Success!", "Menu added to your basket!", "Done");
+                this.Navigation.PushAsync(new Orders.ActiveOrder());
+
+
             }
 
-            if (!exists)
-            {
-                OrderMenu item = new OrderMenu();
-                item.MenuID = menu.MenuID;
-                item.Quantity = Convert.ToInt32(QuantityInput.Text);
-                item.Menu = menu;
-               
-                Global.ActiveOrder.TotalPrice += menu.Price * Convert.ToInt32(QuantityInput.Text);
-
-                Global.ActiveOrder.OrderMenu.Add(item);
-
-            }
-
-
-            DisplayAlert("Success!", "Menu added to your basket!", "Done");
-            this.Navigation.PushAsync(new Orders.ActiveOrder());
-
-            
         }
     }
     }

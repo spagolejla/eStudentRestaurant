@@ -34,11 +34,11 @@ namespace eStudentRestaurant_Xamarin.Navigations
             {
                 MenuItems = new ObservableCollection<ClientNavigationMenuItem>(new[]
                 {
-                    new ClientNavigationMenuItem {Title = "Home" , Icon = "home-5-16.png", TargetType = typeof(Clients.ClientMainPage)},
+                    new ClientNavigationMenuItem {Title = "Home" , Icon = "home516.png", TargetType = typeof(Clients.ClientMainPage)},
                     new ClientNavigationMenuItem {Title = "Reservations" , Icon = "list.png", TargetType = typeof(Clients.ReservationsListPage)},
-                    new ClientNavigationMenuItem {Title = "Make reservation" , Icon = "plus-16.png", TargetType = typeof(Clients.ReservationAddPage)},
-                    new ClientNavigationMenuItem {Title = "Profile" , Icon = "guest-16.png", TargetType = typeof(Clients.ClientProfilePage)},
-                    new ClientNavigationMenuItem {Title = "Logut" , Icon = "logout-16.png", TargetType = typeof(LogoutActivity)},
+                    new ClientNavigationMenuItem {Title = "Make reservation" , Icon = "plus16.png", TargetType = typeof(Clients.ReservationAddPage)},
+                    new ClientNavigationMenuItem {Title = "Profile" , Icon = "guest16.png", TargetType = typeof(Clients.ClientProfilePage)},
+                    new ClientNavigationMenuItem {Title = "Logut" , Icon = "logout16.png", TargetType = typeof(LogoutActivity)},
                 });
             }
 

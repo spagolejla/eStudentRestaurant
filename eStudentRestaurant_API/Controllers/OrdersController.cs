@@ -68,6 +68,13 @@ namespace eStudentRestaurant_API.Controllers
             }
         }
 
+        [ResponseType(typeof(List<TotalSalaryByOrders_Result>))]
+        [Route("api/Orders/GetTotalSalaryByOrders")]
+        public List<TotalSalaryByOrders_Result> GetTotalSalaryByOrders()
+        {
+            return db.esp_TotalSalaryByOrders().ToList();
+        }
+
         [ResponseType(typeof(OrderDetails_Result))]
         [Route("api/Orders/GetOrderDetailsByOrderID/{id?}")]
         public List<OrderDetails_Result> GetOrderDetailsByOrderID(int id)

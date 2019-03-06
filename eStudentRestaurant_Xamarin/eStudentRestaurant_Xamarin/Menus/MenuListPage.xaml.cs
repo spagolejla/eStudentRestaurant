@@ -25,7 +25,7 @@ namespace eStudentRestaurant_Xamarin.Menus
 
         protected override void OnAppearing()
         {
-            HttpResponseMessage response = menusService.GetResponse();
+            HttpResponseMessage response = menusService.GetActionResponse("GetAvaibleMenu");
 
             if (response.IsSuccessStatusCode)
             {

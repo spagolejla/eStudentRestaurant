@@ -22,6 +22,7 @@ namespace eStudentRestaurant_Xamarin
             Global.loggedStudent = null;
             Global.loggedClient = null;
 
+            this.Navigation.PopModalAsync();
             this.Navigation.PushModalAsync(new Login());
             base.OnAppearing();
         }

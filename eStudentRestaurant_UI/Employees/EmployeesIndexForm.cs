@@ -91,10 +91,6 @@ namespace eStudentRestaurant_UI.Employees
             BindGrid();
         }
 
-        private void PassChangeButton_Click(object sender, EventArgs e)
-        {
-            PasswordChangeForm frm = new PasswordChangeForm();
-            frm.ShowDialog();
-        }
+       
     }
 }

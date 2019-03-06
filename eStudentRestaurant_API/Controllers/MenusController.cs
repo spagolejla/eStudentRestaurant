@@ -19,9 +19,15 @@ namespace eStudentRestaurant_API.Controllers
         // GET: api/Menus
         public List<Menu> GetMenu()
         {
-            return db.Menu.Where(x=>x.Active == true).ToList();
+            return db.Menu.ToList();
         }
-
+        [HttpGet]
+        [ResponseType(typeof(List<Menu>))]
+        [Route("api/Menus/GetAvaibleMenu")]
+        public List<Menu> GetAvaibleMenu()
+        {
+            return db.Menu.Where(x => x.Active == true).ToList();
+        }
         // GET: api/Menus/5
         [ResponseType(typeof(Menu))]
         public IHttpActionResult GetMenu(int id)

@@ -26,7 +26,7 @@ namespace eStudentRestaurant_Xamarin
 
         protected override void OnAppearing()
         {
-            HttpResponseMessage response = productsService.GetResponse();
+            HttpResponseMessage response = productsService.GetActionResponse("GetAvaibleProduct");
 
             if (response.IsSuccessStatusCode)
             {

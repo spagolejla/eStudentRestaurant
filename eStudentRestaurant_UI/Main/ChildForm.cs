@@ -16,25 +16,13 @@ namespace eStudentRestaurant_UI.Main
         public ChildForm()
         {
             InitializeComponent();
-
-           
         }
-
-       
-
+        
         private void LogutButton_Click(object sender, EventArgs e)
         {
             Application.Restart();
 
         }
-
-        private void ChildForm_Load(object sender, EventArgs e)
-        {
-            if (Global.LoggedUser != null)
-            {
-              //  LoggeUserLabel.Text = Global.LoggedUser.FirstName + " " + Global.LoggedUser.LastName;
-
-            }
-        }
+       
     }
 }

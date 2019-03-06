@@ -368,5 +368,19 @@ namespace eStudentRestaurant_API.Models
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("esp_ClientUpdate", clientIDParameter, firstNameParameter, lastNameParameter, phoneParameter, cityIDParameter, activeParameter, usernameParameter, passwordHashParameter, passwordSaltParameter, organizationNameParameter);
         }
+    
+        public virtual ObjectResult<TotalSalaryByOrders_Result> esp_TotalSalaryByOrders()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<TotalSalaryByOrders_Result>("esp_TotalSalaryByOrders");
+        }
+    
+        public virtual ObjectResult<Reservation_Result> esp_GetClientsApprovedReservations(Nullable<int> clientID)
+        {
+            var clientIDParameter = clientID.HasValue ?
+                new ObjectParameter("ClientID", clientID) :
+                new ObjectParameter("ClientID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Reservation_Result>("esp_GetClientsApprovedReservations", clientIDParameter);
+        }
     }
 }

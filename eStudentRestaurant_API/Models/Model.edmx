@@ -442,6 +442,9 @@
         <Function Name="esp_EmployeSelectByUsername" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Username" Type="nvarchar" Mode="In" />
         </Function>
+        <Function Name="esp_GetClientsApprovedReservations" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ClientID" Type="int" Mode="In" />
+        </Function>
         <Function Name="esp_OrderDetailsSelectByOrderID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="OrderID" Type="int" Mode="In" />
         </Function>
@@ -476,6 +479,7 @@
           <Parameter Name="PasswordHash" Type="nvarchar" Mode="In" />
           <Parameter Name="PasswordSalt" Type="nvarchar" Mode="In" />
         </Function>
+        <Function Name="esp_TotalSalaryByOrders" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="eStudentRestaurantModelStoreContainer">
           <EntitySet Name="City" EntityType="Self.City" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
@@ -1093,6 +1097,10 @@
             <End Role="ReservationStatus" EntitySet="ReservationStatus" />
             <End Role="Reservation" EntitySet="ReservationSet" />
           </AssociationSet>
+          <FunctionImport Name="esp_TotalSalaryByOrders" ReturnType="Collection(eStudentRestaurantModel.TotalSalaryByOrders_Result)" />
+          <FunctionImport Name="esp_GetClientsApprovedReservations" ReturnType="Collection(eStudentRestaurantModel.Reservation_Result)">
+            <Parameter Name="ClientID" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="Employe_Result">
           <Property Type="Int32" Name="EmployeeID" Nullable="false" />
@@ -1217,6 +1225,22 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <ComplexType Name="TotalSalaryByOrders_Result">
+          <Property Type="Int32" Name="Year" Nullable="true" />
+          <Property Type="Int32" Name="Month" Nullable="true" />
+          <Property Type="Decimal" Name="TotalSalary" Nullable="true" Precision="38" Scale="0" />
+        </ComplexType>
+        <ComplexType Name="esp_GetClientsApprovedReservations_Result">
+          <Property Type="Int32" Name="ReservationID" Nullable="false" />
+          <Property Type="Int32" Name="ClinetID" Nullable="false" />
+          <Property Type="String" Name="Name_" Nullable="false" MaxLength="50" />
+          <Property Type="DateTime" Name="ReservationDateTime" Nullable="false" Precision="23" />
+          <Property Type="Int32" Name="PlacesNamber" Nullable="false" />
+          <Property Type="String" Name="Note" Nullable="true" />
+          <Property Type="String" Name="Status" Nullable="false" MaxLength="50" />
+          <Property Type="Decimal" Name="Price" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="Discount" Nullable="true" Precision="18" Scale="0" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1508,6 +1532,30 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="esp_TotalSalaryByOrders" FunctionName="eStudentRestaurantModel.Store.esp_TotalSalaryByOrders">
+          <ResultMapping>
+              <ComplexTypeMapping TypeName="eStudentRestaurantModel.TotalSalaryByOrders_Result">
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="Month" ColumnName="Month" />
+                <ScalarProperty Name="TotalSalary" ColumnName="TotalSalary" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="esp_GetClientsApprovedReservations" FunctionName="eStudentRestaurantModel.Store.esp_GetClientsApprovedReservations">
+          <ResultMapping>
+              <ComplexTypeMapping TypeName="eStudentRestaurantModel.Reservation_Result">
+                <ScalarProperty Name="ReservationID" ColumnName="ReservationID" />
+                <ScalarProperty Name="ClinetID" ColumnName="ClinetID" />
+                <ScalarProperty Name="Name_" ColumnName="Name_" />
+                <ScalarProperty Name="ReservationDateTime" ColumnName="ReservationDateTime" />
+                <ScalarProperty Name="PlacesNamber" ColumnName="PlacesNamber" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

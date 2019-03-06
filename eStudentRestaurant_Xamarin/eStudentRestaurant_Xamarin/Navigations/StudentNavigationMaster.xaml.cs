@@ -34,12 +34,12 @@ namespace eStudentRestaurant_Xamarin.Navigations
             {
                 MenuItems = new ObservableCollection<StudentNavigationMenuItem>(new[]
                 {
-                    new StudentNavigationMenuItem {Title = "Products" , Icon = "pizza-16.png", TargetType = typeof(StudentMainPage)},
-                    new StudentNavigationMenuItem {Title = "Menus" , Icon = "menu-16.png", TargetType = typeof(Menus.MenuListPage)},
+                    new StudentNavigationMenuItem {Title = "Products" , Icon = "pizza16.png", TargetType = typeof(StudentMainPage)},
+                    new StudentNavigationMenuItem {Title = "Menus" , Icon = "menu16.png", TargetType = typeof(Menus.MenuListPage)},
                     new StudentNavigationMenuItem {Title = "Orders" , Icon = "list.png", TargetType = typeof(Orders.OrdersListPage)},
-                    new StudentNavigationMenuItem {Title = "Active order" , Icon = "border-color-16.png", TargetType = typeof(Orders.ActiveOrder)},
-                    new StudentNavigationMenuItem {Title = "My profile" , Icon = "guest-16.png", TargetType = typeof(StudentProfilePage)},
-                    new StudentNavigationMenuItem {Title = "Logut" , Icon = "logout-16.png", TargetType = typeof(LogoutActivity)},
+                    new StudentNavigationMenuItem {Title = "Active order" , Icon = "bordercolor16.png", TargetType = typeof(Orders.ActiveOrder)},
+                    new StudentNavigationMenuItem {Title = "My profile" , Icon = "guest16.png", TargetType = typeof(StudentProfilePage)},
+                    new StudentNavigationMenuItem {Title = "Logut" , Icon = "logout16.png", TargetType = typeof(LogoutActivity)},
 
                 });
             }

@@ -18,7 +18,7 @@ namespace eStudentRestaurant_UI.Orders
     public partial class OrdersIndexForm : ChildForm
     {
         private WebAPIHelper ordersService = new WebAPIHelper(ConfigurationManager.AppSettings["APIAddress"], Global.OrdersRoutes);
-        DateTime date =  DateTime.Now;
+        DateTime date = DateTime.Now;
         public OrdersIndexForm()
         {
             InitializeComponent();
@@ -91,12 +91,18 @@ namespace eStudentRestaurant_UI.Orders
 
                 if (frm.ShowDialog() == DialogResult.OK)
                 {
-                    BindGrid(Convert.ToDateTime( OrdersGridView.SelectedRows[0].Cells[1].Value));
+                    BindGrid(Convert.ToDateTime(OrdersGridView.SelectedRows[0].Cells[1].Value));
                 }
 
 
                 BindGrid(Convert.ToDateTime(OrdersGridView.SelectedRows[0].Cells[1].Value));
             }
+        }
+
+        private void TotalSalaryButton_Click(object sender, EventArgs e)
+        {
+            Reports.TotalSalaryReportForm frm = new Reports.TotalSalaryReportForm();
+            frm.Show();
         }
     }
 }

@@ -103,7 +103,7 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="account-logout-32.png" />
+    <Content Include="accountlogout32.png" />
     <Content Include="Assets\LargeTile.scale-100.png" />
     <Content Include="Assets\LargeTile.scale-200.png" />
     <Content Include="Assets\LargeTile.scale-400.png" />
@@ -132,14 +132,14 @@
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
     <Content Include="Assets\Wide310x150Logo.scale-400.png" />
     <Content Include="basket.png" />
-    <Content Include="border-color-16.png" />
-    <Content Include="guest-16.png" />
-    <Content Include="home-5-16.png" />
+    <Content Include="bordercolor16.png" />
+    <Content Include="guest16.png" />
+    <Content Include="home516.png" />
     <Content Include="list.png" />
-    <Content Include="logout-16.png" />
-    <Content Include="menu-16.png" />
-    <Content Include="pizza-16.png" />
-    <Content Include="plus-16.png" />
+    <Content Include="logout16.png" />
+    <Content Include="menu16.png" />
+    <Content Include="pizza16.png" />
+    <Content Include="plus16.png" />
     <Content Include="Properties\Default.rd.xml" />
   </ItemGroup>
   <ItemGroup>

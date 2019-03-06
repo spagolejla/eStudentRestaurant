@@ -33,6 +33,24 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.900.148\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.900.148\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.900.148\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.900.148\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.900.148\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -88,6 +106,21 @@
     </Compile>
     <Compile Include="Employees\MyProfileForm.Designer.cs">
       <DependentUpon>MyProfileForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="eStudentRestaurantDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>eStudentRestaurantDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="eStudentRestaurantDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>eStudentRestaurantDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="eStudentRestaurantDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>eStudentRestaurantDataSet2.xsd</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -193,6 +226,19 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reports\ReservationsReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\ReservationsReportForm.Designer.cs">
+      <DependentUpon>ReservationsReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\TotalSalaryReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\TotalSalaryReportForm.Designer.cs">
+      <DependentUpon>TotalSalaryReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Students\StudentAddForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -292,6 +338,14 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Reports\ReservationReport.rdlc" />
+    <EmbeddedResource Include="Reports\ReservationsReportForm.resx">
+      <DependentUpon>ReservationsReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\TotalSalary.rdlc" />
+    <EmbeddedResource Include="Reports\TotalSalaryReportForm.resx">
+      <DependentUpon>TotalSalaryReportForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Students\StudentAddForm.resx">
       <DependentUpon>StudentAddForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -301,7 +355,44 @@
     <EmbeddedResource Include="Students\StudentsIndexForm.resx">
       <DependentUpon>StudentsIndexForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="eStudentRestaurantDataSet.xsc">
+      <DependentUpon>eStudentRestaurantDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="eStudentRestaurantDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>eStudentRestaurantDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="eStudentRestaurantDataSet.xss">
+      <DependentUpon>eStudentRestaurantDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="eStudentRestaurantDataSet1.xsc">
+      <DependentUpon>eStudentRestaurantDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="eStudentRestaurantDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>eStudentRestaurantDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="eStudentRestaurantDataSet1.xss">
+      <DependentUpon>eStudentRestaurantDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="eStudentRestaurantDataSet2.xsc">
+      <DependentUpon>eStudentRestaurantDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="eStudentRestaurantDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>eStudentRestaurantDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="eStudentRestaurantDataSet2.xss">
+      <DependentUpon>eStudentRestaurantDataSet2.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\eStudentRestaurant_API.Models.Menu.datasource" />
+    <None Include="Properties\DataSources\eStudentRestaurant_API.Models.Order_.datasource" />
+    <None Include="Properties\DataSources\eStudentRestaurant_API.Models.Reservation_Result.datasource" />
+    <None Include="Properties\DataSources\eStudentRestaurant_API.Models.TotalSalaryByOrders_Result.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -359,6 +450,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\search-3-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

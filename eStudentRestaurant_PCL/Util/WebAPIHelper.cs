@@ -37,9 +37,9 @@ namespace eStudentRestaurant_PCL.Util
             return Client.GetAsync(Route + "/" + action + "/" + parameter).Result;
         }
 
-        public HttpResponseMessage GetActionResponseDateParam(string action, int d, int m, int y)
+        public HttpResponseMessage GetActionResponseTwoParam(string action, int id1, int id2)
         {
-            return Client.GetAsync(Route + "/" + action + "/" + d + "/" + m + "/" + y).Result;
+            return Client.GetAsync(Route + "/" + action + "/" + id1 + "/" + id2 ).Result;
         }
 
         public HttpResponseMessage PostResponse(Object newObject)

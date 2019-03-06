@@ -69,6 +69,7 @@
             this.label18.Size = new System.Drawing.Size(115, 25);
             this.label18.TabIndex = 33;
             this.label18.Text = "Welcome,   ";
+           
             // 
             // ChildForm
             // 
@@ -83,7 +84,7 @@
             this.Name = "ChildForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ChildForm";
-            this.Load += new System.EventHandler(this.ChildForm_Load);
+            
             this.ResumeLayout(false);
             this.PerformLayout();
 

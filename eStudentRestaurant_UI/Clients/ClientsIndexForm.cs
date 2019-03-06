@@ -24,7 +24,7 @@ namespace eStudentRestaurant_UI.Clients
 
         private Client client;
         List<Client> clients;
-     
+        List<Reservation_Result> reservations;
         public ClientsIndexForm()
         {
             InitializeComponent();
@@ -47,7 +47,7 @@ namespace eStudentRestaurant_UI.Clients
 
             if (reservationResp.IsSuccessStatusCode)
             {
-                List<Reservation_Result> reservations = reservationResp.Content.ReadAsAsync<List<Reservation_Result>>().Result;
+                reservations = reservationResp.Content.ReadAsAsync<List<Reservation_Result>>().Result;
                 if (reservations.Count != 0)
                 {
                     ReservationGridView.DataSource = reservations;
@@ -386,9 +386,21 @@ namespace eStudentRestaurant_UI.Clients
 
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        private void ReservationsReportButton_Click(object sender, EventArgs e)
         {
-
+            Reports.ReservationsReportForm frm = new Reports.ReservationsReportForm();
+            frm.client = this.client;
+            List<Reservation_Result> approvedReservations = new List<Reservation_Result>();
+            foreach (var item in this.reservations)
+            {
+                if (item.Status == "Approved")
+                {
+                   
+                    approvedReservations.Add(item);
+                }
+            }
+            frm.reservations = approvedReservations;
+            frm.ShowDialog();
         }
     }
 }

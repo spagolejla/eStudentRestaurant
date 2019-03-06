@@ -21,7 +21,13 @@ namespace eStudentRestaurant_API.Controllers
         {
             return db.Product;
         }
-
+        [HttpGet]
+        [ResponseType(typeof(List<Product>))]
+        [Route("api/Products/GetAvaibleProduct")]
+        public List<Product> GetAvaibleProduct()
+        {
+            return db.Product.Where(x => x.Status == true).ToList(); ;
+        }
         // GET: api/Products/5
         [ResponseType(typeof(Product))]
         public IHttpActionResult GetProduct(int id)

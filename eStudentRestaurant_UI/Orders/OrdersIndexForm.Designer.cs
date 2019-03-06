@@ -40,6 +40,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.TodayButton = new System.Windows.Forms.Button();
             this.OrderDetailsButton = new System.Windows.Forms.Button();
+            this.TotalSalaryButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.OrdersGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -161,11 +162,26 @@
             this.OrderDetailsButton.UseVisualStyleBackColor = false;
             this.OrderDetailsButton.Click += new System.EventHandler(this.OrderDetailsButton_Click);
             // 
+            // TotalSalaryButton
+            // 
+            this.TotalSalaryButton.BackColor = System.Drawing.Color.SteelBlue;
+            this.TotalSalaryButton.FlatAppearance.BorderSize = 0;
+            this.TotalSalaryButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.TotalSalaryButton.ForeColor = System.Drawing.Color.White;
+            this.TotalSalaryButton.Location = new System.Drawing.Point(570, 127);
+            this.TotalSalaryButton.Name = "TotalSalaryButton";
+            this.TotalSalaryButton.Size = new System.Drawing.Size(91, 30);
+            this.TotalSalaryButton.TabIndex = 109;
+            this.TotalSalaryButton.Text = "Total Salary";
+            this.TotalSalaryButton.UseVisualStyleBackColor = false;
+            this.TotalSalaryButton.Click += new System.EventHandler(this.TotalSalaryButton_Click);
+            // 
             // OrdersIndexForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(790, 605);
+            this.Controls.Add(this.TotalSalaryButton);
             this.Controls.Add(this.OrderDetailsButton);
             this.Controls.Add(this.TodayButton);
             this.Controls.Add(this.label2);
@@ -181,6 +197,7 @@
             this.Controls.SetChildIndex(this.label2, 0);
             this.Controls.SetChildIndex(this.TodayButton, 0);
             this.Controls.SetChildIndex(this.OrderDetailsButton, 0);
+            this.Controls.SetChildIndex(this.TotalSalaryButton, 0);
             ((System.ComponentModel.ISupportInitialize)(this.OrdersGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -201,5 +218,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button TodayButton;
         private System.Windows.Forms.Button OrderDetailsButton;
+        private System.Windows.Forms.Button TotalSalaryButton;
     }
 }

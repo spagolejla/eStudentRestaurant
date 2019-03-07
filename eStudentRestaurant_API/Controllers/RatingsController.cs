@@ -49,6 +49,16 @@ namespace eStudentRestaurant_API.Controllers
             return Ok(rating);
         }
 
+
+        [ResponseType(typeof(double))]
+        [Route("api/Ratings/GetAverageRating/{productId?}")]
+        public decimal GetAverageRating(int productId)
+        {
+          return  db.esp_GetProductAverageRating(productId).FirstOrDefault().Value;
+
+          
+        }
+
         // PUT: api/Ratings/5
         [ResponseType(typeof(void))]
         public IHttpActionResult PutRating(int id, Rating rating)

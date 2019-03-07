@@ -445,6 +445,9 @@
         <Function Name="esp_GetClientsApprovedReservations" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ClientID" Type="int" Mode="In" />
         </Function>
+        <Function Name="esp_GetProductAverageRating" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="productId" Type="int" Mode="In" />
+        </Function>
         <Function Name="esp_OrderDetailsSelectByOrderID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="OrderID" Type="int" Mode="In" />
         </Function>
@@ -452,6 +455,9 @@
           <Parameter Name="day" Type="int" Mode="In" />
           <Parameter Name="month" Type="int" Mode="In" />
           <Parameter Name="year" Type="int" Mode="In" />
+        </Function>
+        <Function Name="esp_Product_SelectById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
         </Function>
         <Function Name="esp_ReservationSelectByClientId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ClientId" Type="int" Mode="In" />
@@ -1099,7 +1105,13 @@
           </AssociationSet>
           <FunctionImport Name="esp_TotalSalaryByOrders" ReturnType="Collection(eStudentRestaurantModel.TotalSalaryByOrders_Result)" />
           <FunctionImport Name="esp_GetClientsApprovedReservations" ReturnType="Collection(eStudentRestaurantModel.Reservation_Result)">
-            <Parameter Name="ClientID" Mode="In" Type="Int32" />
+          <Parameter Name="ClientID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="esp_GetProductAverageRating" ReturnType="Collection(Decimal)">
+          <Parameter Name="productId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="esp_Product_SelectById" EntitySet="Product" ReturnType="Collection(eStudentRestaurantModel.Product)">
+            <Parameter Name="id" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="Employe_Result">
@@ -1555,6 +1567,9 @@
                 <ScalarProperty Name="Status" ColumnName="Status" />
               </ComplexTypeMapping>
             </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="esp_GetProductAverageRating" FunctionName="eStudentRestaurantModel.Store.esp_GetProductAverageRating" />
+          <FunctionImportMapping FunctionImportName="esp_Product_SelectById" FunctionName="eStudentRestaurantModel.Store.esp_Product_SelectById">
           </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>

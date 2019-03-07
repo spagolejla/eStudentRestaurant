@@ -1,9 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:eStudentRestaurant_Xamarin.Converters"
              x:Class="eStudentRestaurant_Xamarin.ProductDetailsPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:ImageConverter x:Key="ImageConverter"></local:ImageConverter>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
-        <StackLayout Padding="30">
+        <ScrollView><StackLayout Padding="30">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="50"></RowDefinition>
@@ -72,8 +78,31 @@
                 ></Button>
                 </StackLayout>
             </Grid>
+            <StackLayout Padding="10">
+                <Label Text="Recommended products" FontSize="15" HorizontalTextAlignment="Center" Margin="20"/>
+                <ListView x:Name="RecommendedProductList" RowHeight="100" ItemTapped="RecommendedProductList_ItemTapped">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Image x:Name="ProductImage" Grid.Column="0" Source="{Binding PictureThumb, Converter={StaticResource ImageConverter}}" Margin="5"></Image>
+
+                                    <StackLayout Grid.Column="1" Padding="12">
+                                        <Label Text="{Binding Name_}" FontAttributes="Bold"></Label>
+                                        <Label Text="{Binding Price, StringFormat=' {0} KM'}"></Label>
+                                    </StackLayout>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </StackLayout></ScrollView>
         
-        </StackLayout>
 
     </ContentPage.Content>
 </ContentPage>

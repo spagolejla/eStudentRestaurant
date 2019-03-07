@@ -108,6 +108,10 @@
     <Folder Include="Resources\drawable-xxxhdpi\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\eStudentRestaurant_API\eStudentRestaurant_API.csproj">
+      <Project>{4D6C717D-E801-4D26-BBAB-80FA77C2310E}</Project>
+      <Name>eStudentRestaurant_API</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\eStudentRestaurant_PCL\eStudentRestaurant_PCL.csproj">
       <Project>{650755b0-a9df-47d8-9e76-d4f9f2ecefea}</Project>
       <Name>eStudentRestaurant_PCL</Name>

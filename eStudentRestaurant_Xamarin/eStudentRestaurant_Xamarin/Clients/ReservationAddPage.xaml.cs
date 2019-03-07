@@ -81,11 +81,12 @@ namespace eStudentRestaurant_Xamarin.Clients
 
         private void UseDiscountButton_Clicked(object sender, EventArgs e)
         {
-            //Global.loggedClient.Points -= 10;
-            //izmijeniti u bazi
-            //price -= price*discount
+            Global.loggedClient.Points -= 10;
             discount = 0.2;
             price = price - (price * discount);
+            PriceLabel.Text = "Price:  " + price.ToString() + " KM";
+            DisplayAlert("Success!", "You have used 10 point for discount 20%, the points would be returned if reservation have been declined", "OK");
+
         }
 
         private void ReservationTypesPicker_SelectedIndexChanged(object sender, EventArgs e)
@@ -142,7 +143,17 @@ namespace eStudentRestaurant_Xamarin.Clients
                 if (response.IsSuccessStatusCode)
                 {
                     DisplayAlert("Success! ", "You successfuly added request for reservation", "OK");
-                    this.Navigation.PushAsync(new Clients.ReservationsListPage());
+                    HttpResponseMessage clientsPointsResponse = clientsService.PutResponse(Global.loggedClient.ClientID,Global.loggedClient);
+                    if (clientsPointsResponse.IsSuccessStatusCode)
+                    {
+                        this.Navigation.PushAsync(new Clients.ReservationsListPage());
+
+                    }
+                    else
+                    {
+                        DisplayAlert("Error! ", "Something bad was happend, please try again later!", "OK");
+
+                    }
 
                 }
                 else

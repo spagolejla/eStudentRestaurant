@@ -40,18 +40,44 @@ namespace eStudentRestaurant_Xamarin
             {
                 var jsonObject = response.Content.ReadAsStringAsync();
                 product = JsonConvert.DeserializeObject<Product>(jsonObject.Result);
-                HttpResponseMessage responseRate = ratingsService
-                      .GetActionResponseTwoParam("GetRatingByProductIdAndStudentId",product.ProductID,Global.loggedStudent.StudentID);
-
                 ProducteNameLabel.Text = product.Name_;
                 ProductImage.Source = ImageSource.FromStream(() => new MemoryStream(product.PictureThumb));
                 PriceLabel.Text = product.Price.ToString() + " KM";
-                
-                RatingLabel.Text = "Average rating: 10.0";
-                if (product.AverageRating != null)
+
+                HttpResponseMessage responseRate = ratingsService
+                      .GetActionResponseTwoParam("GetRatingByProductIdAndStudentId", product.ProductID, Global.loggedStudent.StudentID);
+                HttpResponseMessage responseAverageRating = ratingsService.GetActionResponse("GetAverageRating", product.ProductID.ToString());
+
+                HttpResponseMessage responseRecommendedProducts = productsService.GetActionResponse("RecommendedProducts",product.ProductID.ToString());
+
+                if (responseRecommendedProducts.IsSuccessStatusCode)
                 {
-                    RatingLabel.Text = product.AverageRating.ToString();
+                    var recomenndedObjectsJson = responseRecommendedProducts.Content.ReadAsStringAsync();
+                    List<Product> recommendedProducts = JsonConvert.DeserializeObject<List<Product>>(recomenndedObjectsJson.Result);
+
+                    RecommendedProductList.ItemsSource = recommendedProducts;
+
+
                 }
+                else
+                {
+                    DisplayAlert("Error", "Error code: " + responseRecommendedProducts.StatusCode
+                        + "Message: " + responseRecommendedProducts.ReasonPhrase, "OK");
+                }
+               
+
+                if (responseAverageRating.IsSuccessStatusCode)
+                {
+                    var jsonObjectAverageRating = responseAverageRating.Content.ReadAsStringAsync();
+                    product.AverageRating = JsonConvert.DeserializeObject<decimal?>(jsonObjectAverageRating.Result);
+
+                    if (product.AverageRating != null)
+                    {
+                        RatingLabel.Text ="Average rating: " + product.AverageRating.ToString();
+                    }
+                }
+
+
                 if (responseRate.StatusCode == System.Net.HttpStatusCode.NotFound)
                 {
                     isProductRated = false;
@@ -59,18 +85,27 @@ namespace eStudentRestaurant_Xamarin
                     RatingLayout.IsVisible = true;
 
                 }
-                else
+                else if (responseRate.IsSuccessStatusCode)
                 {
                     isProductRated = true;
                     var jsonObjectRate = responseRate.Content.ReadAsStringAsync();
-                    rate = JsonConvert.DeserializeObject<Rating>(jsonObject.Result);
-                    YourRatingLabel.Text = "Your rating: " + rate.StudentID;
+                    rate = JsonConvert.DeserializeObject<Rating>(jsonObjectRate.Result);
+                    if (rate != null)
+                    {
+                        YourRatingLabel.Text = "Your rating: " + rate.Rating1;
+
+                    }
+                }
+                else
+                {
+                    DisplayAlert("Error", "Error code: " + responseRate.StatusCode
+                         + "Message: " + responseRate.ReasonPhrase, "OK");
                 }
             }
 
         }
 
-        private  void AddToBasketButton_OnClicked(object sender, EventArgs e)
+        private void AddToBasketButton_OnClicked(object sender, EventArgs e)
         {
             #region Validating
             bool isValidate = false;
@@ -150,7 +185,7 @@ namespace eStudentRestaurant_Xamarin
 
                 this.Navigation.RemovePage(page);
             }
-          
+
 
         }
 
@@ -208,11 +243,16 @@ namespace eStudentRestaurant_Xamarin
                 {
                     DisplayAlert("Error!", "Message: "
                         + responseMessage.ReasonPhrase + "Error code: " + responseMessage.StatusCode, "OK");
-                   
+
                 }
-             
+
             }
 
         }
+
+        private void RecommendedProductList_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+
+        }
     }
-    }
+}

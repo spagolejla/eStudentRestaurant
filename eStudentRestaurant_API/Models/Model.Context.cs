@@ -382,5 +382,32 @@ namespace eStudentRestaurant_API.Models
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Reservation_Result>("esp_GetClientsApprovedReservations", clientIDParameter);
         }
+    
+        public virtual ObjectResult<Nullable<decimal>> esp_GetProductAverageRating(Nullable<int> productId)
+        {
+            var productIdParameter = productId.HasValue ?
+                new ObjectParameter("productId", productId) :
+                new ObjectParameter("productId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<decimal>>("esp_GetProductAverageRating", productIdParameter);
+        }
+    
+        public virtual ObjectResult<Product> esp_Product_SelectById(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Product>("esp_Product_SelectById", idParameter);
+        }
+    
+        public virtual ObjectResult<Product> esp_Product_SelectById(Nullable<int> id, MergeOption mergeOption)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Product>("esp_Product_SelectById", mergeOption, idParameter);
+        }
     }
 }

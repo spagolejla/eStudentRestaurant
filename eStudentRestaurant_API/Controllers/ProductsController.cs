@@ -9,6 +9,7 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
 using eStudentRestaurant_API.Models;
+using eStudentRestaurant_API.Util;
 
 namespace eStudentRestaurant_API.Controllers
 {
@@ -17,16 +18,31 @@ namespace eStudentRestaurant_API.Controllers
         private eStudentRestaurantEntities db = new eStudentRestaurantEntities(false);
 
         // GET: api/Products
-        public IQueryable<Product> GetProduct()
+        public List<Product> GetProduct()
         {
-            return db.Product;
+            List<Product> products =  db.Product.ToList();
+
+            foreach (var item in products)
+            {
+                item.Picture = null;
+            }
+
+            return products;
         }
         [HttpGet]
         [ResponseType(typeof(List<Product>))]
         [Route("api/Products/GetAvaibleProduct")]
         public List<Product> GetAvaibleProduct()
         {
-            return db.Product.Where(x => x.Status == true).ToList(); ;
+          
+            List<Product> products = db.Product.Where(x => x.Status == true).ToList();
+
+            foreach (var item in products)
+            {
+                item.Picture = null;
+            }
+
+            return products;
         }
         // GET: api/Products/5
         [ResponseType(typeof(Product))]
@@ -37,18 +53,41 @@ namespace eStudentRestaurant_API.Controllers
             {
                 return NotFound();
             }
-
+            product.Picture = null;
             return Ok(product);
         }
 
-        
+        [HttpGet]
+        [ResponseType(typeof(List<Product>))]
+        [Route("api/Products/RecommendedProducts/{id?}")]
+        public List<Product> RecommendedProducts(int id)
+        {
+            RecommenderSystem recommender = new RecommenderSystem();
+          
+            List<Product> recommendedProducts = recommender.GetRecommendedProducts(id);
+            foreach (var item in recommendedProducts)
+            {
+                item.Picture = null;
+            }
+
+
+            return recommendedProducts;
+        }
 
         [HttpGet]
         [ResponseType(typeof(Product))]
         [Route("api/Products/GetProductsByName/{name?}")]
         public List<Product> GetProductsByName(string name = "")
         {
-            return db.Product.Where(x => x.Name_.Contains(name)).ToList();
+            List<Product> products = db.Product.Where(x => x.Name_.Contains(name)).ToList();
+
+            foreach (var item in products)
+            {
+                item.Picture = null;
+            }
+
+            return products;
+            
         }
 
 
@@ -66,6 +105,7 @@ namespace eStudentRestaurant_API.Controllers
             }
 
             return Ok(product);
+
         }
 
         // PUT: api/Products/5

@@ -63,6 +63,11 @@ namespace eStudentRestaurant_API.Controllers
             else
             {
                 res.ReservationStatusID = 3;
+                if (res.Discount != 0)
+                {
+                    Client client = db.Client.Where(x => x.ClientID == res.ClinetID).FirstOrDefault();
+                    client.Points += 10; //return used point because reservation is declined
+                }
                 db.SaveChanges();
                 return Ok(resApproved);
             }

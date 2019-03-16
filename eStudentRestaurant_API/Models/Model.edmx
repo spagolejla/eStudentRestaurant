@@ -406,6 +406,7 @@
           <Parameter Name="PasswordHash" Type="nvarchar" Mode="In" />
           <Parameter Name="PasswordSalt" Type="nvarchar" Mode="In" />
           <Parameter Name="OrganizationName" Type="nvarchar" Mode="In" />
+          <Parameter Name="Points" Type="int" Mode="In" />
         </Function>
         <Function Name="esp_EmployeeInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="FirstName" Type="nvarchar" Mode="In" />
@@ -1088,6 +1089,7 @@
             <Parameter Name="PasswordHash" Mode="In" Type="String" />
             <Parameter Name="PasswordSalt" Mode="In" Type="String" />
             <Parameter Name="OrganizationName" Mode="In" Type="String" />
+            <Parameter Name="Points" Mode="In" Type="Int32" />
           </FunctionImport>
           <EntitySet Name="ReservationSet" EntityType="eStudentRestaurantModel.Reservation" />
           <AssociationSet Name="FK_Client_Reservation1" Association="eStudentRestaurantModel.FK_Client_Reservation1">
@@ -1111,7 +1113,7 @@
           <Parameter Name="productId" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="esp_Product_SelectById" EntitySet="Product" ReturnType="Collection(eStudentRestaurantModel.Product)">
-            <Parameter Name="id" Mode="In" Type="Int32" />
+          <Parameter Name="id" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="Employe_Result">

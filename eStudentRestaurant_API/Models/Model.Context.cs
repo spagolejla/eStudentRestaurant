@@ -324,7 +324,7 @@ namespace eStudentRestaurant_API.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Client>("esp_ClientSelectByUsername", mergeOption, usernameParameter);
         }
     
-        public virtual int esp_ClientUpdate(Nullable<int> clientID, string firstName, string lastName, string phone, Nullable<int> cityID, Nullable<bool> active, string username, string passwordHash, string passwordSalt, string organizationName)
+        public virtual int esp_ClientUpdate(Nullable<int> clientID, string firstName, string lastName, string phone, Nullable<int> cityID, Nullable<bool> active, string username, string passwordHash, string passwordSalt, string organizationName, Nullable<int> points)
         {
             var clientIDParameter = clientID.HasValue ?
                 new ObjectParameter("ClientID", clientID) :
@@ -366,7 +366,11 @@ namespace eStudentRestaurant_API.Models
                 new ObjectParameter("OrganizationName", organizationName) :
                 new ObjectParameter("OrganizationName", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("esp_ClientUpdate", clientIDParameter, firstNameParameter, lastNameParameter, phoneParameter, cityIDParameter, activeParameter, usernameParameter, passwordHashParameter, passwordSaltParameter, organizationNameParameter);
+            var pointsParameter = points.HasValue ?
+                new ObjectParameter("Points", points) :
+                new ObjectParameter("Points", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("esp_ClientUpdate", clientIDParameter, firstNameParameter, lastNameParameter, phoneParameter, cityIDParameter, activeParameter, usernameParameter, passwordHashParameter, passwordSaltParameter, organizationNameParameter, pointsParameter);
         }
     
         public virtual ObjectResult<TotalSalaryByOrders_Result> esp_TotalSalaryByOrders()

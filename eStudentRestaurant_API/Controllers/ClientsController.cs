@@ -83,7 +83,7 @@ namespace eStudentRestaurant_API.Controllers
             }
 
             db.esp_ClientUpdate(client.ClientID, client.FirstName, client.LastName,
-                client.Phone, client.CityID, client.Active, client.Username, client.PaswordHash, client.PasswordSalt, client.OrganizationName);
+                client.Phone, client.CityID, client.Active, client.Username, client.PaswordHash, client.PasswordSalt, client.OrganizationName, client.Points);
 
             return StatusCode(HttpStatusCode.NoContent);
         }

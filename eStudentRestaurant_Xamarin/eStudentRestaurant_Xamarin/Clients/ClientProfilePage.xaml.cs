@@ -24,9 +24,9 @@ namespace eStudentRestaurant_Xamarin.Clients
             LastNameLabel.Text = Global.loggedClient.LastName;
             OrganizationLabel.Text = Global.loggedClient.OrganizationName;
             PhoneLabel.Text = Global.loggedClient.Phone;
-            CityNameLabel.Text = "Mostar"; //0Global.loggedStudent.City.Name;
+            CityNameLabel.Text = "Mostar"; //Global.loggedStudent.City.Name;
             UsernameLabel.Text = Global.loggedClient.Username;
-
+            PointsLabel.Text = Global.loggedClient.Points.ToString();
             base.OnAppearing();
         }
 

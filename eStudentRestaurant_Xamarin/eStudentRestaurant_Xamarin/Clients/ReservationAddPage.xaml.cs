@@ -60,7 +60,12 @@ namespace eStudentRestaurant_Xamarin.Clients
 
         private void CheckPriceButton_Clicked(object sender, EventArgs e)
         {
+            if (NumberOfGuests.Text == null)
+            {
+                DisplayAlert("Error!", "Must provide number of guest when checking price", "OK");
 
+            }
+            else { 
             price = 1000;
             if (Convert.ToInt32(NumberOfGuests.Text) > 100)
             {
@@ -75,17 +80,27 @@ namespace eStudentRestaurant_Xamarin.Clients
             {
                 UseDiscountButton.IsEnabled = true;
             }
-            CheckPriceButton.IsEnabled = false;
-
+            
+          }
         }
 
         private void UseDiscountButton_Clicked(object sender, EventArgs e)
         {
-            Global.loggedClient.Points -= 10;
-            discount = 0.2;
-            price = price - (price * discount);
-            PriceLabel.Text = "Price:  " + price.ToString() + " KM";
-            DisplayAlert("Success!", "You have used 10 point for discount 20%, the points would be returned if reservation have been declined", "OK");
+            if (Global.loggedClient.Points >= 10)
+            {
+                Global.loggedClient.Points -= 10;
+                discount = 0.2;
+                price = price - (price * discount);
+                PriceLabel.Text = "Price:  " + price.ToString() + " KM";
+                UseDiscountButton.IsEnabled = false;
+                DisplayAlert("Success!", "You have used 10 point for discount 20%, the points would be returned if reservation have been declined", "OK");
+            }
+            else
+            {
+                UseDiscountButton.IsEnabled = false;
+                DisplayAlert("Error!", "You can't use discount because you dont have enough points!", "OK");
+
+            }
 
         }
 

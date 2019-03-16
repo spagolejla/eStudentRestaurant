@@ -15,6 +15,7 @@
                         <RowDefinition Height="30"/>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="30"/>
+                        
 
                     </Grid.RowDefinitions>
                     <Label
@@ -43,6 +44,8 @@
                             <RowDefinition Height="Auto"></RowDefinition>
                             <RowDefinition Height="Auto"></RowDefinition>
                             <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+
                             <RowDefinition Height="*"></RowDefinition>
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
@@ -79,6 +82,10 @@
                     <StackLayout Orientation="Horizontal">
                         <Label Text="Password:   " FontSize="18" Grid.Row="8"  VerticalTextAlignment="Center" FontAttributes="Bold" WidthRequest="150" />
                         <Label x:Name="PasswordLabel" FontSize="18" Grid.Row="8"  Grid.Column="1" Text="********" ></Label>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Points:   " FontSize="18" Grid.Row="8"  VerticalTextAlignment="Center" FontAttributes="Bold" WidthRequest="150" />
+                        <Label x:Name="PointsLabel" FontSize="18" Grid.Row="9"  Grid.Column="1"  ></Label>
                     </StackLayout>
                     <Button  HorizontalOptions="Center" 
                  x:Name="EditProfileButton"

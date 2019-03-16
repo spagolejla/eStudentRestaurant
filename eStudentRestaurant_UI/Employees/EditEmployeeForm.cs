@@ -26,9 +26,9 @@ namespace eStudentRestaurant_UI.Employees
             InitializeComponent();
             this.AutoValidate = AutoValidate.Disable;
 
-            HttpResponseMessage response = employeesService.GetResponse( id.ToString());
+            HttpResponseMessage response = employeesService.GetResponse(id.ToString());
 
-            if (response.StatusCode==System.Net.HttpStatusCode.NotFound)
+            if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
             {
                 employee = null;
             }
@@ -44,7 +44,7 @@ namespace eStudentRestaurant_UI.Employees
             FirstNameInput.Text = employee.FirstName;
             LastNameInput.Text = employee.LastName;
             JmbgInput.Text = employee.JMBG;
-            
+
             AddressInput.Text = employee.Address_;
             PhoneInput.Text = employee.Phone;
             UsernameInput.Text = employee.Username;
@@ -73,20 +73,15 @@ namespace eStudentRestaurant_UI.Employees
             CityComboBox.DataSource = comboItems;
             #endregion
 
-            if (responseCities.IsSuccessStatusCode )
+            if (responseCities.IsSuccessStatusCode)
             {
-               
 
                 ComboItem CityComboItem = new ComboItem();
                 CityComboItem.ID = (int)employee.CityID;
                 CityComboItem.Text = employee.City.Name;
 
-             
+
                 CityComboBox.SelectedIndex = CityComboBox.FindString(employee.City.Name);
-
-
-
-
 
             }
         }
@@ -116,7 +111,7 @@ namespace eStudentRestaurant_UI.Employees
                     employee.Active = ActiveCheckBox.Checked;
 
                     employee.CityID = (int)(CityComboBox.SelectedValue);
-                    
+
 
                     HttpResponseMessage httpResponseMessage = employeesService.PutResponse(employee.EmployeeID, employee);
 
@@ -253,8 +248,8 @@ namespace eStudentRestaurant_UI.Employees
                 }
                 else
                 {
-                e.Cancel = true;
-                errorProvider.SetError(UsernameInput, Messages.username_ex_err);
+                    e.Cancel = true;
+                    errorProvider.SetError(UsernameInput, Messages.username_ex_err);
                 }
             }
 
@@ -271,14 +266,15 @@ namespace eStudentRestaurant_UI.Employees
             {
                 errorProvider.SetError(PasswordInput, null);
             }
-            else { 
-            if (PasswordInput.TextLength < 6 || !PasswordInput.Text.Any(char.IsDigit) || !PasswordInput.Text.Any(char.IsLetter))
-            {
-                e.Cancel = true;
-                errorProvider.SetError(PasswordInput, Messages.pass_err);
-            }
             else
-                errorProvider.SetError(PasswordInput, null);
+            {
+                if (PasswordInput.TextLength < 6 || !PasswordInput.Text.Any(char.IsDigit) || !PasswordInput.Text.Any(char.IsLetter))
+                {
+                    e.Cancel = true;
+                    errorProvider.SetError(PasswordInput, Messages.pass_err);
+                }
+                else
+                    errorProvider.SetError(PasswordInput, null);
             }
 
         }
@@ -294,7 +290,7 @@ namespace eStudentRestaurant_UI.Employees
                 errorProvider.SetError(CityComboBox, null);
         }
 
- private void BirthDatePicker_Validating(object sender, CancelEventArgs e)
+        private void BirthDatePicker_Validating(object sender, CancelEventArgs e)
         {
             if (String.IsNullOrEmpty(BirthDatePicker.Text))
             {
@@ -327,8 +323,23 @@ namespace eStudentRestaurant_UI.Employees
             else
                 errorProvider.SetError(PhoneInput, null);
         }
+        private void ActiveCheckBox_Validating(object sender, CancelEventArgs e)
+        {
+            if (Global.LoggedUser.EmployeeID == employee.EmployeeID)
+            {
+                if (employee.Active != ActiveCheckBox.Checked)
+                {
+                    e.Cancel = true;
+                    errorProvider.SetError(ActiveCheckBox,"Yout can't deactivate yourself!");
+                }
+                else
+                    errorProvider.SetError(ActiveCheckBox, null);
+            }
+            else
+                errorProvider.SetError(ActiveCheckBox, null);
+        }
         #endregion
 
-       
+
     }
 }

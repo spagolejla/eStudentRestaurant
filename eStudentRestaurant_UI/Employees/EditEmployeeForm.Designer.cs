@@ -329,6 +329,7 @@
             this.ActiveCheckBox.TabIndex = 76;
             this.ActiveCheckBox.Text = "Active";
             this.ActiveCheckBox.UseVisualStyleBackColor = true;
+            this.ActiveCheckBox.Validating += new System.ComponentModel.CancelEventHandler(this.ActiveCheckBox_Validating);
             // 
             // EditEmployeeForm
             // 

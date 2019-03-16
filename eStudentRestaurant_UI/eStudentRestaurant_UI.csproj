@@ -122,12 +122,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>eStudentRestaurantDataSet2.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="Global.cs" />
     <Compile Include="Home\HomeForm.cs">
       <SubType>Form</SubType>

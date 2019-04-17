@@ -1,6 +1,10 @@
 # eStudentRestaurant
 
-This project is made as a faculty project. This repo including API project, Windows Forms  app project, and Xamarin project.
+This repo including API project, Windows Forms  app project, and Xamarin project.
 
-# License
+* [.NET WEB API 2](https://docs.microsoft.com/en-us/dotnet/) 
+* [Windows Forms](https://docs.microsoft.com/en-us/dotnet/framework/winforms/) 
+* [Xamarin](https://docs.microsoft.com/en-us/xamarin/) 
+
+## License
 This project is licensed under the MIT License 

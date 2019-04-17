@@ -7,4 +7,4 @@ This repo including API project, Windows Forms  app project, and Xamarin project
 * [Xamarin](https://docs.microsoft.com/en-us/xamarin/) 
 
 ## License
-This project is licensed under the [MIT License]
+This project is licensed under the MIT License

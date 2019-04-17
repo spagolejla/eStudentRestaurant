@@ -1,6 +1,6 @@
 # eStudentRestaurant
 
-This repo including API project, Windows Forms  app project, and Xamarin project.
+This repo is including API project, Windows Forms  app project, and Xamarin project.
 
 * [.NET WEB API 2](https://docs.microsoft.com/en-us/dotnet/) 
 * [Windows Forms](https://docs.microsoft.com/en-us/dotnet/framework/winforms/) 
